@@ -1,0 +1,14 @@
+# _sources — PDFs de fontes primárias (fora do git)
+
+> Os PDFs ficam locais (não versionados — ver `.gitignore`) para não inflar o repo. Este README registra URL de origem + SHA-256 para reobtenção e verificação de integridade. Entradas bibliográficas completas: `../04_SOURCE_LEDGER.md`.
+
+| Arquivo | Fonte (URL) | SHA-256 | Ledger |
+|---|---|---|---|
+| cook-clay-pvsnp-official.pdf | claymath.org/wp-content/uploads/2022/06/pvsnp.pdf | `018f3d473d16c35e807e8cdfbd0bed3ccf7a56452e3e10c6b1d84b56eaf2cf59` | SRC-0003 |
+| cook1971-stoc-authorcopy-scan.pdf | cs.toronto.edu/~sacook/homepage/1971.pdf (homepage do autor; scan sem camada de texto) | `aacaca0dd6db8b409317a2de282734539c3186a72cff1cb4dd601c76a4ddfb75` | SRC-0005 |
+| cook1971-text-retyped.pdf | inf.unibz.it/~calvanese/teaching/14-15-tc/material/cook-1971-NP-completeness-of-SAT.pdf (redigitação com texto pesquisável) | `ae8106af2eae3d5b753e8321c8a0d57e2b68475f4b963268b87bc2387b766df2` | SRC-0005 |
+| karp1972-springer2010-reprint.pdf | cs.umd.edu/~gasarch/BLOGPAPERS/Karp.pdf (reprint Springer 2010 c/ introdução nova de Karp) | `ae57cf641ae4f1924bdc4d7ef865edb2411c44e3040e8e546d01f1545e288e89` | SRC-0006 |
+| karp1972-uoa-scan.pdf | cgi.di.uoa.gr/~sgk/teaching/grad/handouts/karp.pdf (scan do original Plenum 1972) | `778c8b3507620a68154bc74b29810e0de6d2c4dd7ee5d24b84c7e7ba61404b81` | SRC-0006 |
+| trakhtenbrot1984-perebor-survey.pdf | drdoane.com/wp-content/uploads/2020/08/survey_of_russian_approaches_to_perebor.pdf | `6b15ddd4592cd540059812191d5665bd9bccc0cbd70ff30c628699b0fabfc668` | SRC-0007 / SRC-0008 |
+
+Verificar integridade: `shasum -a 256 -c` contra os hashes acima.

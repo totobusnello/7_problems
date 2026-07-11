@@ -43,3 +43,22 @@
 **Próxima ação proposta:** FASE 2 (fundação pedagógica de P vs NP sobre o material da spec) em paralelo com obtenção das fontes primárias SRC-0005/6/7.
 
 ---
+
+## 2026-07-10 — CICLO 2 — FASE 2 (fundação pedagógica) + fontes primárias (autorizado por Luiz: "Sim")
+
+**Feito:**
+1. **Fontes primárias obtidas e registradas** (`_sources/` local com SHA-256; PDFs fora do git):
+   - SRC-0005 Cook 1971 — 2 cópias (scan do autor + redigitação pesquisável); Summary e Theorem 1 conferidos no texto.
+   - SRC-0006 Karp 1972 — 2 cópias (scan + reprint 2010); Main Theorem e 20/21 problemas via OCR; item 9 ilegível (⚠️ não preenchido de memória — regra do Ciclo 1).
+   - SRC-0007 Levin 1973 — tradução integral obtida dentro de SRC-0008 (Trakhtenbrot 1984): Problems 1–6, Lemma 1 conferidos.
+   - Nugget histórico verificado (SRC-0008): Levin obteve os resultados em **1971**; URSS desconhecia Cook/Karp até ≥1973 (Tsakhkadzor).
+2. **FASE 2 entregue:** `PNP_AI/02_PEDAGOGICAL_GUIDE.md` (7 blocos: algoritmos/assintótica, P, NP/verificadores, reduções, NP-completude/Cook–Levin, circuitos/uniformidade/pior caso, prévia de barreiras; analogias marcadas; perguntas de compreensão) + `03_CONCEPT_GLOSSARY.md` (25 entradas com fonte) + `04_HISTORY_AND_TIMELINE.md` (marcação ✅ fonte primária / ⚠️ literatura pendente).
+3. **EXP-PED-0001 executado:** redução 3-COLORING → SAT em pysat/Glucose4 (C5 e Petersen SAT com certificados conferidos independentemente; K4 UNSAT). Registrado em `PNP_AI/12_EXPERIMENTS.md` com conclusões permitidas/não permitidas. Candidato natural a primeiro lema formalizável: correção da codificação.
+
+**Método consolidado:** hierarquia de confiança nas fontes — texto conferido mecanicamente > OCR/LLM > memória de modelo; itens não conferíveis ficam marcados ⚠️ e nunca são completados de memória.
+
+**Bloqueios:** inalterados (OPENAI_API_KEY; importação NS-PROB).
+
+**Próxima ação proposta:** FASE 3 (reconstrução técnica: fundamentos, Cook–Levin com prova, equivalência verificador/NTM) — inclui processar as fontes primárias obtidas.
+
+---

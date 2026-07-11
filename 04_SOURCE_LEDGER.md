@@ -34,17 +34,30 @@
 - **Uso:** critérios institucionais de solução: publicação em Qualifying Outlet + ≥2 anos + aceitação geral da comunidade; CMI não aceita submissões diretas.
 - **Data de consulta:** 2026-07-10. **Estado:** SOURCE_VERIFIED.
 
-### SRC-0005 — Cook (1971), "The complexity of theorem-proving procedures" (ref. [9] de SRC-0003)
-- **Uso futuro:** prova original da NP-completude de SAT/3-SAT (via análogo polinomial de Turing reducibility).
-- **Estado:** A OBTER (FASE 3) — por ora referenciado apenas via SRC-0003.
+### SRC-0005 — Cook (1971), "The Complexity of Theorem-Proving Procedures"
+- **Autor:** Stephen A. Cook (University of Toronto). **Publicação:** Proc. 3rd ACM STOC, 1971. DOI ACM: 10.1145/800157.805047.
+- **Cópias obtidas (2026-07-10):** scan da homepage do autor (cs.toronto.edu/~sacook) + redigitação pesquisável (unibz.it) — hashes em `_sources/README.md`.
+- **Conferido no texto (cópia redigitada):** Summary ("any recognition problem solved by a polynomial time-bounded nondeterministic Turing machine..."), Theorem 1 (tautologyhood como alvo de redução; noção de "reduced" via oráculo = P-reducibility, análogo polinomial de Turing reducibility).
+- **Ressalva:** redigitação ≠ original; para citação página-a-página usar o scan do autor. Reconstrução da prova: FASE 3.
+- **Data de consulta:** 2026-07-10. **Estado:** SOURCE_VERIFIED.
 
-### SRC-0006 — Karp (1972), "Reducibility among combinatorial problems" (ref. [21] de SRC-0003)
-- **Uso futuro:** 20+ problemas NP-completos; notação P/NP; NP-completude via ≤p.
-- **Estado:** A OBTER (FASE 3) — por ora referenciado apenas via SRC-0003.
+### SRC-0006 — Karp (1972), "Reducibility Among Combinatorial Problems"
+- **Autor:** Richard M. Karp. **Publicação:** Complexity of Computer Computations (Miller & Thatcher, eds.), Plenum Press, 1972, pp. 85–103.
+- **Cópias obtidas (2026-07-10):** scan do original (uoa.gr) + reprint Springer 2010 com introdução retrospectiva de Karp (umd.edu) — hashes em `_sources/README.md`.
+- **Conferido:** introdução de 2010 (texto pesquisável — influência de Edmonds, min-max como prenúncio de NP); corpo original extraído por **OCR/LLM (Firecrawl)**: definição L ∝ M via f ∈ Π, "Main Theorem: All the problems on the following list are complete", e 20 dos 21 problemas capturados (item 9 ilegível na extração; pela literatura padrão é DIRECTED HAMILTON CIRCUIT — **não conferido no scan**, marcado ⚠️).
+- **Ressalva metodológica:** conteúdo do corpo veio de OCR sem conferência mecânica possível (scan) — tratar citações textuais de Karp como PENDENTES até OCR local ou cópia com texto.
+- **Data de consulta:** 2026-07-10. **Estado:** SOURCE_VERIFIED (obtido; verbatim do corpo parcial).
 
-### SRC-0007 — Levin (1973), universal search problems (ref. [23] de SRC-0003)
-- **Uso futuro:** definição independente de universal search problems, 6 exemplos incl. Satisfiability.
-- **Estado:** A OBTER (FASE 3) — por ora referenciado apenas via SRC-0003.
+### SRC-0007 — Levin (1973), "Universal'nye perebornye zadachi" (Universal Search Problems)
+- **Autor:** Leonid A. Levin. **Publicação:** Problemy Peredachi Informatsii 9(3):265–266, 1973 (em russo).
+- **Tradução inglesa:** contida integralmente em SRC-0008 (Trakhtenbrot 1984), seção "Brief Communications / Universal Search Problems" — conferida no PDF: Problems 1–6, Lemma 1 ("Problems 1–6 are universal search problems"), noção de problema "universal".
+- **Data de consulta:** 2026-07-10. **Estado:** SOURCE_VERIFIED (via tradução em SRC-0008; original russo não obtido).
+
+### SRC-0008 — Trakhtenbrot (1984), "A Survey of Russian Approaches to Perebor (Brute-Force Search) Algorithms"
+- **Publicação:** Annals of the History of Computing 6(4):384–400, 1984. IEEE DOI: 4640789.
+- **Cópia obtida (2026-07-10):** PDF com texto (drdoane.com) — hash em `_sources/README.md`.
+- **Conferido no texto:** história do perebor desde os anos 1950; "in 1971, Levin obtained similar results" (anterioridade de Levin à publicação de 1973); conferência de Tsakhkadzor (março/1973) com audiência ignorando Cook/Karp; terminologia "universal perebor problems"; apêndice com a tradução do artigo de Levin.
+- **Data de consulta:** 2026-07-10. **Estado:** SOURCE_VERIFIED.
 
 ## Template de entrada
 

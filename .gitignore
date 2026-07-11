@@ -1,0 +1,4 @@
+# PDFs de fontes primárias ficam locais; URLs + SHA-256 em _sources/README.md
+_sources/*.pdf
+.remember/
+__pycache__/

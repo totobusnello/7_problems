@@ -10,7 +10,7 @@
 | 7P-PNP-CLM-0003 | Definição de NP via checking relations: L ∈ NP ⟺ ∃k, R poly-time com w ∈ L ⟺ ∃y(\|y\| ≤ \|w\|^k ∧ R(w,y)); R poly-time ⟺ L_R ∈ P | FORMULATION_VERIFIED | SRC-0003 §1 (verbatim) | 2026-07-10 |
 | 7P-PNP-CLM-0004 | ≤p exige f computável em tempo polinomial (Def. 3); NP-completude: L ∈ NP e L' ≤p L ∀L' ∈ NP (Def. 4) | FORMULATION_VERIFIED | SRC-0003 §2 (verbatim; qualificador poly-time conferido após falha de extração automática) | 2026-07-10 |
 | 7P-PNP-CLM-0005 | Proposition 1: (a) ≤p preserva P para baixo; (b) método de propagação de NP-completude; (c) L NP-completo ∈ P ⟹ P = NP | SOURCE_VERIFIED | SRC-0003 §2 | 2026-07-10 |
-| 7P-PNP-CLM-0006 | SAT é NP-completo (Cook 1971 [9]; Levin 1973 [23] indep.; Karp 1972 [21]: +20 problemas, notação padrão e ≤p); 3-SAT NP-completo | SOURCE_VERIFIED (afirmado no doc oficial; **provas originais não verificadas** — SRC-0005/6/7 A OBTER, FASE 3) | SRC-0003 §2 | 2026-07-10 |
+| 7P-PNP-CLM-0006 | SAT é NP-completo (Cook 1971 [9]; Levin 1973 [23] indep.; Karp 1972 [21]: +20 problemas, notação padrão e ≤p); 3-SAT NP-completo | SOURCE_VERIFIED (fontes primárias OBTIDAS 2026-07-10: SRC-0005/0006/0007 no source ledger; enunciados conferidos; **reconstrução das provas pendente** — FASE 3) | SRC-0003 §2 + SRC-0005/6/7 | 2026-07-10 |
 | 7P-PNP-CLM-0007 | Critérios de solução: P=NP ⟸ algoritmo polinomial uniforme correto p/ um NP-completo; P≠NP exige limitação universal enfrentando relativization (oráculo A com P^A=NP^A) e natural proofs (Razborov–Rudich); melhor circuit lower bound p/ NP registrado no doc: ~4n. Regras Clay: Qualifying Outlet + 2 anos + aceitação geral; sem submissão direta | SOURCE_VERIFIED | SRC-0003 §3 + SRC-0004 | 2026-07-10 |
 
 ## Observações
