@@ -71,16 +71,50 @@ Total: O(Q(n)²) janelas × O(1) cláusulas cada = fórmula de tamanho polinomia
 
 Morais: (i) para SAT, resolver a decisão já entrega a solução construtiva; (ii) é um exemplo de redução de **Turing** (múltiplas consultas adaptativas) — o tipo original de Cook — mostrando por que as duas noções de redução coexistem.
 
-## 6. Não uniformidade: enunciados-ponte [⚠️ fontes a processar na FASE 4]
+## 6. Hierarquias de tempo: onde a diagonalização FUNCIONA
 
-- **NP ⊄ P/poly ⟹ P ≠ NP** (P ⊆ P/poly; separar do lado não uniforme é mais forte). É a rota dos circuit lower bounds apontada em SRC-0003 §3.
-- **Karp–Lipton:** NP ⊆ P/poly ⟹ colapso da hierarquia polinomial (PH = Σ₂ᵖ). Interpretação: nem o atalho não uniforme sai de graça — teria consequências estruturais dramáticas. [⚠️ enunciado da literatura padrão; fonte primária pendente; a própria definição formal de PH entra aqui na próxima iteração.]
+**Origem [FONTE: SRC-0009, Hartmanis–Stearns 1965]:** o paper que batizou "computational complexity" já prova (Corollary 1.2) que existem cadeias infinitas de classes de complexidade distintas, sobre TM multifita.
 
-## 7. Dependências e pendências desta reconstrução
+**Forma moderna [FONTE: SRC-0010, Theorem 3.1, verbatim]:** se f, g são time-constructible e f(n)·log f(n) = o(g(n)), então DTIME(f(n)) ⊊ DTIME(g(n)).
+*Ideia da prova:* diagonalização com simulação universal — a máquina D, com entrada x, simula M_x sobre x por um orçamento de passos e responde o OPOSTO; D vive em DTIME(g) mas não pode coincidir com nenhuma máquina de DTIME(f). O fator log é o custo da simulação universal.
+
+**Análogo não determinístico [FONTE: SRC-0010, Theorem 3.3, verbatim]:** f(n+1) = o(g(n)) ⟹ NTIME(f(n)) ⊊ NTIME(g(n)) (com "lazy diagonalization" — flip adiado, pois negar uma NTM diretamente custaria exponencial).
+
+**Corolário [RECONSTRUÇÃO; claim 7P-PNP-CLM-0013].** P ⊊ EXP. *Prova:* P ⊆ DTIME(2ⁿ) trivialmente (todo polinômio é o(2ⁿ/n)); pelo Theorem 3.1 com f = 2ⁿ, g = 2³ⁿ (digamos), DTIME(2ⁿ) ⊊ EXP; e P ⊆ DTIME(n^k) para cada k com n^k log n^k = o(2ⁿ) dá P ≠ EXP. ∎ — uma das POUCAS separações incondicionais que temos.
+
+**Moral estrutural:** diagonalização separa classes do MESMO tipo com mais recurso (det vs det; não-det vs não-det). P vs NP compara TIPOS diferentes — e a relativization (§ barreiras) explica por que a técnica pura não cruza essa fronteira.
+
+## 7. Ladner: o mundo intermediário
+
+**Teorema [FONTE: SRC-0010, Theorem 3.4, verbatim]:** se P ≠ NP, existe L ∈ NP \ P que NÃO é NP-completo.
+
+*Ideia da prova (padding):* SAT_H = {ψ·0·1^(n^H(n)) : ψ ∈ SAT, n = |ψ|}, com H de crescimento auto-regulado (definida por diagonalização preguiçosa): se H fica constante, SAT_H é SAT com padding polinomial (NP-completo); se H → ∞, o padding mata a NP-completude; a construção equilibra H exatamente para SAT_H escapar de ambos, assumindo P ≠ NP. [Primária: Ladner, JACM 22(1):155–171, 1975 — SRC-0011, A OBTER: ACM bloqueou download automatizado.]
+
+**Consequência:** P ≠ NP implica uma ZONA INTERMEDIÁRIA não vazia. Candidatos naturais que vivem lá (sem prova): graph isomorphism — o mesmo que Cook flagou em 1971 (claim 0008) — e factoring (§3). Essa zona é território experimental privilegiado para o programa: problemas onde nem a completude nem a pertinência a P são conhecidas.
+
+## 8. Hierarquia polinomial e Karp–Lipton
+
+**Σᵖ₂ [FONTE: SRC-0010, Definition 5.1, verbatim]:** L ∈ Σᵖ₂ ⟺ ∃ TM polinomial M e polinômio q com x ∈ L ⟺ ∃u∈{0,1}^q(|x|) ∀v∈{0,1}^q(|x|): M(x,u,v)=1.
+
+**PH geral [FONTE: SRC-0010, Definition 5.4, verbatim]:** Σᵖᵢ = i quantificadores alternados começando por ∃; Πᵖᵢ = começando por ∀; PH = ∪ᵢ Σᵖᵢ. Casos base: Σᵖ₁ = NP, Πᵖ₁ = coNP. [Nota de auditoria: o Remark 5.5 do draft contém o typo "Πᵖ₂ = coNP" — o correto, consistente com a própria Def. 5.4, é Πᵖ₁ = coNP. Erro do draft registrado; não propagado.] [Primária da PH: Stockmeyer, TCS 3(1):1–22, 1976 — SRC-0012, A OBTER (paywall).]
+
+**Colapso [RECONSTRUÇÃO; claim 7P-PNP-CLM-0016]:** P = NP ⟹ PH = P. *Ideia:* com P = NP, cada quantificador pode ser absorvido de dentro pra fora — o predicado polinomial com um ∃ na frente é NP = P, vira novo predicado polinomial; indução em i. ∎ A conjectura padrão da área é que a PH NÃO colapsa (generaliza P ≠ NP e NP ≠ coNP) — usada como "moeda de plausibilidade" em resultados condicionais.
+
+**Karp–Lipton [FONTE: SRC-0010, Theorem 6.13, verbatim]:** NP ⊆ P/poly ⟹ PH = Σᵖ₂ (com melhorias de Sipser).
+*Ideia da prova:* mostrar Πᵖ₂ ⊆ Σᵖ₂ via a linguagem Π₂SAT (∀u∃v φ(u,v)). Se NP ⊆ P/poly, existe família de circuitos polinomiais decidindo satisfatibilidade; pela **auto-redutibilidade (nosso §5!)**, existe família que PRODUZ a testemunha v. Então "∀u∃v φ" vira "∃ circuito C ∀u: φ(u, C(u))" — um ∃∀, ou seja, Σᵖ₂. ∎ (esboço)
+**Variante de Meyer [FONTE: SRC-0010, Theorem 6.14]:** EXP ⊆ P/poly ⟹ EXP = Σᵖ₂; combinada com a hierarquia de tempo: P = NP ⟹ EXP ⊄ P/poly.
+
+**Interpretação para o programa:** (i) o atalho não uniforme para NP custaria o colapso da PH — evidência estrutural de NP ⊄ P/poly; (ii) upper bounds podem gerar lower bounds (Meyer) — inversão que reaparece nas fronteiras modernas (FASE 4); (iii) P/poly = TMs com advice polinomial por tamanho de entrada = exatamente o modelo das "tabelas escondidas" das confusões proibidas do charter. [Primária: Karp–Lipton 1982, L'Enseignement Math. 28:191–209 — SRC-0013, A OBTER; secundária identificada: notas Waterloo CS860.]
+
+## 9. Dependências e pendências desta reconstrução
 
 | Item | Depende de | Estado |
 |---|---|---|
 | Equivalência A⟺B (§2) | Defs. de SRC-0003 + SRC-0005 | Reconstruída; revisão externa pendente |
 | Cook–Levin moderno (§4) | §1, §2 | Esboço completo; revisão externa pendente; formalização FASE 6 |
-| Auto-redutibilidade (§5) | Def. de SAT | Reconstruída; revisão externa pendente |
-| Hierarquia de tempo, Ladner (problemas intermediários), PH formal, Karp–Lipton c/ prova | fontes a obter | Próxima iteração da FASE 3 |
+| Auto-redutibilidade (§5) | Def. de SAT | Reconstruída; revisão externa pendente; USADA no esboço de Karp–Lipton (§8) |
+| Hierarquia de tempo + P ⊊ EXP (§6) | SRC-0009/0010 | Enunciados verificados; corolário reconstruído |
+| Ladner (§7) | SRC-0010 (Thm 3.4) | Enunciado verificado; primária SRC-0011 A OBTER |
+| PH + colapso (§8) | SRC-0010 (Defs 5.1/5.4) | Verificado; colapso reconstruído; primária SRC-0012 A OBTER |
+| Karp–Lipton (§8) | SRC-0010 (Thm 6.13/6.14) + §5 | Enunciado verificado; esboço reconstruído; primária SRC-0013 A OBTER |
+| Espaço (PSPACE, Savitch), Mahaney, hierarquia relativizada | próximas iterações | — |

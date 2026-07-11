@@ -59,6 +59,37 @@
 - **Conferido no texto:** história do perebor desde os anos 1950; "in 1971, Levin obtained similar results" (anterioridade de Levin à publicação de 1973); conferência de Tsakhkadzor (março/1973) com audiência ignorando Cook/Karp; terminologia "universal perebor problems"; apêndice com a tradução do artigo de Levin.
 - **Data de consulta:** 2026-07-10. **Estado:** SOURCE_VERIFIED.
 
+### SRC-0009 — Hartmanis & Stearns (1965), "On the Computational Complexity of Algorithms"
+- **Publicação:** Transactions of the AMS, vol. 117 (1965), pp. 285–306. PDF oficial livre da AMS.
+- **URL:** https://www.ams.org/journals/tran/1965-117-00/S0002-9947-1965-0170805-7/S0002-9947-1965-0170805-7.pdf
+- **Conferido (parse server-side, 2026-07-10):** título/autores; Corollary 1.2 (cadeias infinitas de classes de complexidade distintas); modelo = TM multifita. Download local falhou 2× (PDFs truncados) — cópia local pendente; conteúdo verificado remotamente.
+- **Uso:** origem da hierarquia de tempo (§6 de `PNP_AI/05_COMPLEXITY_FOUNDATIONS.md`).
+- **Estado:** SOURCE_VERIFIED (verificação remota; arquivo local A OBTER).
+
+### SRC-0010 — Arora & Barak (2007, draft), "Computational Complexity: A Modern Approach"
+- **Natureza:** draft oficial do livro (Princeton), 489 pp., distribuído publicamente pelos autores. Nível 6 da hierarquia de fontes (livro reconhecido) — usado para enunciados modernos quando a primária está inacessível.
+- **URL:** https://theory.cs.princeton.edu/complexity/book.pdf · PDF local em `_sources/` com SHA-256.
+- **Conferido verbatim (pypdf, 2026-07-10):** Theorem 3.1 (time hierarchy), Theorem 3.3 (NTIME hierarchy), Theorem 3.4 (Ladner, com prova por padding), Definition 5.1 (Σᵖ₂), Definition 5.4 (PH), Theorem 6.13 (Karp–Lipton c/ Sipser), Theorem 6.14 (Meyer, EXP).
+- **Erratum detectado:** Remark 5.5 do draft afirma "Πᵖ₂ = coNP" (typo; o correto pela própria Def. 5.4 é Πᵖ₁ = coNP). Registrado; não propagado.
+- **Estado:** SOURCE_VERIFIED (com ressalva: draft, não a edição final publicada).
+
+### SRC-0011 — Ladner (1975), "On the Structure of Polynomial Time Reducibility"
+- **Publicação:** Journal of the ACM 22(1):155–171. DOI: 10.1145/321864.321877.
+- **Tentativa 2026-07-10:** download da ACM DL bloqueado (bot detection); nenhum mirror .edu com o paper completo localizado na primeira busca.
+- **Uso:** primária do Teorema de Ladner (enunciado já verificado via SRC-0010, Thm 3.4).
+- **Estado:** A OBTER (citação confirmada por múltiplas fontes independentes; paper pendente).
+
+### SRC-0012 — Stockmeyer (1976), "The Polynomial-Time Hierarchy"
+- **Publicação:** Theoretical Computer Science 3(1):1–22. Elsevier (paywall).
+- **Uso:** primária da definição da PH (definição já verificada via SRC-0010, Defs 5.1/5.4).
+- **Estado:** A OBTER (paywall; avaliar acesso institucional com Luiz se necessário).
+
+### SRC-0013 — Karp & Lipton (1982), "Turing Machines That Take Advice"
+- **Publicação:** L'Enseignement Mathématique 28(2):191–209 (versão de periódico do resultado de STOC 1980).
+- **Secundária claramente identificada:** notas de aula CS860 (R. Oliveira, U. Waterloo, 2022) — PDF local `karplipton-waterloo-lecture6-secondary.pdf` em `_sources/`.
+- **Uso:** primária do teorema de Karp–Lipton (enunciado já verificado via SRC-0010, Thm 6.13).
+- **Estado:** A OBTER (primária); secundárias verificadas.
+
 ## Template de entrada
 
 ```

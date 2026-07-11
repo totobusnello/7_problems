@@ -29,6 +29,11 @@ Enunciado · problema · área · definições · hipóteses · quantificadores 
 | 7P-PNP-CLM-0010 | PNP_AI | Lema de correção da codificação 3COL→SAT | **DERIVED_CHECKED** (via REV-0001: GAP_FOUND na complexidade → corrigido) | 2026-07-10 |
 | 7P-PNP-CLM-0011 | PNP_AI | Cook–Levin moderno c/ esboço tableau | Reconstrução; revisão pendente | 2026-07-10 |
 | 7P-PNP-CLM-0012 | PNP_AI | Auto-redutibilidade de SAT (decisão ⟹ busca) | Reconstrução; revisão pendente | 2026-07-10 |
+| 7P-PNP-CLM-0013 | PNP_AI | Hierarquias de tempo (DTIME/NTIME) + P ⊊ EXP | FORMULATION_VERIFIED + corolário reconstruído | 2026-07-10 |
+| 7P-PNP-CLM-0014 | PNP_AI | Teorema de Ladner (NP-intermediários existem se P≠NP) | FORMULATION_VERIFIED (primária pendente) | 2026-07-10 |
+| 7P-PNP-CLM-0015 | PNP_AI | Hierarquia polinomial (definição formal) | FORMULATION_VERIFIED (primária pendente) | 2026-07-10 |
+| 7P-PNP-CLM-0016 | PNP_AI | P = NP ⟹ PH = P | Reconstrução; revisão pendente | 2026-07-10 |
+| 7P-PNP-CLM-0017 | PNP_AI | Karp–Lipton + variante de Meyer | FORMULATION_VERIFIED (primária pendente) | 2026-07-10 |
 
 Detalhes dos claims PNP em `PNP_AI/10_PNP_CLAIM_LEDGER.md`.
 

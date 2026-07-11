@@ -111,3 +111,22 @@ Destaques: Q6 com o detalhe "polinomial no nº de bits"; Q8 com o quantificador 
 **Próxima ação proposta:** FASE 3, 2ª iteração — hierarquia de tempo, Ladner, PH formal + Karp–Lipton com fontes; OU sessão pedagógica sobre o material técnico novo, a critério de Luiz.
 
 ---
+
+## 2026-07-10 — CICLO 4 — FASE 3, 2ª iteração: hierarquias, Ladner, PH, Karp–Lipton (autorizado: "A")
+
+**Fontes:**
+- SRC-0009 Hartmanis–Stearns 1965 — verificado no PDF oficial da AMS (parse remoto; download local truncou 2×, arquivo A OBTER).
+- SRC-0010 Arora–Barak draft 2007 (489 pp., livro reconhecido, PDF local + hash) — Thms 3.1/3.3/3.4/6.13/6.14 e Defs 5.1/5.4 conferidos verbatim. **Erratum do draft detectado** (Remark 5.5: "Πᵖ₂ = coNP", typo por Πᵖ₁) — registrado, não propagado.
+- SRC-0011 Ladner (JACM 1975), SRC-0012 Stockmeyer (TCS 1976), SRC-0013 Karp–Lipton (1982): primárias A OBTER (ACM bot-block / paywalls); enunciados verificados via SRC-0010; secundária Waterloo arquivada p/ K-L.
+
+**Conteúdo (`05_COMPLEXITY_FOUNDATIONS.md` §§6–9):** hierarquias de tempo (com prova-ideia por diagonalização) + corolário P ⊊ EXP [RECONSTRUÇÃO] — separação incondicional; Ladner com prova por padding — zona NP-intermediária (ligação com graph isomorphism, que Cook flagou em 1971); PH formal + colapso P=NP ⟹ PH=P [RECONSTRUÇÃO]; Karp–Lipton com esboço que USA a auto-redutibilidade do §5 (claims se encadeando) + variante de Meyer.
+
+**Claims 0013–0017 registrados.** Glossário +13 entradas; timeline +4 linhas (1965 ✅, 1975 Ladner, 1976 PH, 1980/82 K-L).
+
+**Erros de fonte detectados no ciclo (métrica):** typo no draft A-B (Remark 5.5); 2 downloads truncados detectados por parse antes de qualquer uso.
+
+**Chamadas externas de modelo:** 0 (buscas/downloads não contam; nenhuma revisão neste ciclo).
+
+**Próxima ação proposta:** com fundamentos prontos, FASE 4 (mapa de barreiras com fontes primárias: BGS 1975, Razborov–Rudich, Aaronson–Wigderson) — último degrau antes da FASE 5 (seleção do subproblema).
+
+---

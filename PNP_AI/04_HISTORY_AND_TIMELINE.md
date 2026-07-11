@@ -10,13 +10,17 @@
 | 1936 | Turing define a máquina de Turing e prova a indecidibilidade do Halting Problem — nasce a teoria da computabilidade, com ≤m e problemas completos (c.e.-completude) como moldes do que viria | ✅ SRC-0003 (§2 e App.) |
 | 1953 | von Neumann discute antecedentes de complexidade computacional | ✅ citado em SRC-0003 ("earlier von Neumann [38], in 1953") |
 | anos 1950 | Escola soviética inicia o estudo do *perebor* (busca exaustiva) — Yablonskii e outros | ✅ SRC-0008 |
+| 1965 | **Hartmanis–Stearns, "On the computational complexity of algorithms"** (Trans. AMS): batiza o campo; hierarquia de classes de complexidade por diagonalização (Corollary 1.2), TM multifita | ✅ SRC-0009 (verificado no PDF oficial da AMS) |
 | anos 1960 | Cobham e Edmonds propõem tempo polinomial como critério de viabilidade (*feasibility*); Edmonds destaca verificação rápida via teoremas min-max (prenúncio de NP, segundo o próprio Karp) | ✅ SRC-0003 (§1) + SRC-0006 (introdução de Karp, reprint 2010) |
 | 1971 | **Cook, "The complexity of theorem-proving procedures" (STOC):** tautologias/SAT como problema universal via P-reducibility (análogo polinomial de redução de Turing); nasce a NP-completude | ✅ SRC-0005 (PDF obtido, Theorem 1 conferido no texto) |
 | 1971 | **Levin obtém resultados análogos na URSS** (publicação só em 1973) | ✅ SRC-0008 ("in 1971, Levin obtained similar results") |
 | 1972 | **Karp, "Reducibility among combinatorial problems":** 21 problemas NP-completos; introduz a notação P e NP e a NP-completude via ≤p (many-one polinomial), que vira padrão | ✅ SRC-0003 §2 + SRC-0006 (OCR: Main Theorem + 20/21 itens capturados; item 9 ilegível no scan — pela literatura é DIRECTED HAMILTON CIRCUIT ⚠️) |
 | 1973 | **Levin, "Universal'nye perebornye zadachi"** (Probl. Pered. Inform. 9(3):265–266): 6 problemas universais de busca; tradução inglesa no survey de Trakhtenbrot | ✅ SRC-0007/SRC-0008 (tradução integral no PDF obtido: Problems 1–6, Lemma 1) |
 | 1973 | Conferência de Tsakhkadzor (70 anos de Kolmogorov): audiência soviética ainda desconhecia Cook e Karp — as duas tradições corriam em paralelo | ✅ SRC-0008 |
+| 1975 | **Ladner:** se P ≠ NP, existem problemas NP-intermediários (nem em P, nem NP-completos) — prova por padding | ✅ enunciado verificado (SRC-0010, Thm 3.4); primária JACM = SRC-0011 A OBTER |
 | 1975 | Baker–Gill–Solovay: **relativization** — ∃ oráculo A com P^A = NP^A; diagonalização pura não resolve | ✅ fato citado em SRC-0003 (ref. [3]); ⚠️ ano e paper a processar na FASE 4 |
+| 1976 | **Stockmeyer** formaliza a **hierarquia polinomial** (conceito de Meyer–Stockmeyer 1972) | ✅ definição verificada (SRC-0010, Defs 5.1/5.4); primária TCS = SRC-0012 A OBTER (paywall) |
+| 1980/82 | **Karp–Lipton:** NP ⊆ P/poly ⟹ PH colapsa a Σᵖ₂ — circuitos pequenos para NP custariam caro demais | ✅ enunciado verificado (SRC-0010, Thm 6.13); primária = SRC-0013 A OBTER |
 | anos 1980 | Lower bounds para circuitos restritos (AC⁰: Furst–Saxe–Sipser, Ajtai; monótonos: Razborov) — otimismo com a via de circuitos | ⚠️ literatura padrão; fontes primárias na FASE 4 |
 | 1994–97 | Razborov–Rudich: **natural proofs** — os métodos conhecidos de circuit lower bounds não podem separar P de NP se PRGs fortes existem | ✅ fato citado em SRC-0003 (ref. [27]); ⚠️ ano/paper a processar na FASE 4 |
 | 2000 | Clay Mathematics Institute inclui P vs NP entre os sete Millennium Prize Problems (descrição oficial por Cook) | ✅ SRC-0001, SRC-0003 |

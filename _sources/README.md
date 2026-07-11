@@ -10,5 +10,7 @@
 | karp1972-springer2010-reprint.pdf | cs.umd.edu/~gasarch/BLOGPAPERS/Karp.pdf (reprint Springer 2010 c/ introdução nova de Karp) | `ae57cf641ae4f1924bdc4d7ef865edb2411c44e3040e8e546d01f1545e288e89` | SRC-0006 |
 | karp1972-uoa-scan.pdf | cgi.di.uoa.gr/~sgk/teaching/grad/handouts/karp.pdf (scan do original Plenum 1972) | `778c8b3507620a68154bc74b29810e0de6d2c4dd7ee5d24b84c7e7ba61404b81` | SRC-0006 |
 | trakhtenbrot1984-perebor-survey.pdf | drdoane.com/wp-content/uploads/2020/08/survey_of_russian_approaches_to_perebor.pdf | `6b15ddd4592cd540059812191d5665bd9bccc0cbd70ff30c628699b0fabfc668` | SRC-0007 / SRC-0008 |
+| arora-barak-2007-draft.pdf | theory.cs.princeton.edu/complexity/book.pdf (draft oficial do livro) | `da0881782a35bde6a0779a2eb1a8d480f39fbddf70bbb92824d1dc5550a033b2` | SRC-0010 |
+| karplipton-waterloo-lecture6-secondary.pdf | cs.uwaterloo.ca/~r5olivei/courses/2022-fall-cs860/lecture06.pdf (secundária) | `78e7f7ad8d06ff34280a03de82b750893659f56b17aec1522f65c769b42c9edd` | SRC-0013 |
 
 Verificar integridade: `shasum -a 256 -c` contra os hashes acima.

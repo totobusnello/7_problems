@@ -19,8 +19,14 @@
 | 7P-PNP-CLM-0011 | Cook–Levin forma moderna (SAT NP-completo sob ≤p) com esboço de prova via tableau (grupos G1–G5, tamanho O(Q(n)²)) | [RECONSTRUÇÃO] esboço completo em `05_COMPLEXITY_FOUNDATIONS.md` §4 — revisão externa pendente; formalização = FASE 6 | SRC-0005 (estrutura) + reconstrução | 2026-07-10 |
 | 7P-PNP-CLM-0012 | Auto-redutibilidade de SAT: oráculo de decisão ⟹ busca em n consultas (P=NP ⟹ versão construtiva também polinomial) | [RECONSTRUÇÃO] prova em `05_COMPLEXITY_FOUNDATIONS.md` §5 — revisão externa pendente | Reconstrução padrão | 2026-07-10 |
 
+| 7P-PNP-CLM-0013 | Time Hierarchy (f log f = o(g) ⟹ DTIME(f) ⊊ DTIME(g)); NTIME análogo (f(n+1) = o(g(n))); corolário P ⊊ EXP — separação incondicional | Enunciados FORMULATION_VERIFIED (SRC-0010 Thms 3.1/3.3, verbatim; origem SRC-0009); corolário [RECONSTRUÇÃO], revisão pendente | SRC-0009 + SRC-0010 | 2026-07-10 |
+| 7P-PNP-CLM-0014 | Teorema de Ladner: P ≠ NP ⟹ ∃ L ∈ NP∖P não NP-completo (zona intermediária não vazia; prova por padding SAT_H) | FORMULATION_VERIFIED (SRC-0010 Thm 3.4 verbatim); primária SRC-0011 A OBTER | SRC-0010; primária pendente | 2026-07-10 |
+| 7P-PNP-CLM-0015 | Hierarquia polinomial: Σᵖᵢ/Πᵖᵢ por quantificadores alternados; PH = ∪Σᵖᵢ; Σᵖ₁ = NP, Πᵖ₁ = coNP | FORMULATION_VERIFIED (SRC-0010 Defs 5.1/5.4 verbatim; typo do draft no Remark 5.5 detectado e não propagado); primária SRC-0012 A OBTER | SRC-0010 | 2026-07-10 |
+| 7P-PNP-CLM-0016 | P = NP ⟹ PH = P (colapso total por absorção de quantificadores, indução em i) | [RECONSTRUÇÃO] esboço em `05_COMPLEXITY_FOUNDATIONS.md` §8 — revisão externa pendente | Reconstrução padrão | 2026-07-10 |
+| 7P-PNP-CLM-0017 | Karp–Lipton: NP ⊆ P/poly ⟹ PH = Σᵖ₂ (usa auto-redutibilidade = claim 0012); Meyer: EXP ⊆ P/poly ⟹ EXP = Σᵖ₂; com hierarquia de tempo: P = NP ⟹ EXP ⊄ P/poly | FORMULATION_VERIFIED (SRC-0010 Thms 6.13/6.14 verbatim); esboço de prova [RECONSTRUÇÃO]; primária SRC-0013 A OBTER | SRC-0010 + claim 0012 | 2026-07-10 |
+
 ## Observações
 
-- Claims 0001–0009 e 0011–0012 são reconstruções de resultados conhecidos (fundação das fases 2–4) — NENHUM é alegação de novidade.
+- Claims 0001–0009 e 0011–0017 são reconstruções de resultados conhecidos (fundação das fases 2–4) — NENHUM é alegação de novidade.
 - **0010 é o primeiro claim a completar o ciclo proposta → revisão adversarial → gap → correção → DERIVED_CHECKED** (REV-0001, registro integral em `../07_MODEL_CALL_LOG.md`).
 - A barreira de **algebrization** (Aaronson–Wigderson 2008) NÃO está no documento de Cook; será registrada com fonte própria na FASE 4.

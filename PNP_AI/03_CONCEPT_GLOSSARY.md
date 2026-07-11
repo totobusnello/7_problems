@@ -31,6 +31,24 @@
 | **Instância adversarial** | Entrada construída p/ quebrar um algoritmo | Ferramenta central do papel REVISOR COMPUTACIONAL | charter |
 | **Qualifying Outlet** | Onde uma solução precisa sair | Requisito das regras Clay 2018 (+2 anos + aceitação geral) | SRC-0004 |
 
+## Entradas da FASE 3 (2026-07-10)
+
+| Termo | Informal | Definição técnica | Fonte |
+|---|---|---|---|
+| **NTM** | Máquina que "adivinha" — ∃ disfarçado de hardware | TM com relação de transição (múltiplos sucessores); aceita w sse ∃ ramo aceitante | SRC-0005 + `05_COMPLEXITY_FOUNDATIONS.md` §1 |
+| **co-NP** | Problemas com gabarito curto para o NÃO | {L : complemento de L ∈ NP}; canônico: TAUTOLOGY | `05` §3 |
+| **NP ∩ co-NP** | Certificado dos dois lados — zona "suspeita de P" | Ex.: PRIMES (pré-AKS), FACTORING (decisão) | `05` §3 |
+| **DTIME(f) / NTIME(f)** | Orçamento de tempo determinístico / não determinístico | Classes de linguagens decidíveis/aceitáveis em O(f(n)) passos | SRC-0010 cap. 3 |
+| **Time-constructible** | f "computável dentro do próprio orçamento" | ∃ TM que computa f(n) em O(f(n)) — hipótese técnica das hierarquias | SRC-0010 |
+| **Hierarquia de tempo** | Mais tempo = mais poder (provado!) | f log f = o(g) ⟹ DTIME(f) ⊊ DTIME(g); corolário: P ⊊ EXP | SRC-0009/0010 (Thm 3.1) |
+| **Padding** | Inflar a entrada pra diluir a dificuldade | Técnica de Ladner: SAT_H = SAT + 1^(n^H(n)) | SRC-0010 (Thm 3.4) |
+| **NP-intermediate** | Nem fácil, nem universal | L ∈ NP∖P não NP-completo; existe se P≠NP (Ladner); candidatos: graph isomorphism, factoring | SRC-0010/0011 |
+| **P/poly** | Algoritmo + "cola" por tamanho de entrada | Linguagens decididas por famílias de circuitos de tamanho polinomial ≡ TM com advice polinomial | SRC-0010 cap. 6 |
+| **Advice** | A cola: string que só depende de \|x\| | αₙ fornecida de graça à máquina para entradas de tamanho n | SRC-0013 (título!) |
+| **Σᵖᵢ / Πᵖᵢ / PH** | Andares de quantificadores sobre P | i quantificadores alternados (∃… / ∀…) sobre verificador polinomial; PH = ∪Σᵖᵢ; Σᵖ₁=NP, Πᵖ₁=coNP | SRC-0010 (Defs 5.1/5.4) |
+| **Colapso da PH** | Os andares desabam | Σᵖᵢ = Σᵖᵢ₊₁ ⟹ PH = Σᵖᵢ; P=NP ⟹ PH=P; "PH não colapsa" = conjectura-moeda da área | SRC-0010 §5.2 |
+| **Karp–Lipton** | Circuitos pequenos p/ NP custam caro | NP ⊆ P/poly ⟹ PH = Σᵖ₂ | SRC-0010 (Thm 6.13) |
+
 ## Pendentes de entrada (à medida que as fases avançarem)
 
-NTM (máquina não determinística) · co-NP · P/poly · advice · hierarquia polinomial · algebrization · proof complexity · PRG/hardness-vs-randomness · MCSP/meta-complexidade · GCT.
+algebrization · proof complexity · PRG/hardness-vs-randomness · MCSP/meta-complexidade · GCT · PSPACE/Savitch · ETH/SETH.
