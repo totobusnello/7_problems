@@ -128,10 +128,40 @@ Separar **piloto de pipeline** de **seleção de pesquisa**:
 | C4 formalização | 30 | 33 | DUP 4→2 (Coq feito; Mathlib em andamento por terceiros) |
 | C5 magnification | 22 | 27 | = |
 
-## PROPOSTA FINAL (v4) — para decisão de Luiz
+## PROPOSTA v4 — SUPERADA POR REV-0004 (mantida para histórico; ver v5 abaixo)
 
 **Selecionar C1-restrito** como primeiro subproblema do PNP-AI, com as salvaguardas do Grok incorporadas:
 1. **Unidade 1 (piloto, ex-etapa A):** reproduzir com DRAT + checker independente 1–2 valores exatos JÁ RESOLVIDOS do catálogo NPN-4, com encoding próprio. Sucesso binário; custo horas.
 2. **Unidade 2 (condicional):** identificar as 2 classes pendentes no CSV do repo; sonda de viabilidade em k=9 SOMENTE com budget computacional e critério de aborto aprovados por Luiz.
 3. **Horizonte:** expandir catálogo (n=5 parcial, outras bases) e conectar às questões abertas de meta-complexidade (a ponte C1→C3 é o caminho de relevância crescente).
 4. C4-infra continua permitido em doses mínimas (formalizar claims nossos), sem virar frente.
+
+---
+
+## REV-0004 — Revisão de confirmação (Codex/GPT-5, pedida por Luiz, 2026-07-11): VEREDITO **DERRUBAR**
+
+> Nota de canal: Luiz solicitou GPT-5.6; o canal Codex (OAuth ChatGPT) rejeitou `gpt-5.6` e `gpt-5.6-codex` como não suportados no plano. Revisão executada com o modelo default do canal (auto-id: "Codex, baseado em GPT-5, sem acesso ao checkpoint específico"). Registrado sem simulação.
+
+Findings e adjudicação (11 findings; os centrais):
+
+| Finding (Codex) | Adjudicação |
+|---|---|
+| CRÍTICO: seleção declarada "final" sem executar o piloto que a própria v3 definia como gate — FER=5 e "custo em horas" seguem conjecturais | **ACEITO** — seleção revertida a PENDENTE; o piloto volta a ser GATE pré-seleção |
+| REL 3→4 não demonstrado (relação temática com MCSP ≠ avançar MCSP); dupla adaptação pós-crítica do scorecard; soma ponderada com pseudo-precisão | **ACEITO** — REL de C1 volta a 3; pesos/âncoras serão fixados ANTES de qualquer scorecard futuro; liderança de 1–2 pontos ordinais não decide nada |
+| **DRAT não valida o encoding** — UNSAT certifica a CNF, não que a CNF signifique "não existe AIG ≤ k para f" | **ACEITO — vira regra do programa:** todo resultado via encoding próprio exige validação SEMÂNTICA independente (cross-check com enumeração exaustiva em tamanhos pequenos + verificação por simulação de todo circuito encontrado) |
+| Unidade 1 só não é teatro se puder REPROVAR C1 (critérios pré-registrados, incl. falha/custo) | **ACEITO** — gate pré-registrado abaixo |
+| "Gap confirmado vivo" = overclaim | **ACEITO** — reformulado: "não fechado na fonte e nas buscas realizadas até 2026-07-10" |
+| Comparação assimétrica: C2 sem alvo concreto na mesma granularidade; sem busca fora da shortlist | **ACEITO** — pré-requisitos da seleção definitiva |
+| n=5 como horizonte = promessa sem evidência de escalabilidade | **ACEITO** — rebaixado a hipótese sujeita a benchmark |
+
+## PROPOSTA v5 (vigente) — seleção PENDENTE + gate de qualificação pré-registrado
+
+**Estado da seleção: PENDENTE.** Nenhum candidato selecionado. C1 tem apenas prioridade de teste.
+
+**GATE DE QUALIFICAÇÃO (pré-registro — executar mediante aprovação de Luiz):**
+- **G1 (SAT):** para 1 classe NPN-4 já resolvida do catálogo, encontrar circuito AIG de tamanho ótimo com encoding próprio; verificar o circuito por SIMULAÇÃO contra a truth table (validação semântica, não só solver).
+- **G2 (UNSAT):** para a mesma classe, provar impossibilidade em (ótimo − 1) com prova DRAT verificada por checker independente (drat-trim ou equivalente).
+- **G3 (validação semântica do encoding):** cross-check do encoding contra enumeração exaustiva independente em escala mínima (todas as funções de n=2 e amostra de n=3): valores ótimos do nosso pipeline == valores por enumeração.
+- **Budget e aborto (pré-registrados):** máx. 4h de wall-clock por instância no hardware local; estouro = FALHA do gate (dado real de FER), não "quase sucesso".
+- **Critérios de decisão:** G1∧G2∧G3 dentro do budget ⟹ C1 ganha seleção PROVISÓRIA para sonda k=9 limitada (budget próprio a aprovar). Qualquer falha ⟹ re-pontuar FER de C1 com o dado real e formular alvo concreto de C2 na mesma granularidade antes de nova rodada.
+- **Antes da seleção DEFINITIVA (independente do resultado do gate):** (i) alvo concreto de C2 formulado e auditado no mesmo nível; (ii) busca documentada por ≥1 candidato fora da shortlist C1–C5; (iii) pesos e âncoras do scorecard fixados ex-ante.

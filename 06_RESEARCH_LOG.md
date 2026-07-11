@@ -205,4 +205,12 @@ Destaques: Q6 com o detalhe "polinomial no nº de bits"; Q8 com o quantificador 
 - **Scorecard v4 final:** C1-restrito 38 · C2 35 · C3 33 · C4 33 · C5 27. Proposta final registrada com as salvaguardas do Grok (piloto reprodutivo primeiro; sonda k=9 só com budget+aborto aprovados).
 - Aguardando decisão de Luiz (etapa C — seleção definitiva).
 
+**Continuação (REV-0004, pedida por Luiz "pra garantir", 2026-07-11):**
+- Solicitado GPT-5.6; canal Codex/OAuth rejeitou o model id (plano ChatGPT) — usado default do canal (GPT-5-based), registrado sem simulação.
+- **Segundo DERRUBAR da FASE 5.** Codex confirmou e aprofundou a linha do Grok: seleção fechada sem executar o próprio gate; REL 3→4 revertido (relação temática ≠ avanço demonstrado); scorecard pós-hoc; e o finding metodológico mais importante do ciclo — **DRAT valida a CNF, não o encoding** — que virou regra permanente (validação semântica independente: enumeração cruzada + simulação de circuitos encontrados).
+- **Proposta v5 vigente:** seleção PENDENTE; gate de qualificação PRÉ-REGISTRADO (G1 SAT + G2 UNSAT + G3 validação semântica; budget 4h/instância; estouro = falha; falha reprova C1 com dado real); pré-requisitos da seleção definitiva: alvo de C2 na mesma granularidade + busca fora da shortlist + pesos ex-ante.
+- **Meta-observação:** as duas famílias (xAI e OpenAI) convergiram INDEPENDENTEMENTE na mesma direção — validar o pipeline antes de selecionar — cada uma com findings distintos e complementares. O processo da FASE 5 está funcionando exatamente como o charter desenhou: a proposta melhorou 3 versões sob fogo adversarial sem gastar um minuto de computação em alvo errado.
+
+**Chamadas externas de modelo (acumulado FASE 5):** 2 (Grok, Codex). Dentro do limite de 5 por ciclo.
+
 ---
