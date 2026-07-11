@@ -1,0 +1,22 @@
+# 07 — MODEL CALL LOG — Registro de chamadas reais a modelos externos
+
+> Regra: não simular chamadas. Toda chamada real é registrada aqui (canal, modelo, propósito, resultado). Limite: máximo 5 chamadas externas por ciclo sem autorização.
+
+| # | Data | Canal | Modelo | Propósito | Resultado |
+|---|---|---|---|---|---|
+| 1 | 2026-07-10 | OpenAI API (`/v1/chat/completions`, key do `~/.zshrc`) | gpt-5.2 (tentado) | Teste de integração da Sessão 0 | **FALHA** — `invalid_api_key` (sk-proj-…t1QA rejeitada). Estado: AGUARDANDO INTEGRAÇÃO (renovar key). `/v1/models` também retornou vazio. |
+| 2 | 2026-07-10 | Codex MCP (auth ChatGPT, sandbox read-only) | "Codex, an OpenAI agent based on GPT-5" (auto-identificação) | Mesmo teste, canal alternativo | **SUCESSO** — confirmou: (1) identidade GPT-5/Codex; (2) mensagem recebida standalone, sem contexto desta conversa; (3) YES para atuar como referee adversarial de claim packages. threadId 019f4e90-cb71-7da0-92b0-e37be28b4e20. |
+
+## Pacote que teria sido enviado pela API direta (registrado conforme protocolo de falha)
+
+```
+Integration test for a mathematical review pipeline. Reply with exactly:
+(1) your model identity, (2) confirmation you received this as a standalone
+message with no prior conversation context, (3) YES/NO whether you could
+analyze a structured mathematical claim package (statement, hypotheses,
+proof sketch, complexity claims). Max 60 words.
+```
+
+## Canais adversariais disponíveis (não testados nesta sessão)
+
+Kimi (Moonshot) · GLM-5.2 (Zhipu) · Grok 4.5 (xAI) — wrappers read-only já configurados no workspace. Serão testados quando o primeiro claim package existir.
