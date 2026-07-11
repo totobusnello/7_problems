@@ -141,6 +141,8 @@ Separar **piloto de pipeline** de **seleção de pesquisa**:
 ## REV-0004 — Revisão de confirmação (Codex/GPT-5, pedida por Luiz, 2026-07-11): VEREDITO **DERRUBAR**
 
 > Nota de canal: Luiz solicitou GPT-5.6; o canal Codex (OAuth ChatGPT) rejeitou `gpt-5.6` e `gpt-5.6-codex` como não suportados no plano. Revisão executada com o modelo default do canal (auto-id: "Codex, baseado em GPT-5, sem acesso ao checkpoint específico"). Registrado sem simulação.
+>
+> **Correção (2026-07-11, call log #7):** GPT-5.6 ESTÁ disponível no plano — o model id correto é **`gpt-5.6-sol`** (default do config do Codex). O erro foi de id, não do canal. Esta revisão permanece válida como executada; próximas revisões OpenAI usam `gpt-5.6-sol`.
 
 Findings e adjudicação (11 findings; os centrais):
 
