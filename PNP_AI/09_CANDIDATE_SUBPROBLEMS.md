@@ -71,8 +71,35 @@ Por que é a unidade certa: falsificável com resposta binária; verificável me
 
 **Triagem anti-barreira (protocolo das 6 perguntas):** N/A no sentido estrito — a unidade não é uma estratégia de prova de lower bound geral; é computação exata em instância finita. Os claims resultantes serão FINITE_SCOPE_VERIFIED/COMPUTATIONALLY_TESTED por construção, sem pretensão assintótica.
 
-## Processo restante da FASE 5
+## REV-0003 — Revisão adversarial da proposta (Grok/xAI, 2026-07-10): VEREDITO **DERRUBAR**
 
-1. ~~Auditoria bibliográfica~~ ✅ (este documento).
-2. Revisão adversarial da proposta de seleção (família distinta — pendente).
-3. Decisão de Luiz → seleção registrada no charter do PNP-AI.
+Findings principais e adjudicação do coordenador:
+
+| Finding (Grok) | Adjudicação |
+|---|---|
+| Ponderação invertida: scorecard maximiza executabilidade (FER) contra relevância (REL=3 de C1), em tensão com o objetivo máximo do charter | **ACEITO EM PARTE** — os 8 critérios vêm do brief sem pesos; mas a crítica é justa: pesos agora explícitos (v3, REL×2). Ressalva: a Prioridade 1 do brief é "construir o laboratório", o que legitima executabilidade ALTA para a primeira unidade — desde que rotulada como PILOTO, não como identidade de pesquisa |
+| INT inflado / valor científico mínimo (fechar 2 classes n=4 = footnote) | **ACEITO EM PARTE** — contribuição real porém modesta; reclassificada como validação de pipeline, não "resultado intermediário" no sentido do charter |
+| Dependência de preprint único não revisado; gap pode já estar fechado | **ACEITO** — confirmação do gap passa a ser PRÉ-REQUISITO de qualquer seleção envolvendo esse alvo, não due diligence posterior |
+| Capacidade computacional irreal (autor sofreu timeout; nós temos um Mac sem stack cube-and-conquer) | **ACEITO** — qualquer ataque a k=9 exige sonda de viabilidade com critério de aborto e budget pré-aprovado por Luiz |
+| Auditoria assimétrica (C3/C4/C5 sem auditoria profunda) | **ACEITO** — C3 e C4 serão auditados com a mesma profundidade antes da seleção definitiva |
+| Recomendação: C2 ou C4; se C1, começar reproduzindo classe JÁ RESOLVIDA com DRAT | **ACEITO** como base da proposta v3 |
+
+## Scorecard v3 (pesos explícitos: REL×2 — resposta ao finding 1; total /45)
+
+| Candidato | Total ponderado | Observação |
+|---|---|---|
+| C1 exact synthesis | **36** | Mantém liderança estreita MESMO com REL dobrado — mas a unidade de trabalho original está vetada na forma proposta |
+| C2 proof complexity exp. | 35 | Sobe em competitividade; recomendação principal do Grok |
+| C4 formalização Lean | 35 | Recomendação de infraestrutura do Grok |
+| C3 MCSP | 33 | Auditoria profunda pendente — pode subir |
+| C5 magnification | 27 | — |
+
+## PROPOSTA v3 (pós-adjudicação — aguardando decisão de Luiz)
+
+Separar **piloto de pipeline** de **seleção de pesquisa**:
+
+**(A) PILOTO imediato (sem seleção definitiva, risco ~zero, serve a qualquer candidato):** reproduzir com verificação DRAT completa 1–2 valores exatos JÁ RESOLVIDOS do catálogo NPN-4 (encoding próprio, solver local, checker independente). Valida o pipeline exact-synthesis+DRAT de ponta a ponta sem depender do gap de terceiros. Critério de sucesso binário; custo estimado horas, não semanas.
+
+**(B) Antes da seleção definitiva:** auditoria profunda de C3 e C4 (mesmo padrão de C1/C2) + verificação de o gap das 2 classes seguir aberto + resultado do piloto (A) informando o FER real.
+
+**(C) Seleção definitiva** entre C1-restrito (com sonda k=9 SÓ com budget/aborto aprovados), C2 e C4 — com scorecard v4 alimentado por (A) e (B).

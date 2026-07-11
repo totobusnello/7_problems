@@ -189,4 +189,13 @@ Destaques: Q6 com o detalhe "polinomial no nº de bits"; Q8 com o quantificador 
 - **Scorecard v2 + proposta de seleção:** C1, com 1ª unidade de trabalho = decidir k=9 das 2 classes NPN-4 pendentes (SAT→circuito / UNSAT→DRAT), precedida de due diligence do repo de dados e checagem de que o gap segue aberto.
 - Pendente: revisão adversarial da proposta (família distinta) + decisão de Luiz.
 
+**Continuação (REV-0003, revisor escolhido por Luiz: Grok):**
+- Grok 4.5 (xAI, 4ª família — 1º uso no programa) **DERRUBOU a proposta de seleção** com 11 findings. A condição de Luiz ("se ela não derrubar") ativou: seleção NÃO registrada.
+- Adjudicação (em `09_CANDIDATE_SUBPROBLEMS.md`): 4 findings aceitos (confirmação do gap ANTES de selecionar; risco computacional real; auditoria assimétrica de C3/C4; começar por reprodução), 2 aceitos em parte (pesos do scorecard — agora explícitos com REL×2; valor científico — reclassificado como validação de pipeline).
+- **Fato notável do scorecard v3:** mesmo com REL dobrado, C1 mantém liderança estreita (36 vs 35 vs 35) — mas a UNIDADE original (atacar o gap alheio) fica vetada na forma proposta.
+- **Proposta v3:** (A) piloto imediato de pipeline — reproduzir com DRAT valores já resolvidos do catálogo NPN-4 (risco ~zero, serve a qualquer candidato); (B) auditoria profunda de C3/C4 + confirmação do gap; (C) seleção definitiva com scorecard v4.
+- **Meta-observação:** 3 revisões, 3 famílias, 3 contribuições distintas — Codex (gap técnico pontual), Kimi (governança e precisão), Grok (estratégia e realismo de recursos). O custo de derrubar uma proposta na FASE 5 é horas; o custo de descobrir esses problemas na FASE 6 seria semanas.
+
+**Chamadas externas de modelo (ciclo 7 total):** 1 (Grok). Buscas de papers não contam.
+
 ---
