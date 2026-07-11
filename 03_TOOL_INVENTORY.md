@@ -20,11 +20,13 @@
 
 | Ferramenta | Estado | Ação |
 |---|---|---|
-| sympy | **INDISPONÍVEL** (instalável) | `pip3 install sympy` — aprovar na Sessão 1 |
-| scipy / networkx | **INDISPONÍVEL** (instalável) | `pip3 install scipy networkx` |
-| SAT solvers (pysat, minisat, cryptominisat, kissat) | **INDISPONÍVEL** (instalável) | `pip3 install python-sat` + `brew install cryptominisat kissat` |
-| SMT solver Z3 | **INDISPONÍVEL** (instalável) | `pip3 install z3-solver` |
-| SMT solver cvc5 | **INDISPONÍVEL** (instalável) | `brew install cvc5` |
+| sympy 1.14.0 | **DISPONÍVEL E TESTADA** (2026-07-10, autorizado por Luiz) | instalada via pip |
+| scipy 1.18.0 / networkx 3.6.1 | **DISPONÍVEL E TESTADA** (2026-07-10) | instaladas via pip |
+| SAT solver pysat (Glucose4) | **DISPONÍVEL E TESTADA** (2026-07-10) | smoke test real: modelo SAT retornado |
+| SMT solver Z3 4.16.0 | **DISPONÍVEL E TESTADA** (2026-07-10) | smoke test real: modelo SAT retornado |
+| pypdf | **DISPONÍVEL E TESTADA** (2026-07-10) | usada na verificação verbatim do PDF oficial de P vs NP |
+| SAT solvers nativos (cryptominisat, kissat) | **INDISPONÍVEL** (instalável) | `brew install cryptominisat kissat` — quando experimentos exigirem performance |
+| SMT solver cvc5 | **INDISPONÍVEL** (instalável) | `brew install cvc5` — segunda opinião de solver |
 | CAS SageMath | **PRECISA DE CONFIGURAÇÃO HUMANA** | Instalação pesada (~1GB+); avaliar necessidade real antes |
 
 ## Verificadores formais

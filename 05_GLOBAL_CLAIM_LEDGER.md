@@ -17,8 +17,15 @@ Enunciado · problema · área · definições · hipóteses · quantificadores 
 | Claim ID | Projeto | Enunciado (resumo) | Estado | Última atualização |
 |---|---|---|---|---|
 | 7P-NS-CLM-0001 | NS_PROB | Hipótese probabilística de cancelamentos (ver `NS_PROB/00_NS_STATUS.md`) | CONJECTURE (hipótese preservada do NS-PROB; não é frente de execução atual) | 2026-07-10 |
+| 7P-PNP-CLM-0001 | PNP_AI | Formulação oficial: "Does P = NP?" | SOURCE_VERIFIED | 2026-07-10 |
+| 7P-PNP-CLM-0002 | PNP_AI | Definição de P (TM, tempo polinomial de pior caso) | FORMULATION_VERIFIED | 2026-07-10 |
+| 7P-PNP-CLM-0003 | PNP_AI | Definição de NP via checking relations | FORMULATION_VERIFIED | 2026-07-10 |
+| 7P-PNP-CLM-0004 | PNP_AI | ≤p (f poly-time) e NP-completude | FORMULATION_VERIFIED | 2026-07-10 |
+| 7P-PNP-CLM-0005 | PNP_AI | Proposition 1 (a–c) do doc oficial | SOURCE_VERIFIED | 2026-07-10 |
+| 7P-PNP-CLM-0006 | PNP_AI | SAT/3-SAT NP-completos (Cook/Levin/Karp) | SOURCE_VERIFIED (provas originais pendentes) | 2026-07-10 |
+| 7P-PNP-CLM-0007 | PNP_AI | Critérios exatos de solução (matemáticos + regras Clay 2018) | SOURCE_VERIFIED | 2026-07-10 |
 
-*(Nenhum claim técnico novo foi produzido na Sessão 0 — por design.)*
+Detalhes dos claims PNP em `PNP_AI/10_PNP_CLAIM_LEDGER.md`.
 
 ## Pacote de revisão externa (formato obrigatório, sem linguagem promocional)
 
