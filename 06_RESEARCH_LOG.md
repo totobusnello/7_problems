@@ -68,3 +68,15 @@
 Luiz: "Pra que OpenAI API!? Temos integração por OAuth c/ GPT." Decisão registrada: o canal OpenAI oficial do programa é o **Codex MCP (OAuth ChatGPT, GPT-5)**, já testado. A API key direta é DESCARTADA (inválida e desnecessária); reconsiderar apenas se surgirem chamadas programáticas em lote fora do MCP. Bloqueio removido de todos os artefatos. Em seguida: sessão de perguntas sobre o guia pedagógico (FASE 2).
 
 ---
+
+## 2026-07-10 — SESSÃO PEDAGÓGICA 1 — Perguntas essenciais do guia (Q1–Q5)
+
+**Resultado: 5/5 corretas.** Luiz respondeu com as próprias palavras: assintótica/pior caso (Q1), resolver vs verificar + P⊆NP + pergunta como recíproca (Q2), os dois erros de "NP = exponencial" (Q3), condições para UNSAT valer como prova — incluindo, espontaneamente, certificado de insatisfatibilidade verificável independentemente (Q4), colapso via redução + composição polinomial (Q5). **Blocos 1–5 do guia consolidados.**
+
+**Refinamentos entregues (lapidação, não correção):** justificativa formal de P⊆NP (verificador ignora certificado); assimetria SIM/NÃO da definição de NP → co-NP (FASE 3); provas DRAT como padrão de proof logging; decisão vs busca e auto-redutibilidade (FASE 3).
+
+**Melhoria de protocolo identificada na sessão (crédito: pergunta Q4 de Luiz):** EXP-PED-0001 não emitiu prova DRAT — experimentos futuros com resultados UNSAT relevantes devem usar proof logging + checker independente. Anotado como requisito para a FASE 6.
+
+**Pendente da sessão:** Q6–Q10 (aprofundamento) a critério de Luiz.
+
+---
