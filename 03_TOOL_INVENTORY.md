@@ -28,6 +28,7 @@
 | kissat (nativo, com proof logging DRAT) | **DISPONÍVEL E TESTADA** (2026-07-11, EXP-GATE-0001) | UNSAT k=6 com emissão de prova DRAT |
 | drat-trim (checker independente de provas) | **DISPONÍVEL E TESTADA** (2026-07-11) | compilado do fonte (marijnheule/drat-trim); "s VERIFIED" no gate |
 | cryptominisat | **INDISPONÍVEL** (instalável) | `brew install cryptominisat` — se precisar de 2º solver |
+| **VM dedicada (compute escalation)** | **DISPONÍVEL SOB DEMANDA** (oferta de Luiz, 2026-07-11) | Luiz configura VM com CPU ou GPU quando pedido. Perfil certo p/ SAT/exact synthesis: **32–64 vCPUs de single-thread forte, SEM GPU** (CDCL não usa GPU; escala é via cube-and-conquer). Acionar se a sonda local k=9 estourar budget |
 | SMT solver cvc5 | **INDISPONÍVEL** (instalável) | `brew install cvc5` — segunda opinião de solver |
 | CAS SageMath | **PRECISA DE CONFIGURAÇÃO HUMANA** | Instalação pesada (~1GB+); avaliar necessidade real antes |
 

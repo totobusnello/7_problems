@@ -4,3 +4,4 @@ _sources/*.pdf
 __pycache__/
 PNP_AI/experiments/**/*.cnf
 PNP_AI/experiments/**/*.drat
+PNP_AI/experiments/**/*.log

@@ -83,6 +83,18 @@ class AIGEncoder:
                     else:
                         c.append([-s, -x, la]); c.append([-s, -x, lb])
                         c.append([-s, x, -la, -lb])
+        # QUEBRA DE SIMETRIA (sound p/ a pergunta "opt = k?"): duas portas nunca
+        # selecionam a MESMA opção (a,pa,b,pb) — um circuito MÍNIMO nunca tem
+        # portas duplicadas (remover a duplicata daria circuito menor). Como a
+        # sonda pergunta k=9 com opt ∈ {9,10} (catálogo), toda solução relevante
+        # é mínima, logo livre de duplicatas. [EXP-PROBE-0001 v2]
+        by_tuple = {}
+        for i in range(1, self.k + 1):
+            for a, pa, b, pb, s in self.options[i]:
+                by_tuple.setdefault((a, pa, b, pb), []).append(s)
+        for svars in by_tuple.values():
+            if len(svars) > 1:
+                c.extend([-x, -y] for x, y in combinations(svars, 2))
         # toda porta i < k é usada por alguma porta posterior
         for i in range(1, self.k):
             users = [o[4] for j in range(i + 1, self.k + 1)

@@ -34,6 +34,8 @@
 
 | 7P-PNP-CLM-0021 | opt_AIG(classe NPN 0x0016, n=4) = 7 — reprodução independente do valor do catálogo (SRC-0019/0027), com certificado nas DUAS direções: circuito de 7 portas verificado por simulação (SAT) + prova DRAT de UNSAT em k=6 verificada por drat-trim | FINITE_SCOPE_VERIFIED · ressalvas: encoding validado semanticamente contra enumeração independente (G3, n=2 completo + n=3 bidirecional até k=3); escopo = esta classe, esta base, este modelo de circuito | Projeto (EXP-GATE-0001) | 2026-07-11 |
 
+| 7P-PNP-CLM-0022 | **opt_AIG(classe NPN 0x166b, n=4) = 10** — k=9 é UNSAT (kissat, 1.269s, encoder validado no gate) + ub=10 do catálogo (SRC-0019). FECHA uma das 2 entradas indecididas do catálogo público | COMPUTATIONALLY_TESTED · ressalvas: UNSAT ainda SEM certificado DRAT (rodada de certificação em execução); ub ainda do catálogo (auto-verificação k=10 em execução); promoção a FINITE_SCOPE_VERIFIED exige ambos | Projeto (EXP-PROBE-0001) | 2026-07-11 |
+
 ## Registro completo — 7P-PNP-CLM-0010 (único claim derivado do projeto até aqui)
 
 - **Enunciado exato:** Seja G=(V,E) grafo simples não direcionado, |V|=n. Com variáveis x[v,c] (v∈V, c∈{0,1,2}) e φ(G) = grupo (1) [∨_c x[v,c] por vértice] ∧ grupo (2) [¬x[v,c]∨¬x[v,c'] por vértice e par c<c'] ∧ grupo (3) [¬x[u,c]∨¬x[v,c] por aresta e cor]: (a) φ(G) satisfatível ⟺ G 3-colorável; (b) φ(G) tem 4n+3|E| cláusulas e 9n+6|E| literais; construção em O(n+|E|) operações em word-RAM com entrada por lista de arestas, O((n+|E|)·log n) em codificação explícita de bits; logo G ↦ φ(G) é redução many-one polinomial de 3-COLORING a SAT.

@@ -42,3 +42,20 @@
 - **Artefatos grandes (CNF/DRAT) não versionados** — regeneráveis por `run_gate.py` (determinístico).
 
 ---
+
+## EXP-PROBE-0001 — Sonda k=9 nas classes pendentes 0x1669 / 0x166b (EM ANDAMENTO)
+
+- **Data:** 2026-07-11 · **Código:** `experiments/exp_probe_0001/` · **Budget aprovado:** 12h/classe.
+- **Encoder:** o do EXP-GATE-0001 + quebra de simetria v2 (portas duplicadas proibidas — sound para opt ∈ {9,10}: circuito mínimo não tem duplicatas; gate re-validado integralmente após a mudança). CNF k=9: 1.273 vars, 133.909 cláusulas.
+- **Tentativa v1 (ABORTADA — lição de engenharia):** rodada COM proof logging; DRATs ultrapassaram 4,2GB+3,8GB em ~25min (projeção >100GB/12h); processos mortos por pressão de sistema. Lição: **veredito primeiro (sem prova), certificado em execução separada e dimensionada**.
+- **v2, resultados:**
+
+| Classe | Veredito k=9 | Tempo | Estado |
+|---|---|---|---|
+| **0x166b** (tt=5739) | **UNSAT — não existe circuito AIG de 9 portas** ⟹ com ub=10: **opt_AIG = 10** | **1.269s (21min)** — vs timeout do autor do catálogo | COMPUTATIONALLY_TESTED; certificação DRAT + busca do circuito de 10 portas EM EXECUÇÃO |
+| 0x1669 (tt=5737) | em execução | — | — |
+
+- **Conclusão permitida (0x166b):** sob o encoder validado no gate, não existe AIG de 9 portas para 0x166b; combinado com o ub do catálogo, opt=10 — pendente de certificado DRAT (rodada em curso) e de auto-verificação do ub (busca k=10 em curso).
+- **Conclusão NÃO permitida:** nada sobre 0x1669 ainda; nada além destas classes/base/modelo.
+
+---
