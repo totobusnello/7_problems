@@ -96,3 +96,27 @@
 - **Conclusão permitida (quando terminar):** distribuição empírica de opt e custo em n=5 NA AMOSTRA;
   extrapolações via pesos HT com incerteza declarada. **NÃO permitida:** valores individuais como
   claims (sem certificação DRAT nesta fase); nada sobre a cauda censurada além de "≥ k censurado".
+
+## EXP-GAP-N4 — Censo completo de gap (tree − opt) nas 222 classes NPN de n=4 — **CONCLUÍDO**
+
+- **Data:** 2026-07-11 · **Código:** `experiments/exp_unitgap_check/tree_gap_n4.py` · **Saída:**
+  `npn4_gap.csv` + `tree_gap_n4_out.txt` · **Runtime:** 2,4s (numpy, Mac, nice 19).
+- **Método:** tree(f) para TODAS as 65.536 funções por DP em camadas (mesmo modelo AIG do
+  `tree_gap_n3.py`: negações livres nas arestas e na saída ⟹ camadas fechadas por complemento
+  absorvem polaridades; custo 0 = constantes e literais). opt(f) lido do catálogo completo
+  `npn4_opt_aig.csv` (EXP-GATE/PROBE, claims 0022/0023). tree e opt são NPN-invariantes no
+  modelo (perm/neg de entrada e neg de saída livres) ⟹ basta avaliar nas 222 representantes.
+- **Resultado:** distribuição de gap sobre as 222 classes: `{0: 93, 1: 57, 2: 40, 3: 13, 4: 14,
+  5: 2, 6: 3}`. **72/222 classes (32,4%) têm gap ≥ 2** — a tese do Unit Gap (gap ∈ {0,1},
+  Thm 2 de arXiv:2603.08033) falha em ~1/3 das classes de n=4, não apenas em ⊕₃. Gap máximo
+  = 6, atingido exatamente por 0x1668, 0x16e9 e 0x6996 (paridade-4 e vizinhas), com opt=9
+  (catálogo) e tree=15. Max tree global = 15.
+- **Verificações:** (i) sanity interno: tree(f) = tree(¬f) para todas as 65.536 e tree ≥ opt em
+  todas as 222 classes (asserts no script); (ii) **cross-check de embedding: as 256 funções que
+  ignoram x4 batem 256/256 com a tabela n=3** (que tinha verificação dupla no EXP anterior);
+  (iii) **fail-safe analítico para o pior caso:** Khrapchenko dá L(⊕₄) ≥ 16²/(8·8) = 16 folhas
+  ⟹ tree(⊕₄) ≥ 15 — a enumeração atingiu EXATAMENTE o lower bound (tree=15), e opt(⊕₄)=9 tem
+  circuito explícito no catálogo ⟹ gap(⊕₄) = 6 independe da enumeração para a direção ≥.
+- **Limite declarado:** tree por enumeração única (sem DRAT — proof logging não se aplica a DP);
+  o lado opt herda a certificação do catálogo. Implementação única ⟹ claim 0026 fica em
+  COMPUTATIONALLY_TESTED (o embedding n=3 e Khrapchenko mitigam, não substituem, 2ª implementação).

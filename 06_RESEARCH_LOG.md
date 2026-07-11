@@ -436,3 +436,21 @@ Pedido de Luiz: "resolve o kimi setup pra mim". Diagnóstico com o `setup --chec
 **Escala de confiança final do claim 0024:** testemunhas = kernel puro · lema estrutural = kernel puro · varredura finita = native_decide · Khrapchenko (não formalizado) segue como cinto analítico independente. Lean 4 promovido a DISPONÍVEL E TESTADA no inventário.
 
 **Chamadas externas de modelo:** 0.
+
+### Incidente 2026-07-11 (~16h BRT) — pod preemptado/recriado DURANTE o piloto; recuperação + lição operacionalizada
+
+Pod ficou `connection refused` com o piloto em 22/320; Luiz forneceu endpoint novo (porta 38250) — container recriado ZERADO (volume não sobrevive). Perdidos ~17 resultados não sincronizados (5 tinham backup local e foram semeados no resume). Stack reinstalado (kissat 4.0.4 source + drat-trim 2e3b2dc), 16 workers relançados. **Lição operacionalizada, não só anotada:** o monitor agora SINCRONIZA os outputs (scp) a cada ciclo de 15min para `exp_pilot_n5/out_pod/` — perda máxima futura = 15min de compute. Estrato do Mac não foi afetado (7/150 no momento do incidente, incluindo a 1ª classe opt=10 decidida). Interim pré-incidente do pod (dado válido, preservado no log): 6 decididas {0,4,8,8,9,9} + 16 censuradas {k=9: 11, k=10: 5}.
+
+## 2026-07-11 — CICLO 22 — Censo de gap em n=4: a falha do Unit Gap é ESTRUTURAL (72/222 classes), não pontual
+
+**Contexto:** Luiz pediu paralelização enquanto pilotos n=5 rodam (pod 16w + Mac 6w) e Krinkin não responde (0 comentários nas duas issues). Trabalho paralelo escolhido: fechar a pergunta natural que a refutação deixou aberta — "quão comum é gap > 1?" — usando ativos que JÁ temos (catálogo opt completo + método tree do n=3).
+
+**FATO VERIFICADO (computacional):** EXP-GAP-N4 — tree(f) para as 65.536 funções de 4 variáveis por DP em camadas (numpy, 2,4s), opt do catálogo certificado. Distribuição de gap nas 222 classes NPN: {0: 93, 1: 57, 2: 40, 3: 13, 4: 14, 5: 2, 6: 3}. **72/222 (32,4%) violam gap ∈ {0,1}** (Thm 2 do Unit Gap). Gap máximo 6 = paridade-4 (0x6996) e vizinhas 0x1668/0x16e9 (opt=9, tree=15). Max tree em n=4 = 15.
+
+**DERIVAÇÃO (fail-safe analítico):** Khrapchenko ⟹ L(⊕₄) ≥ 16 folhas ⟹ tree(⊕₄) ≥ 15; a enumeração atingiu o bound exatamente, e opt(⊕₄)=9 tem circuito explícito ⟹ gap(⊕₄) ≥ 6 vale mesmo se a enumeração tree estivesse errada para as demais classes.
+
+**Verificações:** complemento-invariância nas 65.536; tree ≥ opt nas 222 (asserts); **cross-check de embedding 256/256** — as funções que ignoram x4 reproduzem exatamente a tabela n=3 (que tinha dupla verificação). Claim **7P-PNP-CLM-0026** registrado como COMPUTATIONALLY_TESTED (implementação única do lado tree, declarado).
+
+**Leitura científica:** o padrão qualitativo é o esperado da teoria clássica (paridade separa fórmula de circuito — Khrapchenko Θ(n²) folhas vs circuito linear), e é exatamente o que a régua quebrada do paper não podia ver: a recursão com opt nos filhos reporta "gap ≤ 1" por construção. O censo dá o quantitativo: já em n=4, 1/3 das classes têm gap ≥ 2. Material direto para a nota técnica e para eventual réplica ao autor (nenhuma comunicação nova sem OK de Luiz).
+
+**Chamadas externas de modelo:** 0.
