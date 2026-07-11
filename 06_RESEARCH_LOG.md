@@ -182,4 +182,11 @@ Destaques: Q6 com o detalhe "polinomial no nº de bits"; Q8 com o quantificador 
 - **Scorecard v1 criado** (`PNP_AI/09_CANDIDATE_SUBPROBLEMS.md`), estado **HEURISTIC**: 5 candidatos (C1 exact synthesis via SAT · C2 proof complexity experimental · C3 MCSP · C4 formalização Lean · C5 magnification), 8 critérios do brief, scores marcados como proposta do coordenador PENDENTE de auditoria bibliográfica real + revisão adversarial + decisão de Luiz. Liderança provisória: C1 (33/40).
 - Próximos passos declarados no próprio arquivo: (1) auditoria bibliográfica de C1/C2, (2) revisão adversarial do scorecard, (3) seleção final por Luiz.
 
+**Continuação (auditoria bibliográfica, autorizada: "Sim quero"):**
+- 4 varreduras semânticas de papers + 2 inspeções profundas. Fontes SRC-0018..0023 registradas.
+- **C1 confirmado como área ativa** (2009→2026) com fronteira prática calibrada (tamanho ~7 fácil / 13 = semanas) e **gap aberto concreto encontrado**: 2 classes NPN-4 sem valor exato de opt_AIG no catálogo do preprint Krinkin mar/2026 (timeout em k=9; dados públicos). DUP 3→2, INT 4→5.
+- **C2:** nicho ativo (shortest DRAT do PHP; parity reordenada; CDCL vs DPLL 2026), porém mais estreito; random k-SAT experimental descartado (teoria madura, campo trilhado).
+- **Scorecard v2 + proposta de seleção:** C1, com 1ª unidade de trabalho = decidir k=9 das 2 classes NPN-4 pendentes (SAT→circuito / UNSAT→DRAT), precedida de due diligence do repo de dados e checagem de que o gap segue aberto.
+- Pendente: revisão adversarial da proposta (família distinta) + decisão de Luiz.
+
 ---

@@ -111,6 +111,27 @@
 - **Uso:** ponte verificada para SRC-0014 enquanto a primária não é obtida.
 - **Estado:** SOURCE_VERIFIED.
 
+### SRC-0018 — Kulikov, Pechenev & Slezkin, "SAT-based Circuit Local Improvement" (arXiv:2102.12579, 2021/22)
+- **Conferido (abstract via busca semântica + inspect, 2026-07-10):** fronteira prática de exact synthesis — tamanho 7 é instantâneo, tamanho 13 leva 1+ semana; espaço de busca s^Θ(s); local improvement provou novos upper bounds p/ funções simétricas.
+- **Uso:** calibração do que é viável em C1. **Estado:** SOURCE_VERIFIED (abstract; corpo A PROCESSAR se C1 for selecionado).
+
+### SRC-0019 — Krinkin, "A Simple Constructive Bound on Circuit Size Change Under Truth Table Perturbation" (arXiv:2603.09379, mar/2026)
+- **Conferido (corpo lido via full-text search, 2026-07-10):** |opt(f)−opt(f′)| ≤ c_B·n·d_H (prova construtiva por detector+correção); verificação exaustiva em n=4/AIG; **220/222 classes NPN-4 com valores exatos SAT-verified (136 por enumeração, 84 por exact synthesis com cube-and-conquer); 2 CLASSES RESTANTES só com upper bound (timeout em k=9, SAT em k=10)**; dados e scripts em github.com/krinkin/bounds (tag v1.0); questões abertas explícitas (gap constante p/ d_H=1? famílias Ω(n)?).
+- **Ressalva:** preprint (não peer-reviewed); dados do repo A VERIFICAR antes de uso.
+- **Uso:** alvo candidato da 1ª unidade de trabalho de C1. **Estado:** SOURCE_VERIFIED (preprint).
+
+### SRC-0020 — Kojevnikov, Kulikov & Yaroslavtsev, "Finding efficient circuits using SAT-solvers" (SAT 2009, LNCS 5584)
+- **Uso:** método fundacional de SAT-based exact synthesis (citado por SRC-0019 como a técnica dos 84 valores). **Estado:** REFERENCIADO via SRC-0019; A OBTER se C1 selecionado.
+
+### SRC-0021 — Heule, Kullmann, Wieringa & Biere, "Cube and conquer" (HVC 2011, LNCS 7261)
+- **Uso:** estratégia de paralelização SAT usada nos valores exatos de SRC-0019; candidata para atacar as 2 classes pendentes. **Estado:** REFERENCIADO via SRC-0019; A OBTER se C1 selecionado.
+
+### SRC-0022 — "Towards the shortest DRAT proof of the Pigeonhole Principle" (arXiv:2207.11284)
+- **Uso:** estado da arte do nicho experimental de C2 (proof complexity com certificados DRAT); mostra que o nicho é ativo e competitivo. **Estado:** REFERENCIADO (abstract); A OBTER se C2 selecionado.
+
+### SRC-0023 — Testa et al., "Determining the Multiplicative Complexity of Boolean Functions using SAT" (arXiv:2005.01778)
+- **Uso:** variante de C1 (complexidade multiplicativa, motivação criptográfica); linha ativa até 2026 (cf. arXiv:2601.08368, implementações AND/XOR dim ≤9). **Estado:** REFERENCIADO (abstract).
+
 ## Template de entrada
 
 ```

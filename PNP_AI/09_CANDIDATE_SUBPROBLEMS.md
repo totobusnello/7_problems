@@ -40,8 +40,39 @@ Mapa profundo de uma fronteira teórica moderna. Sem experimento direto; alto ri
 - **C3/C5** são as pontes para relevância profunda, mas pedem maturidade que o laboratório ainda não tem.
 - Protocolo anti-barreira: nenhum candidato é uma "estratégia de prova de lower bound geral" — a triagem de 6 perguntas aplica-se aos CLAIMS que os experimentos gerarem.
 
-## Próximos passos da FASE 5 (nesta ordem)
+## Auditoria bibliográfica (executada 2026-07-10 — Ciclo 7; fontes SRC-0018..0023)
 
-1. Auditoria bibliográfica real de C1 e C2 (estado da arte, últimos resultados, o que está em aberto, onde há espaço) → atualizar scores com fontes.
-2. Revisão adversarial do scorecard (≥1 família distinta).
-3. Proposta final de UM subproblema → decisão de Luiz.
+**C1 — o que a literatura mostra:**
+- Área ATIVA (papers de 2020 a 2026, incl. linha criptográfica). Fronteira prática: exact synthesis instantâneo até tamanho ~7; tamanho 13 leva semanas (SRC-0018). Método padrão: SAT-based synthesis (SRC-0020) + cube-and-conquer (SRC-0021).
+- **GAP CONCRETO IDENTIFICADO (SRC-0019, preprint mar/2026):** o catálogo de tamanhos exatos AIG das 222 classes NPN de n=4 tem **2 classes sem valor exato** — upper bound 10 confirmado, decisão em k=9 deu timeout. Fechar cada classe = ou circuito de 9 portas (SAT) ou prova de impossibilidade (UNSAT + DRAT). Dados públicos no GitHub do autor.
+- Outras aberturas documentadas: catálogo n=5 (largamente inexistente), outras bases, questões abertas explícitas do SRC-0019 (gap constante sob perturbação de 1 bit; famílias Ω(n)).
+- **Impacto no score:** DUP 3→2 (área minerada — reproduzir o genérico duplica); INT 4→5 (alvo aberto específico e alcançável, com resultado publicável como nota/contribuição de dados).
+
+**C2 — o que a literatura mostra:**
+- Nicho ativo e competitivo: shortest DRAT proofs de PHP (SRC-0022), hardness de parity reordenada (2024), separação CDCL/DPLL (2026). Random k-SAT: teoria madura (threshold provado p/ k grande) e experimentação de transição de fase muito trilhada — pouco espaço para nós agora. Scores mantidos.
+
+## Scorecard v2 (pós-auditoria)
+
+| Candidato | REL | CLA | FAL | FOR | FER | INT | DUP | ESP | Total /40 | Δ |
+|---|---|---|---|---|---|---|---|---|---|---|
+| **C1 exact synthesis** | 3 | 5 | 5 | 4 | 5 | **5** | **2** | 4 | **33** | = (composição melhor) |
+| C4 formalização Lean | 3 | 5 | 3 | 5 | 4 | 5 | 4 | 3 | 32 | = |
+| C2 proof complexity exp. | 4 | 4 | 5 | 3 | 5 | 4 | 3 | 3 | 31 | = |
+| C3 MCSP | 5 | 4 | 4 | 3 | 4 | 3 | 3 | 2 | 28 | = |
+| C5 magnification | 5 | 3 | 2 | 2 | 3 | 2 | 4 | 1 | 22 | = |
+
+## PROPOSTA DE SELEÇÃO (v2 — aguardando revisão adversarial + decisão de Luiz)
+
+**Subproblema selecionado (proposta): C1 — complexidade exata de funções booleanas pequenas via SAT.**
+
+**Primeira unidade de trabalho (Nível 4) proposta:** *determinar o valor exato de opt_AIG das 2 classes NPN-4 pendentes do catálogo de SRC-0019* — decidir k=9 (SAT → circuito explícito verificável; UNSAT → prova DRAT verificada por checker independente, estabelecendo opt=10).
+Due diligence prévia (parte da unidade): (a) obter e verificar o repo de dados do SRC-0019 (quais classes, qual encoding); (b) reproduzir o encoding localmente; (c) checar se o gap ainda está aberto (preprint é de março/2026 — pode ter sido fechado).
+Por que é a unidade certa: falsificável com resposta binária; verificável mecanicamente (DRAT — cumprindo a regra pós-REV-0002); tamanho compatível com a fronteira prática (k=9~10 está no limite viável com cube-and-conquer); completa um catálogo público (resultado intermediário real, ainda que modesto); e treina exatamente o pipeline que escala para n=5 e outras bases.
+
+**Triagem anti-barreira (protocolo das 6 perguntas):** N/A no sentido estrito — a unidade não é uma estratégia de prova de lower bound geral; é computação exata em instância finita. Os claims resultantes serão FINITE_SCOPE_VERIFIED/COMPUTATIONALLY_TESTED por construção, sem pretensão assintótica.
+
+## Processo restante da FASE 5
+
+1. ~~Auditoria bibliográfica~~ ✅ (este documento).
+2. Revisão adversarial da proposta de seleção (família distinta — pendente).
+3. Decisão de Luiz → seleção registrada no charter do PNP-AI.
