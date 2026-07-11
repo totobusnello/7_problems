@@ -421,3 +421,18 @@ Pedido de Luiz: "resolve o kimi setup pra mim". Diagnóstico com o `setup --chec
 **Estado das frentes externas:** issue #1 (bounds — contribuição) e issue #2 (unit-gap — refutação respeitosa) abertas, ambas aguardando o autor. Qualquer follow-up (PR no bounds, resposta a réplicas) exige novo OK de Luiz.
 
 **Chamadas externas de modelo:** 0 neste ciclo.
+
+## 2026-07-11 — CICLO 21 — Contraexemplo FORMALIZADO em Lean 4 (padrão-ouro atingido)
+
+**Pedido de Luiz:** merge do branch (PR #9 criado — o merge automático foi bloqueado pelo classificador por ser PR criado por mim; aguarda o clique dele) + formalização Lean.
+
+**Entregue: `PNP_AI/formal/UnitGap.lean`** (Lean 4.31.0, ~360 linhas, ZERO dependências — nem Mathlib):
+- Modelo: fórmulas AIG como tipo indutivo (árvore com polaridades nas arestas — fan-out 1 automático pela estrutura, folhas repetíveis); circuitos como programas em linha reta (compartilhamento livre); semântica por truth tables de 8 bits.
+- **`complete` (o coração):** todo φ com `gates φ ≤ c` tem `eval φ` no nível `D c` do DP — provado por INDUÇÃO ESTRUTURAL, verificado pelo kernel (axiomas: só os padrão do Lean).
+- **`tree_lower`:** toda fórmula que computa ⊕₃ tem ≥ 9 portas (completude + fato finito `⊕₃ ∉ D₈` por native_decide — único elo que confia no compilador; kernel bateu em profundidade de recursão na tentativa de decide puro, 2min+, documentado).
+- **`tree_upper` e `circuit_upper`:** testemunhas de 9 portas (fórmula) e 6 portas (circuito, nó compartilhado com fan-out 2) verificadas pelo KERNEL (`decide`; axioma: só propext). O native_decide de desenvolvimento PEGOU UM BUG REAL na primeira testemunha w9 (polaridade faltando colapsava para ⊕₂) — o processo funcionou.
+- **`unit_gap_refuted`:** pacote final — gap(⊕₃) ≥ 3 ∉ {0,1}. Auditoria de axiomas inline (#print axioms).
+
+**Escala de confiança final do claim 0024:** testemunhas = kernel puro · lema estrutural = kernel puro · varredura finita = native_decide · Khrapchenko (não formalizado) segue como cinto analítico independente. Lean 4 promovido a DISPONÍVEL E TESTADA no inventário.
+
+**Chamadas externas de modelo:** 0.
