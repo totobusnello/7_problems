@@ -23,7 +23,7 @@ Hi Kirill,
 
 Your paper (arXiv:2603.09379) and this dataset leave exactly two NPN-4 classes without exact
 values — `0x1669` and `0x166b`, both listed as `improved_ub` with upper bound 10. We believe we
-have closed both, and before anything else we wanted to ask: **is this gap still open on your
+have closed both, and before anything else we wanted to ask: **Is this gap still open on your
 side** (no unpublished exact values or follow-up in progress)? If it is, we'd be glad to
 contribute the results back via a PR.
 
