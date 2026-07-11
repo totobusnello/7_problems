@@ -322,3 +322,17 @@ Destaques: Q6 com o detalhe "polinomial no nº de bits"; Q8 com o quantificador 
 **Estado:** nota v2 pronta para leitura de Luiz. Preprint/publicação seguem bloqueados (10_PUBLICATION_RULES).
 
 **Chamadas externas de modelo:** 1 (REV-0007).
+
+## 2026-07-11 — CICLO 14 — Plano da FASE 6 (n=5) + spec provisória de infra — PROPOSTA a Luiz
+
+**Item 5 da fila (último).** `PNP_AI/13_FASE6_PLAN.md`: números honestos de escala (616.126 classes; teto ingênuo 29 anos-core, piso 71 dias-core — a distribuição real é DESCONHECIDA), 4 recortes científicos (A catálogo completo / B parcial curado / C dataset ponte C1→C3 / D outras bases em n=4), **piloto de medição pré-registrado** (300 classes uniformes + 16 simétricas, busca ascendente sem proof logging, timeout 2h/classe, budget 72h no pod ≈ US$ 46, aborto pré-registrado), spec de infra provisória com regra de decisão (pod sob demanda vs dedicado mensal, ponto de equilíbrio ~700 h-core) e a lista explícita do que fica com Luiz: aprovar piloto, escolher recorte após os dados, contratar infra, publicar.
+
+**Recomendação do coordenador:** recorte C (dataset meta-complexidade) como espinha dorsal com B como subproduto — é o que serve à seleção definitiva de C1 (ponte C1→C3).
+
+**REV-0004 honrada:** nenhum compromisso com n=5 assumido — tudo condicionado ao piloto.
+
+**Issue Krinkin (#1):** checada neste ciclo — sem resposta ainda.
+
+**Chamadas externas de modelo:** 0 neste ciclo.
+
+**FILA DE LUIZ (aprovada 2026-07-11) — STATUS FINAL: 5/5 CONCLUÍDA.** (1) FASE 5 encerrada, C1 definitivo; (2) claim 0010 dupla família cumprida; (3) PR #7 mergeado, branch fase6 aberto; (4) nota técnica v2 revisada; (5) plano FASE 6 proposto.
