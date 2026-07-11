@@ -80,3 +80,17 @@ Luiz: "Pra que OpenAI API!? Temos integração por OAuth c/ GPT." Decisão regis
 **Pendente da sessão:** Q6–Q10 (aprofundamento) a critério de Luiz.
 
 ---
+
+## 2026-07-10 — SESSÃO PEDAGÓGICA 2 — Aprofundamento (Q6–Q10)
+
+**Resultado: 5/5 corretas. Placar total do guia: 10/10 — FASE 2 (trilha pedagógica, blocos 1–7) CONSOLIDADA.**
+
+Destaques: Q6 com o detalhe "polinomial no nº de bits"; Q8 com o quantificador universal correto; Q9 reproduzindo o checklist de custos escondidos; Q10 acima do material entregue — citou o resultado completo de BGS (oráculos A e B) e a tríade de natural proofs, que o guia não continha (corretos pela literatura; marcados ⚠️ até a FASE 4 processar fontes).
+
+**2ª contribuição metodológica de Luiz (Q10): PROTOCOLO DE TRIAGEM ANTI-BARREIRA** — checklist de 6 perguntas incorporado a `PNP_AI/07_BARRIER_MAP.md` como protocolo oficial em vigor: proposta sem respostas às 6 perguntas não passa de `HEURISTIC`.
+
+**Refinamentos entregues:** Pratt/PRIMES ∈ NP ∩ co-NP pré-AKS; teste finito vs quantificador universal (paralelo com zeros da zeta/Riemann); ETH e fine-grained como ponte pra FASE 4; Karp–Lipton (NP ⊆ P/poly ⟹ colapso da PH) como material da FASE 3.
+
+**Próxima ação:** FASE 3 — reconstrução técnica.
+
+---
