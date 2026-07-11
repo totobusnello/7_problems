@@ -343,3 +343,20 @@ Destaques: Q6 com o detalhe "polinomial no nº de bits"; Q8 com o quantificador 
 **Antes de rodar:** pré-gate n=3 COMPLETO passou (256/256, bidirecional, k≤4) + Emenda 1 ao plano registrada ANTES da execução (amostragem uniforme-sobre-funções com pesos HT; 64 simétricas → 20 classes; correções datadas).
 **Execução:** amostra de 320 classes (seed=20260711), 16 shards, 16 workers paralelos, lançados 16:35 UTC. Smoke test local: 0x00000001 → opt=4 (AND de 5 entradas, correto). Stack do pod reinstalado do fonte com commits REGISTRADOS (fecha o gap de proveniência da REV-0007 p/ execuções futuras).
 **Chamadas externas de modelo:** 0.
+
+## 2026-07-11 — CICLO 16 — REV-0008 (Kimi): "concern" no runner do piloto — 2 bugs operacionais corrigidos EM VOO
+
+**Contexto:** Luiz pediu paralelização + review do Kimi. 1ª tentativa via subagente morreu no teto de ~10min do Bash de subagente (turn.cancel aos 11min); 2ª tentativa manual falhou por CLAUDE_PLUGIN_DATA ausente (MESMA pegadinha da REV-0002 — anotada mas não operacionalizada). Resposta estrutural: **`tools/rev.sh`** (lançador único dos 4 canais com pre-flight `doctor`) + HARD RULE no CLAUDE.md do projeto + memória persistente. 3ª tentativa (background da sessão principal, env correto): SUCESSO.
+
+**REV-0008 (Kimi, kimi-for-coding, thinking high): veredito "concern", 5 findings.** Ciência confirmada correta (canonicalização NPN 7.680 transformações ✓, encoding ✓, direção dos pesos HT ✓). Adjudicação:
+- **F1 (MEDIUM, ACEITO+CORRIGIDO):** budget da classe não recontava o tempo de encode/escrita do CNF antes do kissat — em k alto o kissat estourava o budget, e no pior caso `subprocess.run(timeout<=0)` derrubaria o shard inteiro. Corrigido (recomputa+clampa) — runner v2.
+- **F2 (MEDIUM, ACEITO+CORRIGIDO):** `assert` de verificação e parse frágil de modelo abortavam o shard; agora falha vira registro recuperável (`error`) e o loop continua — runner v2.
+- **F3 (MEDIUM, ACEITO+EM EXECUÇÃO):** varredura k=1..8 do n=4 sem DRAT quando certificar é barato — `cert_lowk.py` lançado (prova→check→hash→apaga, 16 execuções).
+- **F4 (LOW, ACEITO+CORRIGIDO):** tempos por k não incluíam encode — agora `enc_times` separado (extrapolação de custo fica honesta).
+- **F5 (LOW, ACEITO, documentado):** pesos HT são aproximação sob o desenho "sorteia até 300 distintas" — ok para distribuições (constante cancela); totais exigem normalização. Vai declarado na análise.
+
+**Redeploy em voo com resume:** pod e Mac migrados pro runner v2 (classes concluídas preservadas). Dois incidentes operacionais no redeploy, ambos diagnosticados e corrigidos: pkill remoto auto-casou com o próprio `bash -c` (matou a sessão antes de relançar — padrão `pilot_[r]un.py` resolve) e pkill local não pegou os PIDs antigos do Mac (kill explícito).
+
+**Alerta de segurança do plugin (para Luiz):** o safety hook do kimi-plugin-cc está com path drift (aponta pra versão antiga do cache) — sem ele, o modo `-p` do kimi-code auto-aprova QUALQUER tool call, incluindo Write/Bash, mesmo em comandos documentados como read-only. Recomendação: rodar `/kimi:setup` para re-pinar. Até lá, chamadas kimi só nos modos read-only e com diff conferido.
+
+**Chamadas externas de modelo:** 1 (REV-0008; as 2 tentativas falhas não geraram chamada faturável — morreram antes/no transporte).
