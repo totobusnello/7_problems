@@ -397,3 +397,17 @@ Pedido de Luiz: "resolve o kimi setup pra mim". Diagnóstico com o `setup --chec
 **Estado final do pacote Unit Gap:** Thm 2 e Cor. 6 REFUTADOS (dupla família: Grok + Codex, ambas SUSTENTADA); Thm 7 sem prova e com alegação universal falsa; Thms 3–4 sobrevivem (Thm 3 com prova corrigida nossa). Claims 0024/0025 liberados como dependência. **Comunicação ao autor: DESBLOQUEADA pela governança, aguardando decisão de Luiz** (recomendação: draft respeitoso, mesmo tom da issue #1, possivelmente aguardando a resposta dele lá).
 
 **Chamadas externas de modelo:** 1 (REV-0010).
+
+## 2026-07-11 — CICLO 19 — Certeza máxima: 4/4 famílias SUSTENTARAM a refutação do Unit Gap
+
+**Pedido de Luiz:** "precisamos ter mta certeza hein! melhor mais um review?" — rodadas as DUAS famílias restantes em paralelo (via rev.sh, background).
+
+**REV-0011 (Kimi/Moonshot): SUSTENTADA** — re-derivação própria completa; validou REV-0009/0010 sem erro material. **REV-0012 (GLM/Zhipu): SUSTENTADA, confiança "Total"** — re-resolveu com kissat E Glucose4; re-hasheou os DRATs versionados (matching); s=3 por 2 vias; "assinatura" diagnóstica: das 18 funções opt=6 em n=3, exatamente as 2 paridades têm custo real 9 (as demais 16 têm 7) — a Tabela 1 do autor computou tree_oneshot.
+
+**PLACAR FINAL: 4 famílias de treino independentes (xAI, OpenAI, Moonshot, Zhipu), 4 SUSTENTADA, zero findings contra o núcleo.** Elo adicional fechado neste ciclo: a fórmula-testemunha de 9 portas foi verificada por simulação (upper bound com artefato físico, independente do DP). Estrutura final da evidência: tree≤9 (testemunha simulada) · tree≥9 (DP exato + enumeração por camadas independente) · tree≥8 analítico (Khrapchenko — suficiente sozinho para refutar) · opt=6 (DRAT + testemunha) · s=3 (estrutural + aritmético, DRAT do filho).
+
+**Ressalva do GLM incorporada ao plano de contato:** anexar os DRATs pequenos (11KB/147KB, já versionados em certs/) em vez de só hashes.
+
+**Estado: PRONTO PARA COMUNICAÇÃO EXTERNA — aguardando decisão e aprovação de texto por Luiz.**
+
+**Chamadas externas de modelo:** 2 (REV-0011, REV-0012).
