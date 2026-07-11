@@ -25,7 +25,9 @@
 | SAT solver pysat (Glucose4) | **DISPONÍVEL E TESTADA** (2026-07-10) | smoke test real: modelo SAT retornado |
 | SMT solver Z3 4.16.0 | **DISPONÍVEL E TESTADA** (2026-07-10) | smoke test real: modelo SAT retornado |
 | pypdf | **DISPONÍVEL E TESTADA** (2026-07-10) | usada na verificação verbatim do PDF oficial de P vs NP |
-| SAT solvers nativos (cryptominisat, kissat) | **INDISPONÍVEL** (instalável) | `brew install cryptominisat kissat` — quando experimentos exigirem performance |
+| kissat (nativo, com proof logging DRAT) | **DISPONÍVEL E TESTADA** (2026-07-11, EXP-GATE-0001) | UNSAT k=6 com emissão de prova DRAT |
+| drat-trim (checker independente de provas) | **DISPONÍVEL E TESTADA** (2026-07-11) | compilado do fonte (marijnheule/drat-trim); "s VERIFIED" no gate |
+| cryptominisat | **INDISPONÍVEL** (instalável) | `brew install cryptominisat` — se precisar de 2º solver |
 | SMT solver cvc5 | **INDISPONÍVEL** (instalável) | `brew install cvc5` — segunda opinião de solver |
 | CAS SageMath | **PRECISA DE CONFIGURAÇÃO HUMANA** | Instalação pesada (~1GB+); avaliar necessidade real antes |
 

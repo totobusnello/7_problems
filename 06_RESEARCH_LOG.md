@@ -215,3 +215,18 @@ Destaques: Q6 com o detalhe "polinomial no nº de bits"; Q8 com o quantificador 
 **Chamadas externas de modelo (acumulado FASE 5):** 2 (Grok, Codex). Dentro do limite de 5 por ciclo.
 
 ---
+
+## 2026-07-11 — CICLO 8 — GATE DE QUALIFICAÇÃO EXECUTADO: **PASSOU** (autorizado: "Aprovo")
+
+**Setup:** CSV do catálogo baixado (2 classes pendentes identificadas: **0x1669 e 0x166b**, ambas ub=10); kissat instalado (brew); drat-trim compilado do fonte.
+
+**Execução (EXP-GATE-0001):**
+1. **1ª rodada: REPROVADO pela validação semântica** — o assert de simulação pegou bug real no encoder (constantes 0/1 colidindo com literais DIMACS ±1). Corrigido. **O finding central da REV-0004 (DRAT ≠ validação de encoding) se provou empiricamente na primeira execução.**
+2. **2ª rodada: G3 ∧ G1 ∧ G2 PASSARAM em 1,9s** (budget 4h/instância): encoder ≡ enumeração independente (n=2 completo, n=3 bidirecional k≤3); classe 0x0016 com circuito de 7 portas verificado por simulação; UNSAT k=6 com DRAT de 3,6MB verificada por drat-trim.
+3. Claim **7P-PNP-CLM-0021** (opt_AIG(0x0016)=7, reprodução independente com certificados) — FINITE_SCOPE_VERIFIED.
+
+**Consequência do pré-registro:** C1 ganha **SELEÇÃO PROVISÓRIA**; sonda k=9 nas classes 0x1669/0x166b aguarda budget + critério de aborto de Luiz. Seleção definitiva ainda exige: alvo C2 comparável, busca fora da shortlist, pesos ex-ante.
+
+**Ferramentas novas testadas:** kissat (proof logging DRAT) + drat-trim (checker) — inventário atualizado.
+
+---

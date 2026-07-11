@@ -167,3 +167,14 @@ Findings e adjudicação (11 findings; os centrais):
 - **Budget e aborto (pré-registrados):** máx. 4h de wall-clock por instância no hardware local; estouro = FALHA do gate (dado real de FER), não "quase sucesso".
 - **Critérios de decisão:** G1∧G2∧G3 dentro do budget ⟹ C1 ganha seleção PROVISÓRIA para sonda k=9 limitada (budget próprio a aprovar). Qualquer falha ⟹ re-pontuar FER de C1 com o dado real e formular alvo concreto de C2 na mesma granularidade antes de nova rodada.
 - **Antes da seleção DEFINITIVA (independente do resultado do gate):** (i) alvo concreto de C2 formulado e auditado no mesmo nível; (ii) busca documentada por ≥1 candidato fora da shortlist C1–C5; (iii) pesos e âncoras do scorecard fixados ex-ante.
+
+---
+
+## RESULTADO DO GATE (2026-07-11, autorizado por Luiz): **PASSOU — G1 ∧ G2 ∧ G3 dentro do budget**
+
+- **G3:** encoder validado semanticamente contra enumeração independente (n=2 completo 16/16; n=3 bidirecional até k=3: 126 conferidas + 130 inalcançáveis confirmadas). **Bônus: a validação pegou um bug real do encoder na 1ª execução** (colisão const/literal DIMACS) — confirmação empírica do finding da REV-0004.
+- **G1:** classe 0x0016 (opt=7): circuito encontrado e verificado por simulação — 0,1s.
+- **G2:** UNSAT em k=6 com kissat + prova DRAT verificada por drat-trim — 1,6s total.
+- **Tempo total do gate: 1,9s** (budget: 4h/instância). FER real de C1 = 5 confirmado nesta escala. Claim 7P-PNP-CLM-0021 registrado (FINITE_SCOPE_VERIFIED).
+
+**Consequência (conforme pré-registro): C1 ganha SELEÇÃO PROVISÓRIA** para a sonda k=9 limitada nas 2 classes pendentes (0x1669, 0x166b), condicionada a budget e critério de aborto aprovados por Luiz. Ressalva de escala mantida: k=9 é outra ordem de dificuldade (timeout do autor do catálogo) — o resultado do gate NÃO prevê o resultado da sonda. A seleção DEFINITIVA continua exigindo os pré-requisitos (i)–(iii) acima.
