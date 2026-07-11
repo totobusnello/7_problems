@@ -47,9 +47,10 @@
 - **Prova:** ver `01_OFFICIAL_PROBLEM_SPEC`/`12_EXPERIMENTS` + pacote REV-0001; (⟸) coloração → atribuição one-hot; (⟹) χ(v) = min{c : x[v,c]=⊤} (grupo (1) dá existência; grupo (3) dá propriedade); grupo (2) é redundante para a decisão (confirmado por REV-0001).
 - **Complexidade alegada:** acima, com modelo e representação explícitos (corrigida por REV-0001).
 - **Testes:** EXP-PED-0001 (C5/Petersen SAT com certificado verificado por exatamente-uma-cor + propriedade; K4 UNSAT; validação de entrada testada). **Custos ocultos:** nenhum identificado após REV-0001. **Casos extremos:** n=0, E=∅, vértices isolados — cobertos (REV-0001).
-- **Críticas/Revisões externas:** REV-0001 (Codex/GPT-5): GAP_FOUND na complexidade → correção aceita; REV-0002 (Kimi): endureceu verificação do certificado e contagem de literais.
-- **Formalização:** não iniciada (candidato a primeiro lema Lean na FASE 6). **Análise de novidade:** JÁ CONHECIDO (codificação one-hot padrão da literatura de SAT encodings — sem pretensão de novidade). **Próximo passo:** 2ª revisão de família distinta se/quando virar dependência.
-- **Estado:** DERIVED_CHECKED (ressalvas na tabela).
+- **Críticas/Revisões externas:** REV-0001 (Codex/GPT-5): GAP_FOUND na complexidade → correção aceita; REV-0002 (Kimi): endureceu verificação do certificado e contagem de literais; **REV-0006 (GLM-5.2/Zhipu, 2026-07-11): VALIDADO — 0 críticos/importantes, 5 MENOR** (verificação empírica independente da aritmética 4n+3|E| e 9n+6|E| em C5/Petersen/K4; ambas as direções da prova conferidas; redundância do grupo (2) confirmada correta).
+- **Adição datada 2026-07-11 (adjudicação da REV-0006):** (F2, aceito) a alegação word-RAM assume **encoding p-razoável da entrada** (vértices enumerados / n implícito na lista de vértices; NÃO n binário isolado com grafo quase vazio) — hipótese agora explícita; (F4, aceito) a fórmula usa **3n variáveis** (x[v,c], v∈V, c∈{0,1,2}); (F1/F3, aceitos) implementação passou a rejeitar multiarestas (hipótese de grafo simples agora ENFORÇADA) e o caso n=0 entrou na bateria de testes — re-executado, mesmos resultados; (F5, nota de estilo) na direção ⟹, `min` é uma escolha canônica entre extrações válidas.
+- **Formalização:** não iniciada (candidato a primeiro lema Lean na FASE 6). **Análise de novidade:** JÁ CONHECIDO (codificação one-hot padrão da literatura de SAT encodings — sem pretensão de novidade).
+- **Estado:** DERIVED_CHECKED · **regra de dupla família CUMPRIDA** (REV-0001 OpenAI + REV-0006 Zhipu, famílias distintas) — **LIBERADO como dependência** de claims futuros.
 
 ## Observações
 

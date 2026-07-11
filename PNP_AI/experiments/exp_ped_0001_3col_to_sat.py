@@ -29,9 +29,17 @@ def encode_3col(n_vertices, edges):
     """Retorna lista de cláusulas CNF (DIMACS: ints != 0)."""
     # validação de entrada (REV-0002/Kimi, finding 7): arestas fora do range
     # criariam variáveis espúrias e invalidariam a contagem 4n+3|E| em silêncio
+    seen = set()
     for u, v in edges:
         if not (0 <= u < n_vertices and 0 <= v < n_vertices) or u == v:
             raise ValueError(f"aresta inválida ({u},{v}) para n={n_vertices}")
+        # REV-0006/GLM, finding 1: hipótese "grafo simples" exige rejeitar
+        # multiarestas — inclusive (u,v)/(v,u) — senão |E| da contagem 4n+3|E|
+        # divergiria da cardinalidade grafoteórica em silêncio
+        e = (min(u, v), max(u, v))
+        if e in seen:
+            raise ValueError(f"multiaresta ({u},{v}) viola a hipótese de grafo simples")
+        seen.add(e)
 
     def var(v, c):  # variáveis 1..n*K
         return v * K + c + 1
@@ -67,6 +75,8 @@ def solve(name, n, edges):
 
 
 if __name__ == "__main__":
+    # n=0: convenção de conjunção vazia (REV-0006/GLM, finding 3)
+    solve("vazio (n=0)", 0, [])
     # C5: ciclo ímpar, 3-colorável
     solve("C5 (ciclo de 5)", 5, [(0, 1), (1, 2), (2, 3), (3, 4), (4, 0)])
     # Petersen: 3-cromático

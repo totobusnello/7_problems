@@ -296,3 +296,13 @@ Destaques: Q6 com o detalhe "polinomial no nº de bits"; Q8 com o quantificador 
 **SELEÇÃO DEFINITIVA: C1-restrito**, com termos consolidados: n=5 segue HIPÓTESE sujeita a benchmark + decisão de Luiz (FASE 6); ponte C1→C3 como critério de desenho; C2/C6 como reservas; pesos vinculantes daqui em diante. Sujeita a veto de Luiz.
 
 **Chamadas externas de modelo:** 0 neste ciclo (buscas web não contam como chamadas de modelo).
+
+## 2026-07-11 — CICLO 12 — REV-0006: claim 0010 VALIDADO pela 2ª família (GLM) — dupla família cumprida
+
+**Item 2 da fila aprovada por Luiz.** GLM-5.2 (Zhipu) revisou adversarialmente o claim 7P-PNP-CLM-0010 (lema 3COL→SAT): **VALIDADO, 0 findings críticos/importantes, 5 MENOR** — com verificação empírica independente da aritmética (35/85/34 cláusulas e 75/180/72 literais conferidos), das duas direções da prova e da redundância do grupo (2).
+
+**Adjudicação (5/5 aceitos, correções aplicadas e re-executadas no mesmo ciclo):** encoding p-razoável explicitado na hipótese word-RAM (F2 — o único que tocava a alegação de polinomialidade); multiarestas rejeitadas na implementação (F1); n=0 na bateria (F3); 3n variáveis explícitas (F4); F5 = estilo.
+
+**Consequência:** claim 0010 com **dupla família CUMPRIDA** (REV-0001 OpenAI + REV-0006 Zhipu) — primeiro claim do programa **LIBERADO como dependência**. As 4 famílias adversariais (OpenAI, Moonshot, xAI, Zhipu) estão agora todas testadas e operacionais.
+
+**Chamadas externas de modelo:** 1 (REV-0006).
