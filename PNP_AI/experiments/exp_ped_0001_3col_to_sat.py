@@ -27,6 +27,12 @@ K = 3  # cores
 
 def encode_3col(n_vertices, edges):
     """Retorna lista de cláusulas CNF (DIMACS: ints != 0)."""
+    # validação de entrada (REV-0002/Kimi, finding 7): arestas fora do range
+    # criariam variáveis espúrias e invalidariam a contagem 4n+3|E| em silêncio
+    for u, v in edges:
+        if not (0 <= u < n_vertices and 0 <= v < n_vertices) or u == v:
+            raise ValueError(f"aresta inválida ({u},{v}) para n={n_vertices}")
+
     def var(v, c):  # variáveis 1..n*K
         return v * K + c + 1
 
@@ -47,9 +53,15 @@ def solve(name, n, edges):
     print(f"{name}: |V|={n} |E|={len(edges)} clausulas={len(clauses)} -> "
           f"{'SAT (3-coloravel)' if ok else 'UNSAT (nao 3-coloravel)'}")
     if ok:
-        coloring = {v: c for v in range(n) for c in range(K)
-                    if model[v * K + c] > 0}
         # verificação independente do certificado (o ponto pedagógico de NP!)
+        # REV-0002/Kimi, finding 1: conferir EXATAMENTE UMA cor por vértice,
+        # sem confiar no solver — rejeita atribuições com 0 ou >=2 cores.
+        true_colors = {v: [c for c in range(K) if model[v * K + c] > 0]
+                       for v in range(n)}
+        assert all(len(cs) == 1 for cs in true_colors.values()), \
+            f"certificado inválido: vértices sem cor única: " \
+            f"{ {v: cs for v, cs in true_colors.items() if len(cs) != 1} }"
+        coloring = {v: cs[0] for v, cs in true_colors.items()}
         assert all(coloring[u] != coloring[v] for u, v in edges), "certificado inválido"
         print(f"  certificado (verificado em tempo linear): {coloring}")
 

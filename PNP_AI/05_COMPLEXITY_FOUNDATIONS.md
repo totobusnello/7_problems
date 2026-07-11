@@ -54,9 +54,9 @@ Seja L ∈ NP via NTM N com tempo Q(n). Fixe w, n = |w|. Uma computação aceita
 - z[t, i]: "no passo t, a cabeça está na célula i".
 
 Cláusulas em cinco grupos, todas de tamanho O(1) ou O(Q(n)):
-(G1) consistência: cada célula tem exatamente um símbolo; um estado e uma posição de cabeça por passo;
+(G1) consistência: cada célula tem exatamente um símbolo; um estado e uma posição de cabeça por passo — "exatamente um" = "pelo menos um" (uma cláusula com as opções) ∧ "no máximo um" (cláusulas binárias ¬a∨¬b por par), como no grupo (2) do lema 3COL;
 (G2) configuração inicial: linha 0 codifica w, estado inicial, cabeça na célula 1;
-(G3) transição: para cada janela local (célula i e vizinhas, passo t → t+1), a mudança respeita ALGUMA transição de N — a disjunção sobre as opções não determinísticas é onde o "∃ ramo" vira "∃ atribuição";
+(G3) transição: para cada janela local (célula i e vizinhas, passo t → t+1), a mudança respeita ALGUMA transição de N — a disjunção sobre as opções não determinísticas é onde o "∃ ramo" vira "∃ atribuição". Como cada janela envolve O(1) variáveis (alfabeto e estados são constantes de N), a condição da janela é uma função booleana de aridade constante, convertível a CNF com blow-up CONSTANTE — o tamanho total segue O(Q(n)²) [detalhe explicitado após REV-0002];
 (G4) inércia: células longe da cabeça não mudam;
 (G5) aceitação: alguma linha contém estado aceitante.
 Total: O(Q(n)²) janelas × O(1) cláusulas cada = fórmula de tamanho polinomial, construível em tempo polinomial por um algoritmo uniforme (varredura das janelas). Correção: atribuição satisfatória ⟺ tableau válido ⟺ ramo aceitante de N sobre w. Logo toda L ∈ NP tem L ≤p SAT; SAT ∈ NP (certificado = atribuição); portanto SAT é NP-completo. ∎
@@ -80,7 +80,7 @@ Morais: (i) para SAT, resolver a decisão já entrega a solução construtiva; (
 
 **Análogo não determinístico [FONTE: SRC-0010, Theorem 3.3, verbatim]:** f(n+1) = o(g(n)) ⟹ NTIME(f(n)) ⊊ NTIME(g(n)) (com "lazy diagonalization" — flip adiado, pois negar uma NTM diretamente custaria exponencial).
 
-**Corolário [RECONSTRUÇÃO; claim 7P-PNP-CLM-0013].** P ⊊ EXP. *Prova:* P ⊆ DTIME(2ⁿ) trivialmente (todo polinômio é o(2ⁿ/n)); pelo Theorem 3.1 com f = 2ⁿ, g = 2³ⁿ (digamos), DTIME(2ⁿ) ⊊ EXP; e P ⊆ DTIME(n^k) para cada k com n^k log n^k = o(2ⁿ) dá P ≠ EXP. ∎ — uma das POUCAS separações incondicionais que temos.
+**Corolário [RECONSTRUÇÃO; claim 7P-PNP-CLM-0013].** P ⊊ EXP. *Prova:* P ⊆ DTIME(2ⁿ), pois todo n^k é eventualmente < 2ⁿ. Pelo Theorem 3.1 com f(n) = 2ⁿ e g(n) = 2³ⁿ (2ⁿ·log 2ⁿ = o(2³ⁿ)), existe UMA linguagem L ∈ DTIME(2³ⁿ) ⊆ EXP com L ∉ DTIME(2ⁿ) ⊇ P — logo L ∉ P. ∎ [Quantificadores explicitados após REV-0002/Kimi: a separação exige exibir uma única L fora de TODOS os DTIME(n^k), o que a inclusão P ⊆ DTIME(2ⁿ) entrega de uma vez.] — uma das POUCAS separações incondicionais que temos.
 
 **Moral estrutural:** diagonalização separa classes do MESMO tipo com mais recurso (det vs det; não-det vs não-det). P vs NP compara TIPOS diferentes — e a relativization (§ barreiras) explica por que a técnica pura não cruza essa fronteira.
 
@@ -101,7 +101,7 @@ Morais: (i) para SAT, resolver a decisão já entrega a solução construtiva; (
 **Colapso [RECONSTRUÇÃO; claim 7P-PNP-CLM-0016]:** P = NP ⟹ PH = P. *Ideia:* com P = NP, cada quantificador pode ser absorvido de dentro pra fora — o predicado polinomial com um ∃ na frente é NP = P, vira novo predicado polinomial; indução em i. ∎ A conjectura padrão da área é que a PH NÃO colapsa (generaliza P ≠ NP e NP ≠ coNP) — usada como "moeda de plausibilidade" em resultados condicionais.
 
 **Karp–Lipton [FONTE: SRC-0010, Theorem 6.13, verbatim]:** NP ⊆ P/poly ⟹ PH = Σᵖ₂ (com melhorias de Sipser).
-*Ideia da prova:* mostrar Πᵖ₂ ⊆ Σᵖ₂ via a linguagem Π₂SAT (∀u∃v φ(u,v)). Se NP ⊆ P/poly, existe família de circuitos polinomiais decidindo satisfatibilidade; pela **auto-redutibilidade (nosso §5!)**, existe família que PRODUZ a testemunha v. Então "∀u∃v φ" vira "∃ circuito C ∀u: φ(u, C(u))" — um ∃∀, ou seja, Σᵖ₂. ∎ (esboço)
+*Ideia da prova:* mostrar Πᵖ₂ ⊆ Σᵖ₂ via a linguagem Π₂SAT (∀u∃v φ(u,v)). Se NP ⊆ P/poly, existe família de circuitos polinomiais decidindo satisfatibilidade. **Passo intermediário (não imediato — LACUNA apontada por REV-0002/Kimi e agora explicitada):** o §5 dá um ALGORITMO adaptativo com oráculo de decisão; para obter um CIRCUITO que produz a testemunha é preciso implementar essa auto-redução em hardware — compor n cópias do circuito decisor, uma por variável fixada, o que preserva tamanho polinomial (é o Theorem 2.19 de SRC-0010, search-to-decision, aplicado de forma não uniforme). Com o circuito produtor C em mãos, "∀u∃v φ(u,v)" vira "∃C ∀u: φ(u, C(u))" — um ∃∀, ou seja, Σᵖ₂. ∎ (esboço; a composição de circuitos é o detalhe a formalizar)
 **Variante de Meyer [FONTE: SRC-0010, Theorem 6.14]:** EXP ⊆ P/poly ⟹ EXP = Σᵖ₂; combinada com a hierarquia de tempo: P = NP ⟹ EXP ⊄ P/poly.
 
 **Interpretação para o programa:** (i) o atalho não uniforme para NP custaria o colapso da PH — evidência estrutural de NP ⊄ P/poly; (ii) upper bounds podem gerar lower bounds (Meyer) — inversão que reaparece nas fronteiras modernas (FASE 4); (iii) P/poly = TMs com advice polinomial por tamanho de entrada = exatamente o modelo das "tabelas escondidas" das confusões proibidas do charter. [Primária: Karp–Lipton 1982, L'Enseignement Math. 28:191–209 — SRC-0013, A OBTER; secundária identificada: notas Waterloo CS860.]

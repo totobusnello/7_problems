@@ -148,3 +148,30 @@ Destaques: Q6 com o detalhe "polinomial no nº de bits"; Q8 com o quantificador 
 **Chamadas externas de modelo:** 0.
 
 ---
+
+## 2026-07-10 — CICLO 6 — REV-0002: revisão Kimi do branch inteiro + correções (pedido de Luiz)
+
+**Chamada:** Kimi (Moonshot, 2ª família de modelo usada pelo programa) revisou o diff completo do branch antes do merge. Veredito: **concern**, 12 findings. Adjudicação (revisor também é auditado — cada finding conferido contra as fontes antes de aplicar):
+
+| # | Finding | Adjudicação | Ação |
+|---|---|---|---|
+| 1 | Verificação do certificado no script não confere "exatamente uma cor" | **ACEITO** | Script endurecido + re-executado (mesmos resultados) + testes negativos |
+| 2 | DERIVED_CHECKED do 0010 inflado (1 família, sem humano) | **ACEITO em parte** | Estado mantido (a derivação FOI conferida adversarialmente), mas instituída a **regra de dupla família** para uso como dependência; interpretação de 09 (humano p/ candidatos a resultado) documentada |
+| 3 | Estados fora da lista fechada | **ACEITO** | Convenção "ESTADO · ressalva" normalizada nos 2 ledgers |
+| 4 | Enunciado de natural proofs "invertido" | **PARCIAL** — verbatim de SRC-0015 mostra que NÃO estava invertido, estava AMBÍGUO (faltava "no máximo" na dureza) | Redação precisada com a contrapositiva operacional explícita |
+| 5 | Salto no esboço de Karp–Lipton (circuito decisor → circuito produtor) | **ACEITO** — lacuna técnica real | Passo search-to-decision não uniforme explicitado como lacuna a formalizar |
+| 6 | Campos obrigatórios ausentes nos claims | **ACEITO com interpretação** | Registro completo instituído p/ claims DERIVADOS (0010 preenchido como exemplar); reconstruções apontam pros docs de reconstrução |
+| 7 | Sem validação de entrada no script | **ACEITO** | Validação de range/laços + testes |
+| 8 | Quantificadores imprecisos em P ⊊ EXP | **ACEITO** | Prova reescrita exibindo UMA L fora de P |
+| 9 | Literais ≠ cláusulas (9n+6\|E\| vs 4n+3\|E\|) | **ACEITO** | Contagem de literais explicitada |
+| 10 | AKS atribuído a COMPOSITES | **ACEITO** | Redação corrigida (PRIMES ∈ P; ambos por complemento) |
+| 11 | Referência a 08_RESEARCH_FRONTIERS vazio | **ACEITO** | Marcado explicitamente como stub/pendente |
+| 12 | Esboço Cook–Levin omite exactly-one e conversão CNF de G3 | **ACEITO** | Detalhes adicionados (pairwise + blow-up constante por janela de aridade O(1)) |
+
+**Meta-observação:** o programa agora tem evidência empírica do valor de famílias distintas — Codex pegou um gap de complexidade que eu não vi (REV-0001); Kimi pegou 10 problemas que Codex e eu não vimos (REV-0002); e a adjudicação pegou 1 finding do Kimi que estava impreciso. Nenhuma camada sozinha bastaria.
+
+**Chamadas externas de modelo do ciclo:** 1 (Kimi).
+
+**Próxima ação:** merge do PR #6 (decisão de Luiz) e abertura de PR novo para a FASE 5.
+
+---

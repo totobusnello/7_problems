@@ -32,7 +32,7 @@ Proposta sem respostas a 1–6 → estado máximo permitido: `HEURISTIC`. O REVI
 - **Largeness:** |Cₙ| ≥ 2^(−O(n))·|Fₙ| — a propriedade vale para fração não desprezível de TODAS as funções;
 e é *useful* contra P/poly se toda sequência fₙ ∈ Cₙ exige circuitos superpolinomiais.
 
-**Teorema central [FONTE: SRC-0015, Theorem 4.1, verbatim]:** não existe prova de lower bound P/poly-natural contra P/poly, a menos que todo gerador pseudoaleatório em P/poly tenha dureza 2^(k^o(1)) — em particular, se existem funções 2^(n^ε)-difíceis, não existe prova natural contra P/poly.
+**Teorema central [FONTE: SRC-0015, Theorem 4.1, verbatim]:** não existe prova de lower bound P/poly-natural contra P/poly, a menos que TODO gerador pseudoaleatório em P/poly tenha dureza **no máximo** 2^(k^o(1)) — isto é, a menos que todos os PRGs sejam fracos. Contrapositiva operacional (o "In particular" do paper): **se existem** funções 2^(n^ε)-difíceis (PRGs fortes), **então não existe** prova P/poly-natural contra P/poly. [Redação precisada após REV-0002/Kimi flagar ambiguidade — o "no máximo" estava implícito e podia inverter a leitura.]
 
 **Mecânica (autodestruição):** uma propriedade natural útil contra P/poly seria um DISTINGUIDOR eficiente entre funções aleatórias (que têm a propriedade, por largeness) e funções pseudoaleatórias (que não têm, por usefulness — PRGs vivem em P/poly). Ou seja: a prova de que "circuitos são fracos" forneceria um algoritmo que quebra os geradores construídos a partir dessa mesma dureza. Exemplo concreto do paper: não há prova natural de que o logaritmo discreto exige circuitos exponenciais [FONTE: SRC-0015].
 
@@ -53,7 +53,7 @@ e é *useful* contra P/poly se toda sequência fₙ ∈ Cₙ exige circuitos sup
 |---|---|---|
 | Relativization | diagonalização/simulação caixa-preta | aritmetização (mas ver Barreira 3); propriedades específicas do mundo não relativizado |
 | Natural proofs | lower bounds via propriedades amplas+construtivas | propriedades raras ou não construtivas; contagem; abordagens via meta-complexidade |
-| Algebrization | aritmetização estendida | técnicas que exploram estrutura além de extensões de baixo grau (fronteira ativa: GCT, hardness magnification, meta-complexidade — mapear em `08_RESEARCH_FRONTIERS.md`) |
+| Algebrization | aritmetização estendida | técnicas que exploram estrutura além de extensões de baixo grau (fronteira ativa: GCT, hardness magnification, meta-complexidade — mapear em `08_RESEARCH_FRONTIERS.md`, **ainda stub, entregável pendente**) |
 
 ## Leitura estratégica
 

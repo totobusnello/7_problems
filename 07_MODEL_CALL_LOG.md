@@ -18,6 +18,8 @@ analyze a structured mathematical claim package (statement, hypotheses,
 proof sketch, complexity claims). Max 60 words.
 ```
 
-## Canais adversariais disponíveis (não testados nesta sessão)
+| 4 | 2026-07-10 | Kimi plugin (kimi-review, read-only, agente ad1d5de7ac95ad3ac) | Kimi (Moonshot) | **REV-0002** — revisão adversarial do DIFF COMPLETO do branch (10 commits, 33+ arquivos) antes do merge do PR #6 | **SUCESSO — veredito "concern", 12 findings** (6 importantes + 6 menores). Adjudicação completa no RESEARCH_LOG (Ciclo 6): 10 aceitos e corrigidos; 1 parcialmente aceito (finding 4 alegou inversão do Thm 4.1 de RR — o verbatim mostra que era AMBIGUIDADE, não inversão; redação precisada); 1 aceito com interpretação (finding 6 — registro completo instituído para claims derivados). Gerou 2 regras novas: convenção de Estado com lista fechada + regra de dupla família para dependências. Nota operacional: wrapper exigiu `CLAUDE_PLUGIN_DATA` manual. |
 
-Kimi (Moonshot) · GLM-5.2 (Zhipu) · Grok 4.5 (xAI) — wrappers read-only já configurados no workspace. Serão testados quando o primeiro claim package existir.
+## Canais adversariais disponíveis (ainda não usados)
+
+GLM-5.2 (Zhipu) · Grok 4.5 (xAI) — wrappers read-only já configurados. Entram quando um claim exigir vereditos de múltiplas famílias (ex.: 2ª revisão do claim 0010).

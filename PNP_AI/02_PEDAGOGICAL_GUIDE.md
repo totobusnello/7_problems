@@ -40,7 +40,7 @@ P = linguagens decidíveis por alguma máquina de Turing em tempo polinomial
 ```
 *Interpretação:* P é o clube dos problemas de decisão que possuem um algoritmo eficiente que **resolve** o problema — dá a resposta certa para TODA entrada, dentro do prazo polinomial, no **pior caso**.
 
-Exemplos em P (do doc oficial de Cook): decidir se um número é um quadrado perfeito; decidir se um número é composto (resultado que só entrou em P em 2002 — antes disso só se sabia *verificar* rapidamente).
+Exemplos em P (do doc oficial de Cook): decidir se um número é um quadrado perfeito; e primalidade — o AKS (2002) provou **PRIMES ∈ P** (logo COMPOSITES ∈ P também, por complemento). Antes de 2002, ambos os lados só tinham *verificação* rápida: compostos via fator, primos via certificado de Pratt. [Redação corrigida após REV-0002 — a versão anterior atribuía o resultado de 2002 a COMPOSITES.]
 
 **Pergunta de compreensão:** por que a definição exige pior caso? O que quebraria se aceitássemos "rápido na maioria das entradas"? (Dica: quem escolhe as entradas num cenário adversarial?)
 
