@@ -51,17 +51,18 @@
 
 | Canal | Estado | Detalhe |
 |---|---|---|
-| OpenAI API direta | **PRECISA DE CONFIGURAÇÃO HUMANA** | `OPENAI_API_KEY` do `~/.zshrc` retornou `invalid_api_key` em 2026-07-10. Renovar key. Registrado em `07_MODEL_CALL_LOG.md` |
-| OpenAI via Codex MCP | **DISPONÍVEL E TESTADA** | Chamada real 2026-07-10: identifica-se como "Codex, an OpenAI agent based on GPT-5"; contexto isolado confirmado; apto a referee adversarial |
+| OpenAI via Codex MCP (OAuth ChatGPT) | **DISPONÍVEL E TESTADA — CANAL OFICIAL** | Decisão de Luiz (2026-07-10): este é o canal OpenAI do programa. Chamada real: identifica-se como "Codex, an OpenAI agent based on GPT-5"; contexto isolado confirmado; apto a referee adversarial |
+| OpenAI API direta (key) | **DESCARTADA POR DECISÃO** (2026-07-10) | Key do `~/.zshrc` inválida E desnecessária — OAuth via Codex cobre o caso de uso. Reconsiderar só se surgirem chamadas programáticas em lote fora do MCP |
 | Kimi (Moonshot) | **DISPONÍVEL, AINDA NÃO TESTADA** | `/kimi:{review,challenge,ask}` — OAuth ativo |
 | GLM-5.2 (Zhipu) | **DISPONÍVEL, AINDA NÃO TESTADA** | wrapper `~/Claude/scripts/glm`, read-only |
 | Grok 4.5 (xAI) | **DISPONÍVEL, AINDA NÃO TESTADA** | wrapper `~/Claude/scripts/grok`, pay-as-you-go |
 
 4 famílias de treino independentes de Claude (OpenAI, Moonshot, Zhipu, xAI) → revisão adversarial multi-modelo é viável hoje.
 
-## Gaps prioritários para a Sessão 1
+## Gaps prioritários (atualizado 2026-07-10, pós-Ciclo 2)
 
-1. Renovar `OPENAI_API_KEY` (ação de Luiz) — ou padronizar Codex MCP como canal OpenAI.
-2. Instalar camada matemática Python: `sympy scipy networkx z3-solver python-sat` (leve, sem custo).
-3. Decidir sobre Lean 4 + Mathlib (formalização progressiva de PNP-AI).
-4. Testar pipeline de papers (arXiv → parse → source ledger) com o artigo math/0306075.
+1. ~~OPENAI_API_KEY~~ **RESOLVIDO por decisão:** Codex MCP (OAuth) é o canal OpenAI oficial do programa.
+2. ~~Camada matemática Python~~ **FEITO:** sympy, z3, pysat, networkx, scipy, pypdf instalados e testados.
+3. Decidir sobre Lean 4 + Mathlib (formalização progressiva de PNP-AI) — proposta na FASE 3.
+4. ~~Pipeline de papers~~ **VALIDADO** no Ciclo 2 (busca → download → parse local → conferência verbatim → ledger); falta aplicar ao artigo math/0306075 (NS-PROB).
+5. OCR local (tesseract) para conferência verbatim de scans (Karp) — instalar quando a FASE 3 precisar.

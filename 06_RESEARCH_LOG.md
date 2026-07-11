@@ -62,3 +62,9 @@
 **Próxima ação proposta:** FASE 3 (reconstrução técnica: fundamentos, Cook–Levin com prova, equivalência verificador/NTM) — inclui processar as fontes primárias obtidas.
 
 ---
+
+## 2026-07-10 — DECISÃO — Canal OpenAI = Codex MCP (OAuth)
+
+Luiz: "Pra que OpenAI API!? Temos integração por OAuth c/ GPT." Decisão registrada: o canal OpenAI oficial do programa é o **Codex MCP (OAuth ChatGPT, GPT-5)**, já testado. A API key direta é DESCARTADA (inválida e desnecessária); reconsiderar apenas se surgirem chamadas programáticas em lote fora do MCP. Bloqueio removido de todos os artefatos. Em seguida: sessão de perguntas sobre o guia pedagógico (FASE 2).
+
+---
