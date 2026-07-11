@@ -1,7 +1,12 @@
-# DRAFT — Contato com K. Krinkin (repo `krinkin/bounds`) — AGUARDANDO APROVAÇÃO DE LUIZ
+# Contato com K. Krinkin (repo `krinkin/bounds`) — PARTE A ENVIADA
 
-> **Status: DRAFT. NADA FOI ENVIADO.** Regra 10_PUBLICATION_RULES: qualquer contato externo exige
-> autorização explícita de Luiz + aprovação do texto final. Este arquivo é o texto proposto.
+> **Status (2026-07-11): ISSUE ABERTA — https://github.com/krinkin/bounds/issues/1** (autorização
+> explícita de Luiz: "vamos fazer a pergunta pro Krinkin primeiro certo? pode fazer"). Texto enviado =
+> Parte A abaixo, com hashes de CNF completos. **Parte B (PR) segue BLOQUEADA** até resposta do autor
+> + novo OK de Luiz.
+>
+> Histórico: draft criado 2026-07-11 sob a regra 10_PUBLICATION_RULES (contato externo exige
+> autorização explícita de Luiz + aprovação do texto).
 >
 > **Sequência proposta (recomendação da REV-0005/GLM):** abrir primeiro a ISSUE (pergunta antes de
 > afirmar); se o autor confirmar interesse, abrir o PR (fork → branch → PR) com o diff da Parte B.

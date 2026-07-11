@@ -274,3 +274,11 @@ Destaques: Q6 com o detalhe "polinomial no nº de bits"; Q8 com o quantificador 
 **Chamadas externas de modelo:** 1 (REV-0005). Limite do ciclo respeitado.
 
 **Estado ao fim do ciclo:** re-check CONCLUÍDO com novidade SUSTENTADA; claims 0022/0023 fortalecidos (adição datada no ledger); canal GLM validado (inventário atualizado). Contato com o autor SEGUE BLOQUEADO aguardando autorização explícita de Luiz (10_PUBLICATION_RULES).
+
+### Adendo do Ciclo 10 (2026-07-11) — CONTATO EXTERNO AUTORIZADO E EXECUTADO
+
+**Autorização de Luiz (verbatim):** "vamos fazer a pergunta pro Krinkin primeiro certo? pode fazer" — após revisar o draft (commit `13c4684` + fix `aa6c11a`).
+
+**Ação:** Issue aberta em `krinkin/bounds` — **https://github.com/krinkin/bounds/issues/1** — pela conta `totobusnello`. Primeiro contato externo do programa. Formato pergunta-antes-de-afirmar (REV-0005): pergunta se o gap segue aberto, oferece PR, entrega cadeia de verificação completa (hashes DRAT/CNF, circuitos + snippet de simulação, efeito no verify_all.py dele: 987→995 arestas com bound PASS) e nota de proveniência AI-assisted explícita.
+
+**Bloqueios remanescentes:** Parte B (PR com o diff do CSV/README) aguarda resposta do autor + novo OK de Luiz. Provas grandes (4,5/3,9GB): hospedagem só se ele pedir (Zenodo vs link direto — decisão de Luiz pendente).
