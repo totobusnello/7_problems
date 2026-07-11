@@ -157,7 +157,7 @@
 - **Uso:** estado da arte de exact synthesis sobre o conjunto NPN5 (616.126 classes); bibliotecas de rewriting pré-computam ótimos para subconjuntos. Due diligence obrigatória do recorte A. **Consulta:** 2026-07-11 (abstracts). **Estado:** REFERENCIADO.
 
 ### SRC-0032 — Krinkin, "The Unit Gap: How Sharing Works in Boolean Circuits" (arXiv:2603.08033, 1 citação)
-- **Uso:** segundo paper do autor do catálogo NPN-4, sobre estrutura de circuitos AIG ótimos — LER antes de desenhar a campanha n=5 (questões abertas prontas e/ou dados parciais). **Consulta:** 2026-07-11 (abstract via busca). **Estado:** REFERENCIADO (A OBTER).
+- **Uso:** segundo paper do autor do catálogo NPN-4, sobre estrutura de circuitos AIG ótimos — LER antes de desenhar a campanha n=5 (questões abertas prontas e/ou dados parciais). **Consulta:** 2026-07-11 (abstract via busca); PDF obtido no mesmo dia (v2, SHA em `_sources/README.md`), leitura verbatim via pypdf. **Estado (atualizado 2026-07-11): GAP_FOUND — Teorema 2 ("Unit Gap"), Corolário 6 e Teorema 7 REFUTADOS por contraexemplo ⊕₃ (claims 7P-PNP-CLM-0024/0025, revisão REV-0009/Grok SUSTENTADA; 2ª família pendente). Teoremas 3 e 4 sobrevivem. NÃO usar Thm 2/Cor 6/Thm 7 como dependência.**
 
 ## Template de entrada
 

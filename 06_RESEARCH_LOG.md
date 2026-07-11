@@ -366,3 +366,20 @@ Destaques: Q6 com o detalhe "polinomial no nº de bits"; Q8 com o quantificador 
 Pedido de Luiz: "resolve o kimi setup pra mim". Diagnóstico com o `setup --check` do próprio plugin, rodado do root CORRETO (cache versionado 1.5.0): **hook instalado, probe passou** ("deny reason captured" — o hook nega Bash em modo review como deve), node pinado existe, review gate no default. O warning de "path drift" da REV-0008 foi **falso positivo do nosso lançamento** (root do marketplace ≠ root pinado no config) — e, pior, aquele run rodou SEM hook ativo. Auditoria do working tree pós-REV-0008: nenhuma escrita inesperada (kimi comportou-se read-only).
 
 **Correções:** `tools/rev.sh` agora resolve o root do plugin dinamicamente pelo cache versionado (à prova de update do plugin) e o `doctor` ganhou o probe do hook como check obrigatório. Config do Luiz: intocada (não precisou de /kimi:setup).
+
+## 2026-07-11 — CICLO 17 — SRC-0032 ("The Unit Gap", Krinkin): Teorema 2, Corolário 6 e Teorema 7 REFUTADOS (claims 0024/0025)
+
+**Origem:** leitura pré-campanha do 2º paper do autor do catálogo (obrigação da Emenda 2). O abstract afirma gap(fórmula, circuito) ∈ {0,1} para TODA função booleana na base AIG — em tensão direta com separações clássicas. Leitura verbatim (pypdf) localizou a causa: a identidade do §2 usa opt (circuitos) nos filhos onde a recursão de fórmula exige tree (árvores).
+
+**Contraexemplo (⊕₃, verificado mecanicamente, artefatos em `experiments/exp_unitgap_check/`):**
+- opt(⊕₃)=6: UNSAT@5 com DRAT "s VERIFIED" + testemunha de 6 portas simulada. tree(⊕₃)=9 pelo DP exato de ponto fixo (256 funções); sanduíche independente do DP: Khrapchenko ⟹ ≥8, construção explícita ⟹ ≤9. **gap ∈ {2,3} ∌ {0,1}** — Teorema 2 falso sob a definição que o próprio paper enuncia.
+- A Tabela 1 do paper lista "2 funções gap=1 em opt=6" no n=3 completo — são exatamente ⊕₃ e ¬⊕₃, cujo gap real é 3: o experimento dele computou a grandeza errada (tree_oneshot), não formula size.
+- **REV-0009 (Grok, via rev.sh): SUSTENTADA** — e derivou refutação ADICIONAL, independente da disputa de definição: s=3 no circuito ótimo de ⊕₃ (filhos da saída compartilham as 3 portas de x1⊕x2; 1+4+4−3=6 conferido com opt(filho)=4, UNSAT@3 DRAT) ⟹ Corolário 6 (s∈{0,1}) e Teorema 7 caem juntos. Teoremas 3 e 4 SOBREVIVEM.
+
+**Claims:** 7P-PNP-CLM-0024 (gap≥2/=3) e 0025 (s=3) — COMPUTATIONALLY_TESTED, 1 família revisou (Grok); **regra de dupla família pendente** antes de qualquer comunicação técnica formal. SRC-0032 marcado GAP_FOUND no source ledger (não usar Thm2/Cor6/Thm7 como dependência).
+
+**Também neste ciclo:** cadeia k=1..9 do resultado 0x1669/0x166b ficou 100% DRAT-certificada (16/16 "s VERIFIED", fecho do F3 da REV-0008).
+
+**Decisão que passa a Luiz:** comunicar (ou não) o achado ao autor — sensível: temos issue amigável aberta no outro repo dele. Recomendação do coordenador: 2ª revisão de família antes (Codex ou Kimi, 1 chamada), e só então decidir o canal/tom.
+
+**Chamadas externas de modelo:** 1 (REV-0009).
