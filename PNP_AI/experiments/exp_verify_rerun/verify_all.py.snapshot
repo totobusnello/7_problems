@@ -1,0 +1,127 @@
+#!/usr/bin/env python3
+"""Verify Lipschitz bound on NPN-4 mutation graph.
+
+Zero dependencies beyond Python standard library (json, csv, os).
+
+Loads npn4_opt_aig.csv and mutation_graph.json, computes |diff_opt|
+for all exact-exact edges, and verifies |diff| <= n = 4.
+
+Expected output (Table 1):
+  - 222 classes (220 exact, 2 upper bound)
+  - 987 exact-exact edges
+  - Distribution: |0|=300, |1|=414, |2|=221, |3|=45, |4|=7
+  - Max |diff| = 4 = n
+  - 0 violations
+  - 7 tight edges (|diff| = 4)
+"""
+
+import csv
+import json
+import os
+import sys
+
+N = 4  # number of inputs
+
+
+def main():
+    data_dir = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'data')
+
+    # 1. Load opt_aig data
+    csv_path = os.path.join(data_dir, 'npn4_opt_aig.csv')
+    classes = {}
+    n_exact = 0
+    n_ub = 0
+
+    with open(csv_path) as f:
+        reader = csv.DictReader(f)
+        for row in reader:
+            rep = int(row['npn_rep_dec'])
+            opt = int(row['opt_aig'])
+            status = row['status']
+            classes[rep] = {'opt': opt, 'status': status}
+            if status == 'exact':
+                n_exact += 1
+            else:
+                n_ub += 1
+
+    total_classes = len(classes)
+
+    # 2. Load mutation graph
+    graph_path = os.path.join(data_dir, 'mutation_graph.json')
+    with open(graph_path) as f:
+        adj = json.load(f)
+
+    # Convert string keys to int
+    adj_int = {}
+    for k, v in adj.items():
+        adj_int[int(k)] = v
+
+    # 3. Compute |diff_opt| for exact-exact edges
+    diff_dist = {}  # diff -> count
+    violations = []
+    tight_edges = []
+    total_edges = 0
+
+    for u, neighbors in adj_int.items():
+        if classes[u]['status'] != 'exact':
+            continue
+        opt_u = classes[u]['opt']
+
+        for v in neighbors:
+            if v <= u:
+                continue  # count each edge once
+            if classes[v]['status'] != 'exact':
+                continue
+
+            opt_v = classes[v]['opt']
+            diff = abs(opt_u - opt_v)
+            total_edges += 1
+
+            diff_dist[diff] = diff_dist.get(diff, 0) + 1
+
+            if diff > N:
+                violations.append((u, opt_u, v, opt_v, diff))
+
+            if diff == N:
+                tight_edges.append((u, opt_u, v, opt_v))
+
+    max_diff = max(diff_dist.keys()) if diff_dist else 0
+
+    # 4. Print report
+    print(f'Lipschitz Bound Verification (n={N})')
+    print(f'{"=" * 50}')
+    print()
+    print(f'Total NPN classes:   {total_classes}')
+    print(f'  Exact:             {n_exact}')
+    print(f'  Upper bound:       {n_ub}')
+    print()
+    print(f'Exact-exact edges:   {total_edges}')
+    print(f'Max |diff_opt|:      {max_diff}')
+    print()
+    print(f'Distribution of |diff_opt|:')
+    print(f'  {"|diff|":>6}  {"count":>6}  {"%":>7}')
+    print(f'  {"-"*6}  {"-"*6}  {"-"*7}')
+    for d in sorted(diff_dist.keys()):
+        pct = 100.0 * diff_dist[d] / total_edges
+        print(f'  {d:>6}  {diff_dist[d]:>6}  {pct:>6.1f}%')
+    print(f'  {"-"*6}  {"-"*6}  {"-"*7}')
+    print(f'  {"total":>6}  {total_edges:>6}  {100.0:>6.1f}%')
+    print()
+
+    print(f'Tight edges (|diff| = {N}): {len(tight_edges)}')
+    for u, ou, v, ov in sorted(tight_edges):
+        print(f'  0x{u:04x} (opt={ou}) -- 0x{v:04x} (opt={ov})')
+    print()
+
+    if violations:
+        print(f'FAIL: {len(violations)} Lipschitz violations found')
+        for u, ou, v, ov, d in violations:
+            print(f'  0x{u:04x} (opt={ou}) -- 0x{v:04x} (opt={ov}), |diff|={d}')
+        return 1
+    else:
+        print(f'PASS: Lipschitz bound |diff_opt| <= {N} verified on all {total_edges} edges')
+        return 0
+
+
+if __name__ == '__main__':
+    sys.exit(main())

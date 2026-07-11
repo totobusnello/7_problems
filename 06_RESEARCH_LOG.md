@@ -306,3 +306,19 @@ Destaques: Q6 com o detalhe "polinomial no nº de bits"; Q8 com o quantificador 
 **Consequência:** claim 0010 com **dupla família CUMPRIDA** (REV-0001 OpenAI + REV-0006 Zhipu) — primeiro claim do programa **LIBERADO como dependência**. As 4 famílias adversariais (OpenAI, Moonshot, xAI, Zhipu) estão agora todas testadas e operacionais.
 
 **Chamadas externas de modelo:** 1 (REV-0006).
+
+## 2026-07-11 — CICLO 13 — Nota técnica escrita, revisada (REV-0007) e corrigida (v2)
+
+**Item 4 da fila.** Nota técnica em inglês (`PNP_AI/notes/technote_npn4_gap_closure.md`): método, resultado, reprodutibilidade e efeito no catálogo — primeiro manuscrito do pipeline de publicação do programa.
+
+**Processo (como planejado — revisão adversarial ANTES de Luiz ver):** v1 → REV-0007 (Codex/gpt-5.6-sol): **NEEDS_REVISION, 14 findings (6 MAJOR)** → todos aceitos → v2. Os MAJOR renderam correções que TRANSBORDARAM da nota para os registros internos:
+1. **Lema de minimalidade/normalização completado** (v1 omitia fan-ins iguais e o argumento de redirecionamento de fanouts) — agora enunciado com esboço de prova na §2.1 da nota.
+2. **Varredura k=1..8 reclassificada:** não é via independente do lema e não tem DRAT — é sanity check. Correção datada aplicada TAMBÉM no 12_EXPERIMENTS (a formulação "duas vias independentes" do Ciclo 10 era imprecisa).
+3. **Rerun do verify_all arquivado como experimento** (`experiments/exp_verify_rerun/`): diff de 2 linhas, snapshot do script do autor, saída integral (987→995 edges, PASS), hashes — baseline reproduz o Expected output do autor.
+4. **Unidades corrigidas nos registros:** provas = 4.785.094.117 e 3.871.475.211 bytes (o "4,5GB" era GiB rotulado como GB).
+5. **Proveniência honesta:** kissat do Mac é brew (não source); commit do drat-trim do pod não registrado — gap DECLARADO na nota em vez de encoberto.
+6. Codex confirmou empiricamente os números centrais (vars/cláusulas, testemunhas, tempos, hashes): "most numerical claims check out".
+
+**Estado:** nota v2 pronta para leitura de Luiz. Preprint/publicação seguem bloqueados (10_PUBLICATION_RULES).
+
+**Chamadas externas de modelo:** 1 (REV-0007).
