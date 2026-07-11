@@ -17,3 +17,8 @@
 
 - Toda chamada real a modelo externo é registrada em `07_MODEL_CALL_LOG.md` — nunca simular chamadas.
 - Governança de claims: correções são aditivas e datadas; não reescrever registros históricos.
+
+## Lições operacionais de infra (2026-07-11)
+
+- **pkill remoto via ssh: SEMPRE pattern bracket** (`pkill -f "pilot_[r]un.py"`) — `pkill -f string` casa com a cmdline do próprio `bash -c` que o contém e SE MATA antes das linhas seguintes (mordeu 2× em 2026-07-11).
+- **Cálculo pesado ad-hoc → pod** (decisão de Luiz): Mac fica só com workers `nice` leves; qualquer job de CPU vai pra VPS/pod que já está pago.
