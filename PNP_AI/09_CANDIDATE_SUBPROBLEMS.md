@@ -178,3 +178,106 @@ Findings e adjudicação (11 findings; os centrais):
 - **Tempo total do gate: 1,9s** (budget: 4h/instância). FER real de C1 = 5 confirmado nesta escala. Claim 7P-PNP-CLM-0021 registrado (FINITE_SCOPE_VERIFIED).
 
 **Consequência (conforme pré-registro): C1 ganha SELEÇÃO PROVISÓRIA** para a sonda k=9 limitada nas 2 classes pendentes (0x1669, 0x166b), condicionada a budget e critério de aborto aprovados por Luiz. Ressalva de escala mantida: k=9 é outra ordem de dificuldade (timeout do autor do catálogo) — o resultado do gate NÃO prevê o resultado da sonda. A seleção DEFINITIVA continua exigindo os pré-requisitos (i)–(iii) acima.
+
+---
+
+## FECHAMENTO DA FASE 5 (v6, 2026-07-11) — pré-requisitos (i)–(iii) cumpridos + SELEÇÃO DEFINITIVA
+
+### (i) Alvo concreto de C2, na mesma granularidade da Unidade 1 de C1
+
+**C2-alvo formulado:** *"Para o Pigeonhole Principle PHP(n) (n+1 pombos, n buracos), com n na faixa dos
+menores casos reportados pela literatura de shortest DRAT proofs (SRC-0022): produzir com pipeline
+próprio (gerador CNF + kissat + DRAT + drat-trim) provas verificadas de PHP(n) e obter, para ao menos
+um n, prova DRAT MENOR que a melhor publicada — ou, falhando, reproduzir a curva de crescimento com
+certificados verificados e registrar a distância até o estado da arte."*
+- Mesma granularidade da Unidade 1 de C1: resposta binária (menor ou não, em bytes/lemmas), verificação
+  mecânica independente (drat-trim), custo horas–dias em hardware local, resultado intermediário real
+  (nota/contribuição de dados) em caso de sucesso.
+- Auditoria no mesmo nível: nicho auditado no Ciclo 7 (SRC-0022 — ativo e COMPETITIVO; grupos
+  especializados publicando 2022–2026). Risco simétrico ao que C1 tinha: alvo dependente de literatura
+  competitiva; upside menor que o de C1 (lá havia um gap DECLARADO pelo próprio autor do catálogo).
+- Estado: FORMULADO E DISPONÍVEL — vira a primeira unidade de C2 se/quando C2 for ativado.
+
+### (ii) Busca documentada fora da shortlist C1–C5
+
+**Método (2026-07-11):** buscas web reais (Firecrawl) por linhas de "resultados certificados por SAT
+em problemas abertos" fora dos 5 candidatos; queries registradas: "SAT solver certified proof open
+problem catalog combinatorics complexity 2025 2026 verified computation"; "Heule Schur Number Five
+arXiv proof petabytes AAAI".
+
+**C6 — Combinatória extremal / conjecturas matemáticas via SAT certificado (linha Heule / MathCheck)**
+(SRC-0028, SRC-0029): resolver instâncias abertas de problemas combinatórios centenários (Schur,
+Keller, Pythagorean triples; MathCheck: SAT+CAS) com provas DRAT massivas.
+
+| Critério | Score | Justificativa |
+|---|---|---|
+| REL | 1 | Resolve INSTÂNCIAS combinatórias; não produz valores de complexidade nem dados p/ meta-complexidade — relação com P vs NP é só metodológica (mesmo ferramental) |
+| CLA 5 · FAL 5 · FOR 4 · FER 5 | — | Herda as virtudes do ferramental SAT+DRAT |
+| INT | 3 | Alvos abertos remanescentes exigem compute massivo (prova do Schur 5 ≈ 2PB) — fora do nosso envelope |
+| DUP | 1 | Nicho DOMINADO por grupos estabelecidos (CMU/Heule, Waterloo/MathCheck) com pipelines maduros |
+| ESP | 3 | Combinatória acessível, mas a fronteira real pede engenharia de escala especializada |
+| **Total base /40** | **27** | Abaixo de TODOS os candidatos da shortlist exceto C5 |
+
+**Conclusão da busca:** nenhum candidato externo identificado supera a shortlist; C6 fica registrado
+como reserva metodológica (o ferramental é o mesmo de C1/C2). A busca não foi exaustiva — limitação
+declarada; novas entradas podem ser propostas em qualquer ciclo futuro.
+
+### (iii) Pesos e âncoras fixados (vinculantes para seleções FUTURAS; limitação retrospectiva declarada)
+
+**Pesos definitivos:** REL×2, demais critérios ×1 (total /45). Racional: REL é o único critério que
+liga a fila ao objetivo máximo do charter; dobrar (e não triplicar) evita que a fila degenere em
+"só teoria de barreiras" — executabilidade continua sendo o mandato da Prioridade 1 do brief
+("construir o laboratório").
+
+**Âncoras de escala (1/3/5) por critério:**
+- REL: 1 = só metodológico · 3 = produz dados/técnicas usados pela área de complexidade · 5 = ataca diretamente questão aberta de complexidade
+- CLA: 1 = enunciado vago · 3 = formalizável com trabalho · 5 = enunciado matemático fechado
+- FAL: 1 = sem experimento decisivo · 3 = evidência parcial possível · 5 = resposta binária verificável
+- FOR: 1 = sem caminho de formalização · 3 = formalizável com bibliotecas existentes · 5 = já há mecanização parcial na área
+- FER: 1 = exige stack inexistente · 3 = exige instalação/adaptação significativa · 5 = roda com o stack atual (MEDIDO quando houver gate)
+- INT: 1 = tudo-ou-nada · 3 = subprodutos prováveis · 5 = resultado intermediário JÁ DEMONSTRADO ou quase-certo
+- DUP: 1 = nicho dominado por grupos estabelecidos · 3 = área ativa com espaço · 5 = campo aberto
+- ESP: 1 = exige especialista dedicado · 3 = literatura acessível com esforço · 5 = autossuficiente
+
+**Limitação retrospectiva (honestidade REV-0004):** estes pesos/âncoras foram fixados DEPOIS dos
+scorecards v1–v4 — para a seleção ATUAL eles não são ex-ante. Mitigação: a seleção definitiva abaixo
+NÃO se apoia em diferenças de 1–2 pontos ordinais (proibido pela adjudicação da REV-0004), e sim em
+análise de sensibilidade + dados reais entregues.
+
+### Análise de sensibilidade (scores base v4 com REL de C1 = 3, conforme REV-0004; C1 base 33)
+
+| Ponderação | C1 | C2 | C3 | C4 | C5 | C6 | Líder |
+|---|---|---|---|---|---|---|---|
+| Uniforme (/40) | **33** | 31 | 28 | 30 | 22 | 27 | C1 |
+| REL×2 (/45) — oficial | **36** | 35 | 33 | 33 | 27 | 28 | C1 (margem estreita) |
+| REL×3 (/50) — stress | **39** | **39** | 38 | 36 | 32 | 29 | **empate técnico C1/C2** |
+
+**Leitura honesta:** o scorecard NÃO decide sozinho (sob REL×3 há empate C1/C2 e C3 encosta). O
+desempate vem do que é dado real vs estimativa:
+
+| Evidência | C1 | C2 |
+|---|---|---|
+| FER | **MEDIDO** — gate em 1,9s; sonda k=9 em 21–26min | Estimado (nenhum experimento) |
+| INT | **ENTREGUE** — claims 0022/0023 FINITE_SCOPE_VERIFIED; catálogo público completado; novidade SUSTENTADA (REV-0005) | Estimado; nicho sabidamente competitivo |
+| Ponte de relevância | B3: dados de complexidade exata SÃO o insumo experimental da meta-complexidade (C3) — caminho de REL crescente auditado | Conexão com lower bounds clássicos (Haken) já madura — menos espaço |
+| Custo de troca | Zero (pipeline validado, benchmark real) | Reconstrução parcial do pipeline |
+
+### SELEÇÃO DEFINITIVA (FASE 5 ENCERRADA)
+
+**Selecionado: C1-restrito — complexidade exata de funções booleanas pequenas via SAT com certificados
+— como primeiro subproblema de pesquisa do PNP-AI.**
+
+Termos (consolidando as salvaguardas de REV-0003/REV-0004, todas cumpridas ou mantidas):
+1. Unidade 1 (gate) e Unidade 2 (sonda k=9) EXECUTADAS e CERTIFICADAS (claims 0021, 0022, 0023).
+2. **Horizonte n=5 e outras bases: HIPÓTESE sujeita a benchmark e a decisão de Luiz (FASE 6)** — não é
+   promessa (REV-0004 finding 7 permanece vinculante).
+3. A ponte C1→C3 (catálogos exatos como dados de meta-complexidade) é o critério de desenho das
+   próximas unidades: coletar mais que o valor ótimo (contagens, estrutura) quando o custo marginal
+   for baixo.
+4. C2 fica FORMULADO como reserva ativável (alvo em (i)); C4-infra segue permitido em doses mínimas
+   para formalizar claims nossos; C6 registrado como reserva metodológica.
+5. Pesos/âncoras de (iii) são vinculantes para qualquer seleção futura (aí sim, ex-ante).
+
+**O que encerra a FASE 5:** gate pré-registrado PASSOU; sonda entregou resultado científico verificado;
+pré-requisitos (i)–(iii) da v5 cumpridos nesta seção. Decisão de seleção definitiva tomada pelo
+coordenador conforme protocolo — sujeita a veto de Luiz, como tudo no programa.

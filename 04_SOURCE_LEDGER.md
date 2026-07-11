@@ -144,6 +144,12 @@
 ### SRC-0027 — Repo krinkin/bounds (dados do SRC-0019)
 - **Conferido (scrape do GitHub, 2026-07-10):** README confirma "**220 exact, 2 upper bounds**"; último commit 2026-03-10 (revisão de README); nenhum sinal de fechamento das 2 classes. Dados em `data/npn4_opt_aig.csv` + `scripts/verify_all.py` (Python stdlib). **GAP CONFIRMADO VIVO** (na data da consulta). **Estado:** SOURCE_VERIFIED (estado do repo); classes específicas a identificar no CSV quando o trabalho iniciar.
 
+### SRC-0028 — Heule, "Schur Number Five" (AAAI 2018, arXiv:1711.08076)
+- **Uso:** marco da linha "combinatória extremal / problemas centenários via SAT com certificados massivos" (prova ~2PB, verificada por checker formalmente verificado) — fonte-âncora do candidato C6 (fora da shortlist), documentado no fechamento da FASE 5. **Consulta:** 2026-07-11 (abstract arXiv + página do autor confirmados por busca). **Estado:** REFERENCIADO (abstract).
+
+### SRC-0029 — MathCheck (Waterloo) — SAT+CAS para conjecturas matemáticas (uwaterloo.ca/mathcheck; paper IJCAI 2025)
+- **Uso:** segunda fonte-âncora do candidato C6: pipeline SAT+Computer Algebra com DRAT logging para conjecturas em combinatória/teoria dos números. Mostra que o nicho fora da shortlist é ativo e DOMINADO por grupos estabelecidos (CMU/Waterloo). **Consulta:** 2026-07-11 (PDF IJCAI 2025 localizado por busca). **Estado:** REFERENCIADO (abstract/página).
+
 ## Template de entrada
 
 ```

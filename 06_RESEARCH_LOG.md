@@ -282,3 +282,17 @@ Destaques: Q6 com o detalhe "polinomial no nº de bits"; Q8 com o quantificador 
 **Ação:** Issue aberta em `krinkin/bounds` — **https://github.com/krinkin/bounds/issues/1** — pela conta `totobusnello`. Primeiro contato externo do programa. Formato pergunta-antes-de-afirmar (REV-0005): pergunta se o gap segue aberto, oferece PR, entrega cadeia de verificação completa (hashes DRAT/CNF, circuitos + snippet de simulação, efeito no verify_all.py dele: 987→995 arestas com bound PASS) e nota de proveniência AI-assisted explícita.
 
 **Bloqueios remanescentes:** Parte B (PR com o diff do CSV/README) aguarda resposta do autor + novo OK de Luiz. Provas grandes (4,5/3,9GB): hospedagem só se ele pedir (Zenodo vs link direto — decisão de Luiz pendente).
+
+## 2026-07-11 — CICLO 11 — FASE 5 FORMALMENTE ENCERRADA (pré-requisitos da v5 cumpridos; C1 seleção DEFINITIVA)
+
+**Contexto:** Luiz aprovou a fila de 5 itens ("vamos atacar a fila sugerida! qualquer coisa me chama"). Item 1: fechar a dívida de governança da FASE 5 — os 3 pré-requisitos que a REV-0004 impôs à seleção definitiva.
+
+**Executado (registro integral em 09_CANDIDATE_SUBPROBLEMS.md, seção v6):**
+- **(i) Alvo concreto de C2** formulado na mesma granularidade da Unidade 1 de C1: shortest DRAT proofs de PHP(n) (SRC-0022) — binário, verificável por drat-trim, custo horas–dias. Fica como reserva ativável.
+- **(ii) Busca fora da shortlist** documentada (queries reais registradas): candidato C6 — combinatória extremal/conjecturas via SAT certificado (linha Heule/MathCheck; SRC-0028 e SRC-0029 novos no ledger). Pontuado: 27/40 — não supera a shortlist (REL=1, DUP=1: nicho dominado, provas de ~2PB fora do envelope).
+- **(iii) Pesos e âncoras fixados:** REL×2, âncoras 1/3/5 por critério — vinculantes para seleções FUTURAS; limitação retrospectiva declarada explicitamente (não são ex-ante para ESTA seleção; mitigação = análise de sensibilidade).
+- **Análise de sensibilidade (honesta):** C1 lidera sob pesos uniformes e REL×2; sob REL×3 há EMPATE técnico C1/C2. O scorecard não decide sozinho — o desempate é dado real vs estimativa: FER/INT de C1 MEDIDOS e ENTREGUES (gate 1,9s; sonda 21–26min; claims 0021–0023 verificados; novidade sustentada), C2 só estimado.
+
+**SELEÇÃO DEFINITIVA: C1-restrito**, com termos consolidados: n=5 segue HIPÓTESE sujeita a benchmark + decisão de Luiz (FASE 6); ponte C1→C3 como critério de desenho; C2/C6 como reservas; pesos vinculantes daqui em diante. Sujeita a veto de Luiz.
+
+**Chamadas externas de modelo:** 0 neste ciclo (buscas web não contam como chamadas de modelo).
