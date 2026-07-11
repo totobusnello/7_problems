@@ -112,3 +112,27 @@ sob demanda. Contratação é decisão de Luiz com os números do piloto na mesa
    execuções futuras). Autorização do piloto: Luiz forneceu o SSH em resposta ao checkpoint.
 5. **Lançado:** 2026-07-11 16:35 UTC — 16 workers paralelos, 320 classes em 16 shards round-robin,
    budget 7.200s/classe (pré-registrado), sem proof logging. Scripts em `experiments/exp_pilot_n5/`.
+
+## EMENDA 2 (2026-07-11) — estrato extra no Mac + verificação de novidade do n=5 (item 5.5)
+
+**Estrato extra (pré-registrado antes de rodar):** +150 classes aleatórias (seed=20260712, dedup
+contra a amostra do pod — 0 colisões), rodando no Mac (6 workers `nice`, mesmo protocolo/budget).
+Eleva a amostra aleatória de 300→450 classes; custo marginal zero. Total do piloto: 470 classes.
+
+**Verificação de novidade do n=5 (buscas 2026-07-11; fontes a registrar no ledger):**
+- **Knuth computou o custo mínimo de TODAS as 616.126 classes NPN-5** — no modelo *Boolean chains*
+  (qualquer op binária custa 1, incl. XOR). **Modelo ≠ base AIG** (XOR = 3 ANDs em AIG): os valores
+  não são os nossos, mas o recorte A perde o rótulo "nunca ninguém computou n=5" — o honesto é
+  "primeiro catálogo COMPLETO n=5 NA BASE AIG, se confirmado que não existe".
+- Soeken et al. (DATE'18 "Practical Exact Synthesis"; ISMVL'17 "Classifying Functions with Exact
+  Synthesis") trabalham com o conjunto NPN5 explicitamente; bibliotecas de rewriting (Li 2011,
+  mockturtle) pré-computam circuitos ótimos para SUBCONJUNTOS de NPN-5.
+- **Krinkin tem 2º paper (arXiv:2603.08033, "The Unit Gap: How Sharing Works in Boolean Circuits",
+  1 citação):** estrutura de circuitos AIG ótimos — mesma linha; LER antes de desenhar a campanha
+  (pode conter questões abertas prontas ou dados n=5 parciais).
+- Um preprint de 2026 (arXiv:2605.01637) enumera representantes NPN-5 e computa estatísticas em
+  10k deles — a metodologia de enumeração das 616.126 classes é reproduzível.
+- **Consequência p/ os recortes:** A vira "catálogo AIG completo n=5 — condicionado a due diligence
+  de que não existe (incl. conferir se os dados de Knuth são conversíveis)"; C (dataset
+  meta-complexidade com metadados que NINGUÉM coleta: contagens, estrutura, custo) fica MAIS
+  atraente em termos de novidade. Decisão continua com Luiz, após o piloto.

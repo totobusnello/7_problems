@@ -150,6 +150,15 @@
 ### SRC-0029 — MathCheck (Waterloo) — SAT+CAS para conjecturas matemáticas (uwaterloo.ca/mathcheck; paper IJCAI 2025)
 - **Uso:** segunda fonte-âncora do candidato C6: pipeline SAT+Computer Algebra com DRAT logging para conjecturas em combinatória/teoria dos números. Mostra que o nicho fora da shortlist é ativo e DOMINADO por grupos estabelecidos (CMU/Waterloo). **Consulta:** 2026-07-11 (PDF IJCAI 2025 localizado por busca). **Estado:** REFERENCIADO (abstract/página).
 
+### SRC-0030 — Knuth, custos mínimos das 616.126 classes NPN-5 (TAOCP 4A, Boolean chains; cf. cp4space 2019)
+- **Uso:** verificação de novidade do n=5 (FASE 6): Knuth computou custo mínimo de TODAS as classes NPN-5 no modelo **Boolean chains** (qualquer op binária = custo 1, incl. XOR) — modelo DISTINTO da base AIG. Relevante como (a) limite do claim de novidade do recorte A, (b) possível fonte de bounds/sanity. **Consulta:** 2026-07-11 (busca; post cp4space "Five-input Boolean circuits" 2019). **Estado:** REFERENCIADO (a obter/conferir modelo em detalhe antes da campanha).
+
+### SRC-0031 — Soeken et al., "Classifying Functions with Exact Synthesis" (ISMVL 2017) + "Practical Exact Synthesis" (DATE 2018)
+- **Uso:** estado da arte de exact synthesis sobre o conjunto NPN5 (616.126 classes); bibliotecas de rewriting pré-computam ótimos para subconjuntos. Due diligence obrigatória do recorte A. **Consulta:** 2026-07-11 (abstracts). **Estado:** REFERENCIADO.
+
+### SRC-0032 — Krinkin, "The Unit Gap: How Sharing Works in Boolean Circuits" (arXiv:2603.08033, 1 citação)
+- **Uso:** segundo paper do autor do catálogo NPN-4, sobre estrutura de circuitos AIG ótimos — LER antes de desenhar a campanha n=5 (questões abertas prontas e/ou dados parciais). **Consulta:** 2026-07-11 (abstract via busca). **Estado:** REFERENCIADO (A OBTER).
+
 ## Template de entrada
 
 ```
