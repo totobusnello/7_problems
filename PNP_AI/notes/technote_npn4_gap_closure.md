@@ -14,9 +14,9 @@ classes of 4-variable Boolean functions (arXiv:2603.09379) left exactly two clas
 `0x1669` and `0x166b`, each with a certified upper bound of 10 gates and a SAT-solver timeout at
 gate count 9. We close both entries: **opt(0x1669) = opt(0x166b) = 10**. The lower bounds rest on a
 normalization lemma (every minimum-size AIG can be brought into the normal form our encoding
-searches) together with UNSAT results at k = 9 carrying DRAT proofs (4,785,094,117 and
-3,871,475,211 bytes) generated and checked on two machines; uncertified solver runs at k = 1..8
-(all UNSAT) provide an additional sanity check. The upper bounds are witnessed by explicit 10-gate
+searches) together with DRAT-certified UNSAT results at every gate count k = 1..9 — the k = 9
+proofs (4,785,094,117 and 3,871,475,211 bytes) generated and checked on two machines, the k = 1..8
+proofs (up to 204 MB) checked with the same toolchain. The upper bounds are witnessed by explicit 10-gate
 circuits verified by exhaustive simulation. With the two entries settled, re-running the catalog's
 own verification script extends its exact-exact mutation-edge set from 987 to 995 edges, and the
 paper's Lipschitz bound (|Δopt| ≤ n) holds on all of them, with the maximum observed difference
@@ -77,10 +77,9 @@ topological order. ∎
 
 Consequently, UNSAT of the k = m formula refutes opt(f) = m, for every m ≥ 1. (k = 0 is excluded
 directly: neither function is a constant or a literal.) The certified lower-bound chain for this
-note is: **normalization lemma + DRAT-verified UNSAT at k = 9 + the catalog-independent 10-gate
-witnesses**, giving opt ∉ {9} and opt ≤ 10; the additional runs at k = 1..8 (Section 3.1) rule out
-opt = m for m ≤ 8 through the same lemma, as uncertified solver results (no proof logging) — a
-sanity check, not an independent certification route.
+note is: **normalization lemma + DRAT-verified UNSAT at every k = 1..9 + the catalog-independent
+10-gate witnesses**, giving opt ∉ {1..9} and opt ≤ 10. Every UNSAT in the chain carries a DRAT
+proof checked by drat-trim; no step relies on an unverified solver answer.
 
 **Symmetry breaking soundness.** (N2) is the only constraint beyond the textbook encoding; as shown
 above it is sound for deciding opt = k. It was added for the k = 9 probes and the full validation
@@ -130,10 +129,11 @@ core. CNF files: 1,781,704 bytes each; SHA-256
 `ae822d229081d3c888de86275c6373060bdd4f43c8f9cfaa8c0a507d0df87d1a` (0x1669),
 `3e66960696edf4cbdf2b5e83d6bff388a8ca297b160bb803570b912b478ca64f` (0x166b).
 
-**Sanity sweep k = 1..8 (uncertified).** The same encoder, run without proof logging, returns UNSAT
-at every gate count from 1 to 8 for both classes — worst case k = 8: 47.9 s (0x166b) and 39.2 s
-(0x1669); 993 variables, 89,495 clauses. Via the normalization lemma these runs rule out opt = m
-for each m ≤ 8, subject to trusting the solver's UNSAT answers (no DRAT was logged for them).
+**Certified sweep k = 1..8.** The same encoder returns UNSAT at every gate count from 1 to 8 for
+both classes, each run with proof logging and checked by drat-trim (`s VERIFIED`, 16 of 16). Proof
+sizes grow from KBs to 203.6 MB (0x166b, k = 8) and 170.4 MB (0x1669, k = 8); per-proof SHA-256
+hashes are archived. At k = 8 the formula has 993 variables and 89,495 clauses. Via the
+normalization lemma these certified results rule out opt = m for every m ≤ 8.
 
 ### 3.2 Upper bounds: explicit 10-gate witnesses
 
@@ -172,8 +172,8 @@ Finite-scope result: two specific NPN classes, in the AIG basis, under the catal
 (2-input AND gates, free inversions, size = AND-gate count). Nothing asymptotic follows. The values
 are as strong as the verification chain: the normalization lemma (paper-and-pencil, stated in
 §2.1), semantic validation of the encoder at small scales, and solver-independent DRAT checking at
-k = 9; the encoder itself is not formally verified, and the k = 1..8 sweep is uncertified. Timings
-are single-run wall-clock times, not benchmarks.
+every k = 1..9; the encoder itself is not formally verified. Timings are single-run wall-clock
+times, not benchmarks.
 
 ## 5. Provenance and reproducibility
 

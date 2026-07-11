@@ -15,5 +15,6 @@
 | razborov-rudich-1997-natural-proofs-jcss.pdf | mit6875.github.io/PAPERS/natural_proofs.pdf (versão JCSS 1997) | `5866e265ab9aa1fb10fe4d9b41009c81d95dc0d4dc0cc073539f5775a7eb81dc` | SRC-0015 |
 | aaronson-wigderson-algebrization.pdf | scottaaronson.com/papers/alg.pdf (cópia do autor) | `2684e39962163da6bcfb9d17f2f49986b031f29d81a7fa5ac063d95454c3a856` | SRC-0016 |
 | fortnow-relativization-survey.pdf | lance.fortnow.com/papers/files/relative.pdf | `691c660b69e46f0c0e2f51dc9cedd32ceffb46f1bad8d8866f37242bb38f7949` | SRC-0017 |
+| krinkin_2026_unit_gap.pdf | arxiv.org/pdf/2603.08033 (v2, 19 Mar 2026) | `245cb67c5304a21435e5422fb14d0133ec1fdd7ba2e1eb8105cb48d9f6ab183f` | SRC-0032 |
 
 Verificar integridade: `shasum -a 256 -c` contra os hashes acima.
