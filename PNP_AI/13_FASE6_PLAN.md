@@ -90,3 +90,25 @@ sob demanda. Contratação é decisão de Luiz com os números do piloto na mesa
 2. Escolha do recorte (A–D) — só depois dos dados do piloto.
 3. Contratação de VPS/dedicado — só depois do piloto; até lá, pod sob demanda.
 4. Qualquer publicação do que sair do n=5 (10_PUBLICATION_RULES, como sempre).
+
+---
+
+## EMENDA 1 (2026-07-11, ANTES da execução do piloto) — desenho de amostragem corrigido
+
+1. **Amostragem:** o pré-registro dizia "300 classes sorteadas uniformemente". Uniforme SOBRE CLASSES
+   exigiria enumerar as 616.126 classes (computação pesada que o piloto não pressupõe). Corrigido
+   para: **uniforme sobre FUNÇÕES** (truth tables de 32 bits, seed=20260711), canonicalizadas para
+   NPN (7.680 transformações), com **tamanho de órbita registrado por classe** ⟹ estimativas
+   sobre classes usam pesos de Horvitz-Thompson w=1/órbita. Viés declarado e corrigível.
+2. **Simétricas:** o plano dizia "16 funções simétricas" — o correto para n=5 é **64** (2^6 mapas de
+   popcount); canonicalizadas resultaram em **20 classes NPN distintas** adicionais (0 sobreposição
+   com o estrato aleatório). Amostra final: **320 classes**.
+3. **Pré-gate executado e PASSOU (2026-07-11):** validação bidirecional COMPLETA de n=3 — 256/256
+   funções, encoder ≡ enumeração independente até k=4 (230 alcançáveis batem; 26 inalcançáveis
+   confirmadas UNSAT k=1..4), com verificação por simulação de todo SAT.
+4. **Infra:** pod foi RE-PROVISIONADO por Luiz (novo endpoint; mesmo hardware EPYC 4564P 16c/124GB;
+   Ubuntu 20.04 neste container); stack reinstalado do fonte (kissat 4.0.4; drat-trim commit 2e3b2dc
+   — agora REGISTRADO também para o pod, fechando o gap de proveniência da REV-0007 finding 9 para
+   execuções futuras). Autorização do piloto: Luiz forneceu o SSH em resposta ao checkpoint.
+5. **Lançado:** 2026-07-11 16:35 UTC — 16 workers paralelos, 320 classes em 16 shards round-robin,
+   budget 7.200s/classe (pré-registrado), sem proof logging. Scripts em `experiments/exp_pilot_n5/`.

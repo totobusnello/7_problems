@@ -82,3 +82,16 @@
 - **Correção de unidades (datada 2026-07-11, REV-0007 finding 7):** tamanhos exatos das provas: 0x1669 = 4.785.094.117 bytes (≈4,79 GB decimais; os "4,5GB" registrados acima eram GiB de display do filesystem rotulados como GB); 0x166b = 3.871.475.211 bytes (≈3,87 GB). CNFs: 1.781.704 bytes cada.
 
 ---
+## EXP-PILOT-N5 — Piloto de medição do n=5 (FASE 6) — EM ANDAMENTO
+
+- **Data:** 2026-07-11 · **Código:** `experiments/exp_pilot_n5/` (`sample_n5.py` amostrador,
+  `pilot_run.py` runner) · **Pré-registro:** `13_FASE6_PLAN.md` §3 + Emenda 1.
+- **Amostra:** 320 classes NPN de n=5 (300 uniformes sobre funções, seed=20260711, com órbita p/
+  reponderação HT + 20 simétricas distintas). **Pré-gate:** n=3 completo 256/256 bidirecional ✓.
+- **Protocolo:** busca ascendente k=0,1,... até SAT (verificado por simulação) ou censura em
+  7.200s/classe; sem proof logging; tempos e tamanhos de CNF registrados por k.
+- **Infra:** pod EPYC 16c/124GB re-provisionado (Ubuntu 20.04; kissat 4.0.4 source; drat-trim
+  2e3b2dc source). 16 workers, lançados 16:35 UTC.
+- **Conclusão permitida (quando terminar):** distribuição empírica de opt e custo em n=5 NA AMOSTRA;
+  extrapolações via pesos HT com incerteza declarada. **NÃO permitida:** valores individuais como
+  claims (sem certificação DRAT nesta fase); nada sobre a cauda censurada além de "≥ k censurado".

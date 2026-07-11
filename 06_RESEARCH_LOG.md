@@ -336,3 +336,10 @@ Destaques: Q6 com o detalhe "polinomial no nº de bits"; Q8 com o quantificador 
 **Chamadas externas de modelo:** 0 neste ciclo.
 
 **FILA DE LUIZ (aprovada 2026-07-11) — STATUS FINAL: 5/5 CONCLUÍDA.** (1) FASE 5 encerrada, C1 definitivo; (2) claim 0010 dupla família cumprida; (3) PR #7 mergeado, branch fase6 aberto; (4) nota técnica v2 revisada; (5) plano FASE 6 proposto.
+
+## 2026-07-11 — CICLO 15 — PILOTO n=5 LANÇADO (320 classes, 16 workers no pod re-provisionado)
+
+**Autorização:** Luiz respondeu ao checkpoint da FASE 6 fornecendo o SSH do pod re-provisionado (endpoint novo) — interpretado como aprovação do piloto pré-registrado (budget 72h ≈ US$ 46).
+**Antes de rodar:** pré-gate n=3 COMPLETO passou (256/256, bidirecional, k≤4) + Emenda 1 ao plano registrada ANTES da execução (amostragem uniforme-sobre-funções com pesos HT; 64 simétricas → 20 classes; correções datadas).
+**Execução:** amostra de 320 classes (seed=20260711), 16 shards, 16 workers paralelos, lançados 16:35 UTC. Smoke test local: 0x00000001 → opt=4 (AND de 5 entradas, correto). Stack do pod reinstalado do fonte com commits REGISTRADOS (fecha o gap de proveniência da REV-0007 p/ execuções futuras).
+**Chamadas externas de modelo:** 0.
