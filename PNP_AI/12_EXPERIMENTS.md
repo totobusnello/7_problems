@@ -55,7 +55,18 @@
 | **0x166b** (tt=5739) | **UNSAT — não existe circuito AIG de 9 portas** ⟹ com ub=10: **opt_AIG = 10** | **1.269s (21min)** — vs timeout do autor do catálogo | COMPUTATIONALLY_TESTED; certificação DRAT + busca do circuito de 10 portas EM EXECUÇÃO |
 | **0x1669** (tt=5737) | **UNSAT — não existe circuito AIG de 9 portas** ⟹ com ub=10: **opt_AIG = 10** | **1.543s (26min)** | COMPUTATIONALLY_TESTED; certificação DRAT + busca do circuito de 10 portas EM EXECUÇÃO |
 
-**Com isso, as 222 classes NPN de n=4 têm valor exato decidido na base AIG** (220 do catálogo + 2 deste experimento, pendentes de certificação).
+**Com isso, as 222 classes NPN de n=4 têm valor exato decidido na base AIG** (220 do catálogo + 2 deste experimento).
+
+### Certificação final (2026-07-11) — AMBAS VERIFICADAS, EM DUPLICATA
+
+| Classe | Prova DRAT | Verificação Mac | Verificação Pod (EPYC 16c/124GB) | Circuito 10 portas (simulação) |
+|---|---|---|---|---|
+| 0x166b | 3,87GB | **s VERIFIED** (08:33) | **s VERIFIED** (1.345s de check) | ✅ (275s de busca) |
+| 0x1669 | 4,5GB | **s VERIFIED** (09:21) | **s VERIFIED** (1.558s de check) | ✅ (11s de busca) |
+
+- Provas geradas independentemente em cada máquina (kissat da fonte em ambas); verificadas por drat-trim compilado independentemente em cada uma. Kissat no pod: 1.115s/1.350s (≈15% mais rápido que o Mac).
+- **Lições de engenharia consolidadas:** (1) veredito sem proof logging → prova → verificação, sequencial quando a RAM é curta (dois OOM no Mac antes do acerto); (2) provas de ~4GB exigem ~3-4× em RAM no drat-trim; (3) awk sem fflush engoliu eventos de monitoramento (bug de observabilidade, não de ciência).
+- Estados finais: claims 0022 e 0023 = **FINITE_SCOPE_VERIFIED**. Provas regeneráveis deterministicamente (`cert_remote.sh`/`cert_pipeline.sh`); artefatos grandes fora do git.
 
 - **Conclusão permitida (0x166b):** sob o encoder validado no gate, não existe AIG de 9 portas para 0x166b; combinado com o ub do catálogo, opt=10 — pendente de certificado DRAT (rodada em curso) e de auto-verificação do ub (busca k=10 em curso).
 - **Conclusão NÃO permitida:** nada sobre 0x1669 ainda; nada além destas classes/base/modelo.

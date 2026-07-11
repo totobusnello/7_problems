@@ -230,3 +230,21 @@ Destaques: Q6 com o detalhe "polinomial no nº de bits"; Q8 com o quantificador 
 **Ferramentas novas testadas:** kissat (proof logging DRAT) + drat-trim (checker) — inventário atualizado.
 
 ---
+
+## 2026-07-11 — CICLO 9 — EXP-PROBE-0001 CONCLUÍDO: as 2 classes pendentes FECHADAS E CERTIFICADAS
+
+**Resultado científico (o primeiro do programa):**
+- **opt_AIG(0x1669) = opt_AIG(0x166b) = 10** — claims 0022/0023 em **FINITE_SCOPE_VERIFIED**.
+- Cadeia de evidência por classe: encoder validado semanticamente (G3) · UNSAT k=9 com prova DRAT verificada **2× em máquinas independentes** (Mac + pod EPYC) · circuito de 10 portas explícito conferido por simulação. Nada herdado do catálogo.
+- O catálogo público de tamanhos exatos AIG das 222 classes NPN-4 fica completo (220 do autor + 2 nossos).
+- A previsão de Luiz ("vai ser bem mais rápido") venceu: vereditos em 21–26 min contra timeout do autor e budget de 12h. Fator provável: quebra de simetria por deduplicação de portas.
+
+**Infra:** pod RunPod (16c EPYC/124GB) configurado por Luiz mid-ciclo após 2 OOM locais; certificação em duplicata Mac+pod. Decisão de Luiz registrada: próxima etapa migra para VPS maior (spec com dados reais quando o escopo n=5 for definido).
+
+**Falhas de engenharia do ciclo (todas registradas em 12_EXPERIMENTS):** 2 kills por OOM (proof logging paralelo + drat-trim em máquina de RAM curta); 1 bug de observabilidade (awk buffering engolindo eventos de monitor). Nenhuma afetou a ciência — afetaram o relógio.
+
+**Chamadas externas de modelo:** 0 neste ciclo.
+
+**Pendências que passam a decisão de Luiz:** (a) destino do resultado — contato com o autor do catálogo e/ou nota pública exigem autorização explícita (10_PUBLICATION_RULES); (b) conclusão formal da FASE 5 — pré-requisitos restantes da seleção definitiva (alvo C2 comparável, busca fora da shortlist, pesos ex-ante); (c) desligar o pod (custo/hora) até a próxima campanha.
+
+---

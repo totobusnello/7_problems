@@ -36,7 +36,7 @@
 
 | 7P-PNP-CLM-0022 | **opt_AIG(classe NPN 0x166b, n=4) = 10** — lado UNSAT: k=9 impossível, prova DRAT de 3,87GB **VERIFICADA por drat-trim ("s VERIFIED", 2026-07-11 08:33)**; lado SAT: circuito de 10 portas explícito conferido por simulação. Cadeia completa e independente do catálogo | **FINITE_SCOPE_VERIFIED** · escopo: esta classe, base AIG, modelo do encoder (validado no G3). Primeiro resultado do programa com cadeia de certificação completa | Projeto (EXP-PROBE-0001) | 2026-07-11 |
 
-| 7P-PNP-CLM-0023 | **opt_AIG(classe NPN 0x1669, n=4) = 10** — k=9 é UNSAT (kissat, 1.543s, encoder validado no gate) + **ub=10 AUTO-VERIFICADO** (circuito de 10 portas encontrado em 11s e conferido por simulação contra a truth table completa — independente do catálogo) | COMPUTATIONALLY_TESTED · ressalva: falta apenas o certificado DRAT do lado UNSAT (em execução) para promover a FINITE_SCOPE_VERIFIED | Projeto (EXP-PROBE-0001) | 2026-07-11 |
+| 7P-PNP-CLM-0023 | **opt_AIG(classe NPN 0x1669, n=4) = 10** — lado UNSAT: k=9 impossível, prova DRAT de 4,5GB **VERIFICADA 2× independentemente** (Mac: drat-trim "s VERIFIED" 09:21; pod EPYC: "s VERIFIED" em 1.558s); lado SAT: circuito de 10 portas explícito conferido por simulação (11s). Cadeia completa e independente do catálogo | **FINITE_SCOPE_VERIFIED** · escopo: esta classe, base AIG, modelo do encoder (validado no G3). Verificação dupla (2 máquinas, 2 gerações de prova) | Projeto (EXP-PROBE-0001) | 2026-07-11 |
 
 ## Registro completo — 7P-PNP-CLM-0010 (único claim derivado do projeto até aqui)
 
