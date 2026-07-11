@@ -1,5 +1,12 @@
 # 7_problems — notas operacionais
 
+## ⚠️ HARD RULE — Lançamento de revisores externos (2026-07-11, após 4 falhas recorrentes)
+
+- **TODO revisor externo (kimi/codex/glm/grok) é lançado via `tools/rev.sh <canal> ...`** — nunca comando manual re-derivado (env vars e model ids corretos moram NO script, não em notas).
+- **Antes do primeiro lançamento da sessão: `tools/rev.sh doctor`** (valida os 4 canais sem gastar tokens).
+- **Chamadas longas (kimi review/challenge, codex exec) rodam da SESSÃO PRINCIPAL com `run_in_background: true`** — NUNCA via Bash de subagente (teto ~10min mata a chamada no meio; aconteceu 2026-07-11).
+- Falhas que motivaram a regra: `CLAUDE_PLUGIN_DATA` faltando 2× (REV-0002 e 2026-07-11), `gpt-5.6` vs `gpt-5.6-sol`, timeout de subagente matando o Kimi aos 12min.
+
 ## Canal OpenAI (Codex)
 
 - A OpenAI API key do `~/.zshrc` está **INVÁLIDA** — usar o **Codex MCP/CLI** (auth ChatGPT) como canal OpenAI.

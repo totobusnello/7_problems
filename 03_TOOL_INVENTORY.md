@@ -63,6 +63,8 @@
 
 4 famílias de treino independentes de Claude (OpenAI, Moonshot, Zhipu, xAI) → revisão adversarial multi-modelo é viável hoje.
 
+**Lançador único (2026-07-11): `tools/rev.sh`** — encapsula env vars/model ids/modos corretos dos 4 canais + `doctor` de pre-flight. HARD RULE no CLAUDE.md do projeto: nunca lançar revisor manualmente; chamadas longas sempre em background da sessão principal (nunca Bash de subagente, teto ~10min).
+
 ## Gaps prioritários (atualizado 2026-07-10, pós-Ciclo 2)
 
 1. ~~OPENAI_API_KEY~~ **RESOLVIDO por decisão:** Codex MCP (OAuth) é o canal OpenAI oficial do programa.
