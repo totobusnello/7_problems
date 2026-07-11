@@ -6,6 +6,7 @@
 |---|---|---|---|---|---|
 | 1 | 2026-07-10 | OpenAI API (`/v1/chat/completions`, key do `~/.zshrc`) | gpt-5.2 (tentado) | Teste de integração da Sessão 0 | **FALHA** — `invalid_api_key` (sk-proj-…t1QA rejeitada). Estado: AGUARDANDO INTEGRAÇÃO (renovar key). `/v1/models` também retornou vazio. |
 | 2 | 2026-07-10 | Codex MCP (auth ChatGPT, sandbox read-only) | "Codex, an OpenAI agent based on GPT-5" (auto-identificação) | Mesmo teste, canal alternativo | **SUCESSO** — confirmou: (1) identidade GPT-5/Codex; (2) mensagem recebida standalone, sem contexto desta conversa; (3) YES para atuar como referee adversarial de claim packages. threadId 019f4e90-cb71-7da0-92b0-e37be28b4e20. |
+| 3 | 2026-07-10 | Codex MCP (read-only) | Codex/GPT-5 | **REV-0001** — primeira revisão adversarial real: claim package 7P-PNP-CLM-0010 (lema 3COL→SAT), protocolo oficial completo | **SUCESSO — GAP_FOUND na parte (b):** lógica (a) validada nas duas direções (incl. confirmação da redundância do grupo (2)); contagem 4n+3\|E\| confirmada; alegação de tempo O(n+\|E\|) corretamente contestada — depende de representação (lista de arestas vs matriz Θ(n²)) e modelo (word-RAM vs bits: Θ((n+\|E\|)log n)). Contraexemplo concreto (grafo vazio em matriz de adjacência). Hipóteses ausentes apontadas: representação, codificação, modelo, convenção n=0. Correção mínima proposta e ACEITA. Confiança: alta. threadId 019f4ec6-2429-79d3-b6b1-1ef528365c14. |
 
 ## Pacote que teria sido enviado pela API direta (registrado conforme protocolo de falha)
 

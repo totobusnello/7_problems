@@ -24,6 +24,11 @@ Enunciado · problema · área · definições · hipóteses · quantificadores 
 | 7P-PNP-CLM-0005 | PNP_AI | Proposition 1 (a–c) do doc oficial | SOURCE_VERIFIED | 2026-07-10 |
 | 7P-PNP-CLM-0006 | PNP_AI | SAT/3-SAT NP-completos (Cook/Levin/Karp) | SOURCE_VERIFIED (provas originais pendentes) | 2026-07-10 |
 | 7P-PNP-CLM-0007 | PNP_AI | Critérios exatos de solução (matemáticos + regras Clay 2018) | SOURCE_VERIFIED | 2026-07-10 |
+| 7P-PNP-CLM-0008 | PNP_AI | Cook 1971 verbatim (Theorems 1–2, P-reducibility Turing-style) | SOURCE_VERIFIED | 2026-07-10 |
+| 7P-PNP-CLM-0009 | PNP_AI | Equivalência verificador ⟺ NTM | FORMULATION_VERIFIED (prova reconstruída, revisão pendente) | 2026-07-10 |
+| 7P-PNP-CLM-0010 | PNP_AI | Lema de correção da codificação 3COL→SAT | **DERIVED_CHECKED** (via REV-0001: GAP_FOUND na complexidade → corrigido) | 2026-07-10 |
+| 7P-PNP-CLM-0011 | PNP_AI | Cook–Levin moderno c/ esboço tableau | Reconstrução; revisão pendente | 2026-07-10 |
+| 7P-PNP-CLM-0012 | PNP_AI | Auto-redutibilidade de SAT (decisão ⟹ busca) | Reconstrução; revisão pendente | 2026-07-10 |
 
 Detalhes dos claims PNP em `PNP_AI/10_PNP_CLAIM_LEDGER.md`.
 

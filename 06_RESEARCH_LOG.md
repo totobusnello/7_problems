@@ -94,3 +94,20 @@ Destaques: Q6 com o detalhe "polinomial no nº de bits"; Q8 com o quantificador 
 **Próxima ação:** FASE 3 — reconstrução técnica.
 
 ---
+
+## 2026-07-10 — CICLO 3 — FASE 3 (reconstrução técnica, 1ª iteração) + PRIMEIRA REVISÃO ADVERSARIAL (autorizado: "Aprovo")
+
+**Feito:**
+1. **`PNP_AI/05_COMPLEXITY_FOUNDATIONS.md` criado:** TM/NTM; equivalência verificador⟺NTM com prova [RECONSTRUÇÃO]; co-NP e NP∩co-NP (TAUTOLOGY como canônico de co-NP — a forma que Cook usou!); Cook–Levin original verbatim (Theorem 1, P-reducibility = redução de Turing via query machines) + forma moderna com esboço tableau (G1–G5); auto-redutibilidade de SAT com prova; pontes não uniformes (NP⊄P/poly, Karp–Lipton ⚠️).
+2. **Achado histórico verificado (SRC-0005, Theorem 2 + Remark):** Cook já em 1971 destacava {primes} e {isomorphic graph pairs} como não classificados — exatamente os dois problemas que a história confirmou como especiais.
+3. **`PNP_AI/06_NP_COMPLETENESS_MAP.md` iniciado:** núcleo Cook/Karp/Levin + tabela de reduções executáveis.
+4. **REV-0001 — primeiro ciclo completo proposta→revisão→gap→correção:** claim 7P-PNP-CLM-0010 (lema 3COL→SAT) enviado ao Codex/GPT-5 no formato oficial. Veredito: lógica correta (duas direções + redundância do grupo (2) confirmada), MAS **GAP_FOUND** na complexidade — "O(n+|E|)" sem fixar representação/modelo (contraexemplo: matriz de adjacência ⟹ Θ(n²); bits ⟹ Θ((n+|E|)log n)). Correção mínima aceita e incorporada. **Estado final: DERIVED_CHECKED.** O pipeline de revisão adversarial FUNCIONA — pegou um gap real que o proponente não viu.
+5. Claims 0008–0012 registrados nos ledgers.
+
+**Lição do ciclo (candidata a regra):** toda alegação de complexidade DEVE declarar modelo de máquina + representação da entrada + unidade de custo (palavras vs bits). Incorporar ao template de claim package.
+
+**Chamadas externas do ciclo:** 1 (dentro do limite de 5).
+
+**Próxima ação proposta:** FASE 3, 2ª iteração — hierarquia de tempo, Ladner, PH formal + Karp–Lipton com fontes; OU sessão pedagógica sobre o material técnico novo, a critério de Luiz.
+
+---
