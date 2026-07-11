@@ -411,3 +411,13 @@ Pedido de Luiz: "resolve o kimi setup pra mim". Diagnóstico com o `setup --chec
 **Estado: PRONTO PARA COMUNICAÇÃO EXTERNA — aguardando decisão e aprovação de texto por Luiz.**
 
 **Chamadas externas de modelo:** 2 (REV-0011, REV-0012).
+
+## 2026-07-11 — CICLO 20 — Issue #2 ENVIADA: a refutação do Unit Gap comunicada ao autor
+
+**Autorização de Luiz:** "então vamos" — após a pergunta "temos 100% de certeza mesmo?" respondida com o mapa honesto de certeza (elos mecânicos + fail-safe analítico de Khrapchenko: pior cenário residual dá gap=2, que refuta igualmente; único risco real = definição pretendida divergente, coberto pelo formato-pergunta).
+
+**Ação:** https://github.com/krinkin/unit-gap/issues/1 — aberta pela conta `totobusnello` no repo próprio do paper. Conteúdo: pergunta sobre a identidade do §2 (typo ou definição?); contraexemplo ⊕₃ (opt=6 concordante com a Tabela 1 dele; tree=9 com snippet verificável em segundos); a assinatura na Tabela 1 dele; o ponto independente s=3 (Cor. 6); oferta construtiva (prova corrigida do Thm 3); proveniência AI-assisted com menção às 4 famílias de revisão. **Anexos viraram links**: o repo umbrella é PÚBLICO — artefatos versionados linkados diretamente (certs/, scripts, outputs).
+
+**Estado das frentes externas:** issue #1 (bounds — contribuição) e issue #2 (unit-gap — refutação respeitosa) abertas, ambas aguardando o autor. Qualquer follow-up (PR no bounds, resposta a réplicas) exige novo OK de Luiz.
+
+**Chamadas externas de modelo:** 0 neste ciclo.

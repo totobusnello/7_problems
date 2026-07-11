@@ -1,6 +1,8 @@
-# DRAFT — Issue #2: repo `krinkin/unit-gap` — AGUARDANDO APROVAÇÃO DE LUIZ
+# Issue #2: repo `krinkin/unit-gap` — ENVIADA
 
-> **Status: DRAFT. NADA FOI ENVIADO.** Alvo: github.com/krinkin/unit-gap (repo próprio do paper —
+> **Status (2026-07-11): ISSUE ABERTA — https://github.com/krinkin/unit-gap/issues/1** (autorização de Luiz: "então vamos", após checagem de certeza — 4 famílias + fail-safe Khrapchenko). Ajuste no envio: anexos substituídos por LINKS para os artefatos versionados no repo público totobusnello/Claude (verificabilidade máxima, com histórico como carimbo). Texto enviado = corpo abaixo.
+>
+> **Histórico: DRAFT criado e aprovado 2026-07-11.** Alvo: github.com/krinkin/unit-gap (repo próprio do paper —
 > venue correto; a issue #1 do catálogo vive em krinkin/bounds). Tom: pergunta-antes-de-afirmar,
 > com oferta construtiva (prova corrigida do Thm 3). Anexos: DRATs pequenos (11KB/147KB) upáveis
 > direto na issue (recomendação da REV-0012). Backing: 4 famílias adversariais SUSTENTARAM
