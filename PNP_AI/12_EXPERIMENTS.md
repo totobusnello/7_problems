@@ -53,7 +53,9 @@
 | Classe | Veredito k=9 | Tempo | Estado |
 |---|---|---|---|
 | **0x166b** (tt=5739) | **UNSAT — não existe circuito AIG de 9 portas** ⟹ com ub=10: **opt_AIG = 10** | **1.269s (21min)** — vs timeout do autor do catálogo | COMPUTATIONALLY_TESTED; certificação DRAT + busca do circuito de 10 portas EM EXECUÇÃO |
-| 0x1669 (tt=5737) | em execução | — | — |
+| **0x1669** (tt=5737) | **UNSAT — não existe circuito AIG de 9 portas** ⟹ com ub=10: **opt_AIG = 10** | **1.543s (26min)** | COMPUTATIONALLY_TESTED; certificação DRAT + busca do circuito de 10 portas EM EXECUÇÃO |
+
+**Com isso, as 222 classes NPN de n=4 têm valor exato decidido na base AIG** (220 do catálogo + 2 deste experimento, pendentes de certificação).
 
 - **Conclusão permitida (0x166b):** sob o encoder validado no gate, não existe AIG de 9 portas para 0x166b; combinado com o ub do catálogo, opt=10 — pendente de certificado DRAT (rodada em curso) e de auto-verificação do ub (busca k=10 em curso).
 - **Conclusão NÃO permitida:** nada sobre 0x1669 ainda; nada além destas classes/base/modelo.
