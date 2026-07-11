@@ -132,6 +132,18 @@
 ### SRC-0023 — Testa et al., "Determining the Multiplicative Complexity of Boolean Functions using SAT" (arXiv:2005.01778)
 - **Uso:** variante de C1 (complexidade multiplicativa, motivação criptográfica); linha ativa até 2026 (cf. arXiv:2601.08368, implementações AND/XOR dim ≤9). **Estado:** REFERENCIADO (abstract).
 
+### SRC-0024 — Gäher & Kunze, "Mechanising Complexity Theory: The Cook-Levin Theorem in Coq"
+- **Conferido (metadados Semantic Scholar, 2026-07-10):** Cook–Levin mecanizado em **Coq** — anunciado como o primeiro resultado de complexidade computacional mecanizado (com custo de computação incluído). **Impacto em C4:** formalizar Cook–Levin NÃO é novidade; um port a Lean tem valor apenas parcial. **Estado:** REFERENCIADO; A OBTER se C4 avançar.
+
+### SRC-0025 — Mathlib4 issue #35366: "Step counting and complexity classes P/NP for TM1"
+- **Conferido (busca, 2026-07-10):** contribuidor declara ter formalização funcional de P e NP sobre a infra de Turing do Mathlib, em processo de upstream. **Impacto em C4:** o espaço "definir P/NP em Lean/Mathlib" está sendo ocupado AGORA por terceiros — duplicação alta; a rota de valor seria CONTRIBUIR ao esforço existente (interação externa ⟹ exige autorização de Luiz). **Estado:** REFERENCIADO; monitorar.
+
+### SRC-0026 — MCSP: estado da arte (via arXiv:2511.16903, nov/2025 + varredura)
+- **Conferido (abstracts, 2026-07-10):** MCSP* (funções parciais) é ETH-hard (Ilango 2020); estender a redução para MCSP TOTAL permanece ABERTO com obstáculos identificados (read-once formulas); SoS lower bounds p/ MCSP (2023); MCSP↔Graph Isomorphism (Allender et al.); linha quântica. **Impacto em C3:** teoria profunda e ativa, dependência alta de especialistas; a face EXPERIMENTAL de C3 (dados exatos em pequena escala) é exatamente C1. **Estado:** REFERENCIADO.
+
+### SRC-0027 — Repo krinkin/bounds (dados do SRC-0019)
+- **Conferido (scrape do GitHub, 2026-07-10):** README confirma "**220 exact, 2 upper bounds**"; último commit 2026-03-10 (revisão de README); nenhum sinal de fechamento das 2 classes. Dados em `data/npn4_opt_aig.csv` + `scripts/verify_all.py` (Python stdlib). **GAP CONFIRMADO VIVO** (na data da consulta). **Estado:** SOURCE_VERIFIED (estado do repo); classes específicas a identificar no CSV quando o trabalho iniciar.
+
 ## Template de entrada
 
 ```

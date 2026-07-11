@@ -198,4 +198,11 @@ Destaques: Q6 com o detalhe "polinomial no nº de bits"; Q8 com o quantificador 
 
 **Chamadas externas de modelo (ciclo 7 total):** 1 (Grok). Buscas de papers não contam.
 
+**Continuação (Etapa B, escolhida por Luiz — ordem invertida, B antes do piloto):**
+- **Gap confirmado vivo** (repo krinkin/bounds: "220 exact, 2 upper bounds", commit 2026-03-10) — SRC-0027.
+- **C4 rebaixado como pesquisa:** Cook–Levin já mecanizado em Coq (SRC-0024); P/NP em Mathlib sendo formalizado por terceiros AGORA (issue #35366, SRC-0025). Permanece como infra p/ claims próprios. Alerta ambiental: "provas Lean" de P≠NP E de P=NP circulando — regra do charter sobre auditoria de axiomas confirmada como necessária.
+- **C3 auditado:** teoria ativa (MCSP total ainda aberto), ESP baixo confirmado; **convergência estrutural: a face experimental de C3 é C1** (catálogos exatos = dados de meta-complexidade) → REL de C1 3→4 com fonte.
+- **Scorecard v4 final:** C1-restrito 38 · C2 35 · C3 33 · C4 33 · C5 27. Proposta final registrada com as salvaguardas do Grok (piloto reprodutivo primeiro; sonda k=9 só com budget+aborto aprovados).
+- Aguardando decisão de Luiz (etapa C — seleção definitiva).
+
 ---

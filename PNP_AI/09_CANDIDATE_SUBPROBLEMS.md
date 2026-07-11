@@ -103,3 +103,35 @@ Separar **piloto de pipeline** de **seleção de pesquisa**:
 **(B) Antes da seleção definitiva:** auditoria profunda de C3 e C4 (mesmo padrão de C1/C2) + verificação de o gap das 2 classes seguir aberto + resultado do piloto (A) informando o FER real.
 
 **(C) Seleção definitiva** entre C1-restrito (com sonda k=9 SÓ com budget/aborto aprovados), C2 e C4 — com scorecard v4 alimentado por (A) e (B).
+
+---
+
+## ETAPA B EXECUTADA (2026-07-10, ordem invertida por decisão de Luiz: B antes de A)
+
+**B1 — Gap das 2 classes NPN-4: CONFIRMADO VIVO** (SRC-0027): README do repo diz "220 exact, 2 upper bounds"; último commit 2026-03-10; nenhum fechamento registrado. Risco residual: preprints não indexados — aceito e documentado.
+
+**B2 — Auditoria profunda de C4 (formalização):** duas descobertas que derrubam C4 como *subproblema de pesquisa*:
+- Cook–Levin **já foi mecanizado em Coq** (Gäher–Kunze, SRC-0024) — port a Lean tem novidade parcial.
+- **P/NP em Mathlib está sendo formalizado agora por terceiros** (issue #35366, SRC-0025) — duplicação direta; a rota de valor seria contribuir ao esforço deles (interação externa ⟹ autorização de Luiz).
+- C4 permanece valioso como INFRAESTRUTURA para formalizar os NOSSOS claims (lema 0010 etc.), mas DUP 4→2 como pesquisa. Base 32→30; ponderado 33.
+- **Alerta ambiental registrado:** circulam alegações de "provas verificadas em Lean" de P≠NP e de P=NP (!) em preprints/redes — reforça a regra do charter: "compilou no Lean" só vale com axiomas e definições auditados.
+
+**B3 — Auditoria profunda de C3 (MCSP):** teoria profunda e MUITO ativa (ETH-hardness de MCSP* provada; MCSP total ABERTO com obstáculos identificados; SoS lower bounds; ligação com Graph Isomorphism). Dependência de especialistas alta (ESP 2 confirmado). **Convergência estrutural descoberta: a face experimental de C3 É o C1** — catálogos exatos de complexidade em pequena escala são os dados da meta-complexidade (o próprio SRC-0019 usa o catálogo para uma questão MCSP-adjacente). Isso sustenta upgrade de REL de C1: 3→4 (com fonte, não por conveniência — flag para revisão).
+
+## Scorecard v4 (final da FASE 5; pesos REL×2; total /45)
+
+| Candidato | Base /40 | Ponderado /45 | Mudanças vs v3 |
+|---|---|---|---|
+| **C1 exact synthesis (restrito)** | 34 | **38** | REL 3→4 (ponte MCSP documentada em B3) |
+| C2 proof complexity exp. | 31 | 35 | = |
+| C3 MCSP | 28 | 33 | ESP 2 confirmado; face experimental converge p/ C1 |
+| C4 formalização | 30 | 33 | DUP 4→2 (Coq feito; Mathlib em andamento por terceiros) |
+| C5 magnification | 22 | 27 | = |
+
+## PROPOSTA FINAL (v4) — para decisão de Luiz
+
+**Selecionar C1-restrito** como primeiro subproblema do PNP-AI, com as salvaguardas do Grok incorporadas:
+1. **Unidade 1 (piloto, ex-etapa A):** reproduzir com DRAT + checker independente 1–2 valores exatos JÁ RESOLVIDOS do catálogo NPN-4, com encoding próprio. Sucesso binário; custo horas.
+2. **Unidade 2 (condicional):** identificar as 2 classes pendentes no CSV do repo; sonda de viabilidade em k=9 SOMENTE com budget computacional e critério de aborto aprovados por Luiz.
+3. **Horizonte:** expandir catálogo (n=5 parcial, outras bases) e conectar às questões abertas de meta-complexidade (a ponte C1→C3 é o caminho de relevância crescente).
+4. C4-infra continua permitido em doses mínimas (formalizar claims nossos), sem virar frente.
