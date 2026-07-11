@@ -383,3 +383,17 @@ Pedido de Luiz: "resolve o kimi setup pra mim". Diagnóstico com o `setup --chec
 **Decisão que passa a Luiz:** comunicar (ou não) o achado ao autor — sensível: temos issue amigável aberta no outro repo dele. Recomendação do coordenador: 2ª revisão de família antes (Codex ou Kimi, 1 chamada), e só então decidir o canal/tom.
 
 **Chamadas externas de modelo:** 1 (REV-0009).
+
+## 2026-07-11 — CICLO 18 — REV-0010 (gpt-5.6-sol): refutação SUSTENTADA pela 2ª família — dupla família CUMPRIDA nos claims 0024/0025
+
+**Pedido de Luiz:** "gpt-5.6-sol roda". Codex revisou adversarialmente com re-derivação independente: enumeração própria por camadas confirmou **tree(⊕₃)=9 exato** (⊕₃/¬⊕₃ são as duas únicas funções de custo 9 em n=3); re-executou os UNSATs; auditou o DP e a aplicação de Khrapchenko; confirmou s=3 e o Cor. 6 falso (e de quebra: o Remark 5 do paper — optimal substructure — também falha com portas compartilhadas).
+
+**Refinamentos adjudicados (ambos aceitos, ledger corrigido com data):**
+1. **Thm 7:** ⊕₃ (gap 3) não satisfaz a hipótese "gap=1" do enunciado condicional — logo não o refuta sob a definição padrão; o que se estabelece é: prova INVALIDADA (usa Cor. 6), alegação universal FALSA, e contradição direta sob a grandeza que o autor computou. Claim 0025 precisado.
+2. **Thm 3:** furo de contagem na prova publicada (|S|≥k−1 falha quando g é porta de entrada); prova corrigida fornecida (contagem de fan-out, 2m≥n+m ⟹ m≥n, para todo gap>0). Material adicional para eventual comunicação.
+
+**Fecho de reprodutibilidade (F5):** CNF+DRAT de ⊕₃@k=5 e do filho@k=3 arquivados permanentemente em `exp_unitgap_check/certs/` — regeneração byte-idêntica (hashes iguais aos da 1ª execução).
+
+**Estado final do pacote Unit Gap:** Thm 2 e Cor. 6 REFUTADOS (dupla família: Grok + Codex, ambas SUSTENTADA); Thm 7 sem prova e com alegação universal falsa; Thms 3–4 sobrevivem (Thm 3 com prova corrigida nossa). Claims 0024/0025 liberados como dependência. **Comunicação ao autor: DESBLOQUEADA pela governança, aguardando decisão de Luiz** (recomendação: draft respeitoso, mesmo tom da issue #1, possivelmente aguardando a resposta dele lá).
+
+**Chamadas externas de modelo:** 1 (REV-0010).
