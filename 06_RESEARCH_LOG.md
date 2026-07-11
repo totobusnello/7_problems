@@ -175,3 +175,11 @@ Destaques: Q6 com o detalhe "polinomial no nº de bits"; Q8 com o quantificador 
 **Próxima ação:** merge do PR #6 (decisão de Luiz) e abertura de PR novo para a FASE 5.
 
 ---
+
+## 2026-07-10 — CICLO 7 (início) — PR #6 MERGED · FASE 5 aberta (autorizado: "Pode")
+
+- PR #6 mergeado na main (`e102557`) — bootstrap completo (FASES 0–4, 6 ciclos, 2 revisões externas). Branch antigo removido; novo branch `feat/7problems-fase5`.
+- **Scorecard v1 criado** (`PNP_AI/09_CANDIDATE_SUBPROBLEMS.md`), estado **HEURISTIC**: 5 candidatos (C1 exact synthesis via SAT · C2 proof complexity experimental · C3 MCSP · C4 formalização Lean · C5 magnification), 8 critérios do brief, scores marcados como proposta do coordenador PENDENTE de auditoria bibliográfica real + revisão adversarial + decisão de Luiz. Liderança provisória: C1 (33/40).
+- Próximos passos declarados no próprio arquivo: (1) auditoria bibliográfica de C1/C2, (2) revisão adversarial do scorecard, (3) seleção final por Luiz.
+
+---
