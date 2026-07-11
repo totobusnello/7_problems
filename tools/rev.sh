@@ -21,7 +21,12 @@
 set -uo pipefail
 
 REPO_ROOT="/Users/lab/Claude"
-KIMI_ROOT="/Users/lab/.claude/plugins/marketplaces/kimi-marketplace"
+# Root do plugin: o CACHE versionado (é nele que o hook de segurança do
+# ~/.kimi-code/config.toml está pinado). Usar o root do marketplace dispara
+# falso-positivo de "hook path drift" E roda SEM hook (lição 2026-07-11).
+KIMI_CACHE="/Users/lab/.claude/plugins/cache/kimi-marketplace/kimi"
+KIMI_ROOT="$(ls -d "$KIMI_CACHE"/*/ 2>/dev/null | sort -V | tail -1 | sed 's:/$::')"
+[ -n "$KIMI_ROOT" ] || KIMI_ROOT="/Users/lab/.claude/plugins/marketplaces/kimi-marketplace"
 KIMI_DATA="/Users/lab/.claude/plugins/data/kimi/kimi-plugin-cc"
 GLM_BIN="/Users/lab/Claude/scripts/glm"
 GROK_BIN="/Users/lab/Claude/scripts/grok"
@@ -42,6 +47,14 @@ doctor() {
   [ -r ~/.config/glm/token ] && echo "[OK] glm token" || { echo "[FAIL] glm token"; ok=1; }
   [ -x "$GROK_BIN" ] && echo "[OK] grok wrapper" || { echo "[FAIL] grok wrapper"; ok=1; }
   [ -r ~/.config/grok/token ] && echo "[OK] grok token" || { echo "[FAIL] grok token"; ok=1; }
+  echo "[..] kimi safety hook probe (setup --check):"
+  if (cd "$REPO_ROOT" && CLAUDE_PLUGIN_ROOT="$KIMI_ROOT" CLAUDE_PLUGIN_DATA="$KIMI_DATA" \
+      KIMI_PLUGIN_CC_WORKSPACE_CWD="$REPO_ROOT" \
+      "$KIMI_ROOT/scripts/companion.sh" setup --check 2>&1 | grep -q "probe passed"); then
+    echo "[OK] kimi hook instalado e probe passou (root: $KIMI_ROOT)"
+  else
+    echo "[FAIL] kimi hook probe — rodar /kimi:setup (sem hook, kimi -p auto-aprova Write/Bash)"; ok=1
+  fi
   echo "== lembretes de processo =="
   echo "- kimi/codex: lançar com run_in_background=true DA SESSÃO PRINCIPAL (nunca Bash de subagente)"
   echo "- registrar TODA chamada em 07_MODEL_CALL_LOG.md (máx. 5/ciclo)"

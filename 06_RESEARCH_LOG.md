@@ -360,3 +360,9 @@ Destaques: Q6 com o detalhe "polinomial no nº de bits"; Q8 com o quantificador 
 **Alerta de segurança do plugin (para Luiz):** o safety hook do kimi-plugin-cc está com path drift (aponta pra versão antiga do cache) — sem ele, o modo `-p` do kimi-code auto-aprova QUALQUER tool call, incluindo Write/Bash, mesmo em comandos documentados como read-only. Recomendação: rodar `/kimi:setup` para re-pinar. Até lá, chamadas kimi só nos modos read-only e com diff conferido.
 
 **Chamadas externas de modelo:** 1 (REV-0008; as 2 tentativas falhas não geraram chamada faturável — morreram antes/no transporte).
+
+### Adendo do Ciclo 16 — "kimi setup" resolvido: era falso positivo, correção foi no NOSSO lançador
+
+Pedido de Luiz: "resolve o kimi setup pra mim". Diagnóstico com o `setup --check` do próprio plugin, rodado do root CORRETO (cache versionado 1.5.0): **hook instalado, probe passou** ("deny reason captured" — o hook nega Bash em modo review como deve), node pinado existe, review gate no default. O warning de "path drift" da REV-0008 foi **falso positivo do nosso lançamento** (root do marketplace ≠ root pinado no config) — e, pior, aquele run rodou SEM hook ativo. Auditoria do working tree pós-REV-0008: nenhuma escrita inesperada (kimi comportou-se read-only).
+
+**Correções:** `tools/rev.sh` agora resolve o root do plugin dinamicamente pelo cache versionado (à prova de update do plugin) e o `doctor` ganhou o probe do hook como check obrigatório. Config do Luiz: intocada (não precisou de /kimi:setup).
