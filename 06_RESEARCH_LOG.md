@@ -130,3 +130,21 @@ Destaques: Q6 com o detalhe "polinomial no nº de bits"; Q8 com o quantificador 
 **Próxima ação proposta:** com fundamentos prontos, FASE 4 (mapa de barreiras com fontes primárias: BGS 1975, Razborov–Rudich, Aaronson–Wigderson) — último degrau antes da FASE 5 (seleção do subproblema).
 
 ---
+
+## 2026-07-10 — CICLO 5 — FASE 4: mapa de barreiras com fontes primárias (autorizado: "Sim")
+
+**Fontes obtidas:**
+- SRC-0015 Razborov–Rudich "Natural Proofs" (versão JCSS 1997, mirror MIT 6.875) — tríade constructivity/largeness/usefulness E Theorem 4.1 conferidos verbatim; exemplo do log discreto. (1ª tentativa no site do Razborov: 404 detectado pelo parse.)
+- SRC-0016 Aaronson–Wigderson "Algebrization" (cópia do autor, 50 pp.) — abstract, definição assimétrica de algebrizes e conclusão (P vs NP exige técnicas não-algebrizantes) verbatim.
+- SRC-0017 Fortnow, survey de relativization — confirma o resultado COMPLETO de BGS (dois oráculos) e a exceção histórica (provas interativas). **Upgrade do ⚠️ da Sessão Pedagógica 2:** a resposta de Luiz sobre P^B ≠ NP^B agora está verificada em fonte.
+- SRC-0014 BGS primária (SIAM) segue A OBTER (paywall).
+
+**`07_BARRIER_MAP.md` preenchido:** mecânica das três barreiras (relativization: dois mundos; natural proofs: o distinguidor autodestrutivo que quebraria PRGs; algebrization: extensões de baixo grau fechando a rota da aritmetização), o-que-bloqueia/o-que-escapa por barreira, síntese operacional, e a nuance do A-W de que certos lower bounds já superam as duas primeiras barreiras simultaneamente. Protocolo de triagem de 6 perguntas (de Luiz) mantido como cabeçalho operacional.
+
+**Claims 0018–0020 registrados** (todos SOURCE_VERIFIED; 0018 via survey até obter a primária). Glossário +6; timeline: 3 upgrades ⚠️→✅.
+
+**Estado do pipeline pré-FASE 5:** FASES 0–4 com entregas concluídas (FASE 1 em nível preliminar; iterações adicionais da FASE 3 sob demanda). Pronto para FASE 5 — scorecard e seleção do primeiro subproblema.
+
+**Chamadas externas de modelo:** 0.
+
+---

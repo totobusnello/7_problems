@@ -25,8 +25,12 @@
 | 7P-PNP-CLM-0016 | P = NP ⟹ PH = P (colapso total por absorção de quantificadores, indução em i) | [RECONSTRUÇÃO] esboço em `05_COMPLEXITY_FOUNDATIONS.md` §8 — revisão externa pendente | Reconstrução padrão | 2026-07-10 |
 | 7P-PNP-CLM-0017 | Karp–Lipton: NP ⊆ P/poly ⟹ PH = Σᵖ₂ (usa auto-redutibilidade = claim 0012); Meyer: EXP ⊆ P/poly ⟹ EXP = Σᵖ₂; com hierarquia de tempo: P = NP ⟹ EXP ⊄ P/poly | FORMULATION_VERIFIED (SRC-0010 Thms 6.13/6.14 verbatim); esboço de prova [RECONSTRUÇÃO]; primária SRC-0013 A OBTER | SRC-0010 + claim 0012 | 2026-07-10 |
 
+| 7P-PNP-CLM-0018 | Relativization (BGS 1975): ∃ oráculos A, B com P^A = NP^A e P^B ≠ NP^B; técnicas relativizantes (diagonalização/simulação) não decidem P vs NP | SOURCE_VERIFIED via SRC-0017 (survey Fortnow, conferido); primária SRC-0014 A OBTER | SRC-0017; SRC-0014 pendente | 2026-07-10 |
+| 7P-PNP-CLM-0019 | Natural proofs (RR 1997): tríade constructivity+largeness+usefulness; Theorem 4.1 — sem prova P/poly-natural contra P/poly se ∃ funções 2^(n^ε)-difíceis; mecânica: a prova natural seria um distinguidor que quebra PRGs; ex.: sem prova natural p/ dureza do log discreto | SOURCE_VERIFIED (SRC-0015, verbatim) | SRC-0015 | 2026-07-10 |
+| 7P-PNP-CLM-0020 | Algebrization (A-W 2008): extensões de baixo grau Ã; separações C^Ã ⊄ D^A ∀A,Ã; aritmetização (rota IP=PSPACE) algebriza; P vs NP exige técnicas não-algebrizantes; nuance: certos circuit lower bounds já superam as duas primeiras barreiras simultaneamente | SOURCE_VERIFIED (SRC-0016, verbatim) | SRC-0016 | 2026-07-10 |
+
 ## Observações
 
-- Claims 0001–0009 e 0011–0017 são reconstruções de resultados conhecidos (fundação das fases 2–4) — NENHUM é alegação de novidade.
+- Claims 0001–0009 e 0011–0020 são reconstruções de resultados conhecidos (fundação das fases 2–4) — NENHUM é alegação de novidade.
 - **0010 é o primeiro claim a completar o ciclo proposta → revisão adversarial → gap → correção → DERIVED_CHECKED** (REV-0001, registro integral em `../07_MODEL_CALL_LOG.md`).
 - A barreira de **algebrization** (Aaronson–Wigderson 2008) NÃO está no documento de Cook; será registrada com fonte própria na FASE 4.

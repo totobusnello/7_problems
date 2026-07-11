@@ -49,6 +49,17 @@
 | **Colapso da PH** | Os andares desabam | Σᵖᵢ = Σᵖᵢ₊₁ ⟹ PH = Σᵖᵢ; P=NP ⟹ PH=P; "PH não colapsa" = conjectura-moeda da área | SRC-0010 §5.2 |
 | **Karp–Lipton** | Circuitos pequenos p/ NP custam caro | NP ⊆ P/poly ⟹ PH = Σᵖ₂ | SRC-0010 (Thm 6.13) |
 
+## Entradas da FASE 4 (2026-07-10)
+
+| Termo | Informal | Definição técnica | Fonte |
+|---|---|---|---|
+| **Relativizar** | Sobreviver a oráculos | Prova válida quando todas as máquinas recebem o mesmo oráculo arbitrário; BGS: ∃A, B com P^A = NP^A e P^B ≠ NP^B | SRC-0017 (primária SRC-0014) |
+| **Propriedade natural** | Teste amplo e eficiente de "esta função é difícil" | Constructivity (decidível em P na truth table) + Largeness (≥ 2^(−O(n)) das funções) | SRC-0015 (verbatim) |
+| **Useful (contra P/poly)** | A propriedade de fato mata circuitos pequenos | Toda sequência fₙ ∈ Cₙ tem circuit size superpolinomial | SRC-0015 (verbatim) |
+| **PRG (pseudorandom generator)** | Esticador de aleatoriedade que engana circuitos | G: {0,1}^k → {0,1}^2k em P/poly cuja saída circuitos pequenos não distinguem de aleatória; dureza H(G_k) | SRC-0015 |
+| **Aritmetização** | Fórmulas booleanas viram polinômios | Extensão de predicados booleanos a corpos finitos; motor de IP = PSPACE; NÃO relativiza, mas ALGEBRIZA | SRC-0016/0017 |
+| **Algebrizar** | Sobreviver a oráculos algébricos | Separação C ⊄ D algebriza se C^Ã ⊄ D^A ∀A e toda extensão de baixo grau Ã (assimetria essencial) | SRC-0016 (verbatim) |
+
 ## Pendentes de entrada (à medida que as fases avançarem)
 
-algebrization · proof complexity · PRG/hardness-vs-randomness · MCSP/meta-complexidade · GCT · PSPACE/Savitch · ETH/SETH.
+proof complexity · MCSP/meta-complexidade · GCT · hardness magnification · PSPACE/Savitch · ETH/SETH · IP = PSPACE (detalhe).

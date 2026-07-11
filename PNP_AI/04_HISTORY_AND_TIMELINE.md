@@ -18,14 +18,15 @@
 | 1973 | **Levin, "Universal'nye perebornye zadachi"** (Probl. Pered. Inform. 9(3):265–266): 6 problemas universais de busca; tradução inglesa no survey de Trakhtenbrot | ✅ SRC-0007/SRC-0008 (tradução integral no PDF obtido: Problems 1–6, Lemma 1) |
 | 1973 | Conferência de Tsakhkadzor (70 anos de Kolmogorov): audiência soviética ainda desconhecia Cook e Karp — as duas tradições corriam em paralelo | ✅ SRC-0008 |
 | 1975 | **Ladner:** se P ≠ NP, existem problemas NP-intermediários (nem em P, nem NP-completos) — prova por padding | ✅ enunciado verificado (SRC-0010, Thm 3.4); primária JACM = SRC-0011 A OBTER |
-| 1975 | Baker–Gill–Solovay: **relativization** — ∃ oráculo A com P^A = NP^A; diagonalização pura não resolve | ✅ fato citado em SRC-0003 (ref. [3]); ⚠️ ano e paper a processar na FASE 4 |
+| 1975 | Baker–Gill–Solovay: **relativization** — dois mundos relativizados (P^A = NP^A e P^B ≠ NP^B); técnicas da época relativizam ⟹ não decidem P vs NP | ✅ verificado via SRC-0017 (survey Fortnow); primária SIAM = SRC-0014 A OBTER |
 | 1976 | **Stockmeyer** formaliza a **hierarquia polinomial** (conceito de Meyer–Stockmeyer 1972) | ✅ definição verificada (SRC-0010, Defs 5.1/5.4); primária TCS = SRC-0012 A OBTER (paywall) |
 | 1980/82 | **Karp–Lipton:** NP ⊆ P/poly ⟹ PH colapsa a Σᵖ₂ — circuitos pequenos para NP custariam caro demais | ✅ enunciado verificado (SRC-0010, Thm 6.13); primária = SRC-0013 A OBTER |
 | anos 1980 | Lower bounds para circuitos restritos (AC⁰: Furst–Saxe–Sipser, Ajtai; monótonos: Razborov) — otimismo com a via de circuitos | ⚠️ literatura padrão; fontes primárias na FASE 4 |
-| 1994–97 | Razborov–Rudich: **natural proofs** — os métodos conhecidos de circuit lower bounds não podem separar P de NP se PRGs fortes existem | ✅ fato citado em SRC-0003 (ref. [27]); ⚠️ ano/paper a processar na FASE 4 |
+| 1990s | Provas interativas (IP = PSPACE) — a grande exceção não-relativizante, via aritmetização | ✅ apontada como exceção em SRC-0017; papers específicos a processar se necessário |
+| 1997 | Razborov–Rudich, "Natural Proofs" (JCSS 55(1):24–35; conferência início dos 90): tríade constructivity/largeness/usefulness; provas naturais contra P/poly quebrariam PRGs | ✅ SRC-0015 (paper obtido, Theorem 4.1 verbatim) |
 | 2000 | Clay Mathematics Institute inclui P vs NP entre os sete Millennium Prize Problems (descrição oficial por Cook) | ✅ SRC-0001, SRC-0003 |
 | 2002 | AKS: PRIMES ∈ P — exemplo de problema que passou de "só verificável" a "resolvível" | ✅ fato citado em SRC-0003 (composites em P, ref. [1]); ⚠️ paper na FASE 3 |
-| 2008 | Aaronson–Wigderson: **algebrization** — terceira barreira | ⚠️ fora do doc de Cook; fonte primária na FASE 4 |
+| 2008 | Aaronson–Wigderson: **algebrization** — terceira barreira; aritmetização também não separa P de NP; nota que certos lower bounds já superam as duas primeiras barreiras simultaneamente | ✅ SRC-0016 (paper obtido, abstract e definição verbatim) |
 | 2000s–hoje | SAT solvers industriais (CDCL) resolvem instâncias enormes na prática — sem impacto no pior caso; meta-complexidade (MCSP), hardness magnification e GCT como fronteiras ativas | ⚠️ mapear na FASE 4 (`08_RESEARCH_FRONTIERS.md`) |
 
 ## Leituras da história para o programa

@@ -90,6 +90,27 @@
 - **Uso:** primária do teorema de Karp–Lipton (enunciado já verificado via SRC-0010, Thm 6.13).
 - **Estado:** A OBTER (primária); secundárias verificadas.
 
+### SRC-0014 — Baker, Gill & Solovay (1975), "Relativizations of the P =? NP Question"
+- **Publicação:** SIAM Journal on Computing 4(4):431–442, 1975. Paywall SIAM.
+- **Uso:** primária da Barreira 1 (relativization). Conteúdo central verificado via SRC-0017 (survey de Fortnow): os DOIS oráculos (P^A = NP^A e P^B ≠ NP^B) e a observação de que as técnicas da época relativizam.
+- **Estado:** A OBTER (primária); conteúdo verificado via survey.
+
+### SRC-0015 — Razborov & Rudich (1997), "Natural Proofs"
+- **Publicação:** Journal of Computer and System Sciences 55(1):24–35, 1997 (versão de journal; cabeçalho JCSS conferido no PDF). PDF local em `_sources/` com SHA-256 (mirror do curso MIT 6.875).
+- **Conferido verbatim (pypdf, 2026-07-10):** definições de Constructivity (decidir fₙ ∈ Cₙ em P na truth table), Largeness (|Cₙ| ≥ 2^(−O(n))·|Fₙ|), Usefulness (circuit size superpolinomial); Theorem 4.1 (inexistência de prova P/poly-natural contra P/poly sob PRGs fortes); exemplo do logaritmo discreto.
+- **Estado:** SOURCE_VERIFIED.
+
+### SRC-0016 — Aaronson & Wigderson, "Algebrization: A New Barrier in Complexity Theory"
+- **Publicação:** STOC 2008; versão de journal ACM TOCT 1(1), 2009. Cópia do autor (scottaaronson.com), 50 pp. PDF local em `_sources/` com SHA-256.
+- **Conferido verbatim (pypdf, 2026-07-10):** abstract (terceira barreira; extensão de baixo grau Ã sobre corpo/anel finito; lower bounds que superam as duas primeiras barreiras simultaneamente); definição assimétrica de "algebrizes" para separações (C^Ã ⊄ D^A ∀A,Ã); conclusão de que P vs NP exige técnicas não-relativizantes e não-algebrizantes.
+- **Estado:** SOURCE_VERIFIED.
+
+### SRC-0017 — Fortnow, "The Role of Relativization in Complexity Theory"
+- **Natureza:** survey (Bulletin of the EATCS / página do autor), 15 pp. PDF local em `_sources/` com SHA-256. Fonte nível 6 (survey reconhecido de autoridade da área).
+- **Conferido no texto (2026-07-10):** BGS deram mundo relativizado com P = NP E outro com P ≠ NP; "essentially all the known complexity techniques at that time relativize"; resultados de provas interativas como exceção não-relativizante.
+- **Uso:** ponte verificada para SRC-0014 enquanto a primária não é obtida.
+- **Estado:** SOURCE_VERIFIED.
+
 ## Template de entrada
 
 ```

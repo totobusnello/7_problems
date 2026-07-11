@@ -34,6 +34,9 @@ Enunciado · problema · área · definições · hipóteses · quantificadores 
 | 7P-PNP-CLM-0015 | PNP_AI | Hierarquia polinomial (definição formal) | FORMULATION_VERIFIED (primária pendente) | 2026-07-10 |
 | 7P-PNP-CLM-0016 | PNP_AI | P = NP ⟹ PH = P | Reconstrução; revisão pendente | 2026-07-10 |
 | 7P-PNP-CLM-0017 | PNP_AI | Karp–Lipton + variante de Meyer | FORMULATION_VERIFIED (primária pendente) | 2026-07-10 |
+| 7P-PNP-CLM-0018 | PNP_AI | Barreira 1: relativization (BGS, dois oráculos) | SOURCE_VERIFIED via survey (primária pendente) | 2026-07-10 |
+| 7P-PNP-CLM-0019 | PNP_AI | Barreira 2: natural proofs (tríade + Thm 4.1) | SOURCE_VERIFIED | 2026-07-10 |
+| 7P-PNP-CLM-0020 | PNP_AI | Barreira 3: algebrization (A-W) | SOURCE_VERIFIED | 2026-07-10 |
 
 Detalhes dos claims PNP em `PNP_AI/10_PNP_CLAIM_LEDGER.md`.
 
