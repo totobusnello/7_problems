@@ -43,7 +43,7 @@
 
 ---
 
-## EXP-PROBE-0001 — Sonda k=9 nas classes pendentes 0x1669 / 0x166b (EM ANDAMENTO)
+## EXP-PROBE-0001 — Sonda k=9 nas classes pendentes 0x1669 / 0x166b — **CONCLUÍDO** (status atualizado 2026-07-11, pós-REV-0005)
 
 - **Data:** 2026-07-11 · **Código:** `experiments/exp_probe_0001/` · **Budget aprovado:** 12h/classe.
 - **Encoder:** o do EXP-GATE-0001 + quebra de simetria v2 (portas duplicadas proibidas — sound para opt ∈ {9,10}: circuito mínimo não tem duplicatas; gate re-validado integralmente após a mudança). CNF k=9: 1.273 vars, 133.909 cláusulas.
@@ -68,7 +68,15 @@
 - **Lições de engenharia consolidadas:** (1) veredito sem proof logging → prova → verificação, sequencial quando a RAM é curta (dois OOM no Mac antes do acerto); (2) provas de ~4GB exigem ~3-4× em RAM no drat-trim; (3) awk sem fflush engoliu eventos de monitoramento (bug de observabilidade, não de ciência).
 - Estados finais: claims 0022 e 0023 = **FINITE_SCOPE_VERIFIED**. Provas regeneráveis deterministicamente (`cert_remote.sh`/`cert_pipeline.sh`); artefatos grandes fora do git.
 
-- **Conclusão permitida (0x166b):** sob o encoder validado no gate, não existe AIG de 9 portas para 0x166b; combinado com o ub do catálogo, opt=10 — pendente de certificado DRAT (rodada em curso) e de auto-verificação do ub (busca k=10 em curso).
-- **Conclusão NÃO permitida:** nada sobre 0x1669 ainda; nada além destas classes/base/modelo.
+- ~~Conclusão intermediária (histórica, mantida por governança):~~ "sob o encoder validado no gate, não existe AIG de 9 portas para 0x166b; opt=10 pendente de certificado DRAT e de auto-verificação do ub" — **SUPERADA em 2026-07-11** pela tabela de certificação acima (ambas as classes com DRAT verificada 2× e circuito de 10 portas simulado).
+- **Conclusão permitida (final, 2026-07-11):** opt_AIG(0x1669) = opt_AIG(0x166b) = 10 na base AIG do catálogo (portas AND-2, inversões livres), com cadeia: encoder validado (G3) · UNSAT k=9 certificado DRAT em duplicata · UNSAT empírico k=1..8 (addendum abaixo) · circuito de 10 portas verificado por simulação.
+- **Conclusão NÃO permitida:** nada além destas classes/base/modelo; nada assintótico; nada sobre n=5.
+
+### Addendum 2026-07-11 — varredura k=1..8 (fecho do finding v da REV-0005/GLM)
+
+- **Motivação:** o encoder pergunta "existe circuito com **exatamente** k portas". UNSAT em k=9 refuta opt=9; para opt≤8 o argumento era só o lema de minimalidade (se opt=m, um circuito mínimo de m portas é livre de duplicatas, tem todas as portas usadas e saída na última — logo satisfaz o CNF de k=m; UNSAT em k=m refuta opt=m). A REV-0005 (GLM) apontou que esse lema estava implícito e não testado. Fecho empírico: rodar k=1..8 nas duas classes (`lowk_check.py`).
+- **k=0 fora do SAT:** 5737 e 5739 não são constantes nem literais (conferido no script).
+- **Resultado (execução real, Mac, kissat, `lowk_sweep.log`):** **UNSAT em TODOS os k=1..8, para AMBAS as classes.** Tempos: k≤6 sub-segundo; k=7 ≈ 4–5s; k=8 = 47,9s (0x166b) e 39,2s (0x1669). Tamanhos: k=8 → 993 vars / 89.495 cláusulas. Vereditos sem proof logging (sanidade); o resultado de claim continua ancorado no k=9 com DRAT + este fecho empírico + o lema de minimalidade agora EXPLÍCITO (acima).
+- **Consequência:** opt ≥ 9 fica estabelecido por duas vias independentes (lema + varredura empírica); com UNSAT k=9 (DRAT 2×) e SAT k=10 (simulado), opt = 10 sem elo implícito na cadeia.
 
 ---

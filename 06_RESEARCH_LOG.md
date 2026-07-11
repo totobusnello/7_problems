@@ -248,3 +248,29 @@ Destaques: Q6 com o detalhe "polinomial no nº de bits"; Q8 com o quantificador 
 **Pendências que passam a decisão de Luiz:** (a) destino do resultado — contato com o autor do catálogo e/ou nota pública exigem autorização explícita (10_PUBLICATION_RULES); (b) conclusão formal da FASE 5 — pré-requisitos restantes da seleção definitiva (alvo C2 comparável, busca fora da shortlist, pesos ex-ante); (c) desligar o pod (custo/hora) até a próxima campanha.
 
 ---
+
+## 2026-07-11 — CICLO 10 — Re-check de novidade (Krinkin) + fecho do lema k≤8
+
+**Pedido de Luiz:** "faça um re-check para termos certeza (Krinkin) — use grok, glm ou kimi, o que achar melhor — 1 só."
+
+**Escolha do revisor:** GLM-5.2 (Zhipu) — única família ainda não usada no programa (valida o canal de quebra) e formato adequado ao wrapper read-only: Claude coleta a evidência web/GitHub, o modelo externo audita o dossiê adversarialmente.
+
+**Evidência coletada (ferramentas reais, 2026-07-11):**
+- arXiv 2603.09379: SOMENTE v1 (2026-03-10), sem revisões.
+- Repo krinkin/bounds: 4 commits, todos de 2026-03-10; zero issues; zero PRs.
+- CSV público `data/npn4_opt_aig.csv` (HEAD): `0x1669,…,10,improved_ub` e `0x166b,…,10,improved_ub`; 220 `exact` + 2 `improved_ub`; **SHA-256 idêntico à nossa cópia local** (`5328e44f…ba49`) — sem drift de dados.
+- Semantic Scholar: lista de citações VAZIA (endpoint de metadata deu 429; o de citations respondeu).
+- Buscas web direcionadas (classes/valores): zero resultados além do próprio paper. Autor: Constructor University, Bremen (ResearchGate).
+
+**REV-0005 (GLM-5.2, 1 chamada, registro em 07_MODEL_CALL_LOG):** veredito **SUSTENTADA** — "gap continua aberto; resultado novo o suficiente para contribuir ao repo do autor". Findings adjudicados:
+1. Semantic Scholar era a lacuna de maior impacto → **fechada no mesmo ciclo** (0 citações).
+2. Literatura clássica de exact synthesis (ABC/mockturtle, Haaswijk/Soeken) não varrida → **ressalva declarada** no ledger; varredura fica para antes de qualquer nota pública (não bloqueia contato com o autor, que pergunta e não afirma).
+3. **Finding real de soundness (aceito e fechado):** encoder pergunta "exatamente k"; UNSAT k=9 não decide k≤8 sem o lema de minimalidade — que estava implícito. Resposta: lema explicitado em 12_EXPERIMENTS + **varredura empírica k=1..8: UNSAT em todos, nas duas classes** (k=8 em ≤48s; `lowk_check.py`). opt≥9 agora tem duas vias independentes.
+4. Doc stale em 12_EXPERIMENTS (cabeçalho "EM ANDAMENTO", conclusões intermediárias) → **corrigido com supersessão datada**.
+5. Guia para o contato com o autor: anexar circuitos + CNFs + hashes + versões + comando de regeneração; perguntar "gap ainda aberto?" antes de reivindicar; framing "fechando o gap declarado no seu abstract" (o abstract diz "220 of 222" — corrobora a leitura de gap real).
+
+**Interpretação de `improved_ub` (risco 3 do dossiê):** corroborada pelo abstract; risco residual é o autor considerar o valor "conjecturado" — indiferente para o ato de contribuir, relevante só para a narrativa.
+
+**Chamadas externas de modelo:** 1 (REV-0005). Limite do ciclo respeitado.
+
+**Estado ao fim do ciclo:** re-check CONCLUÍDO com novidade SUSTENTADA; claims 0022/0023 fortalecidos (adição datada no ledger); canal GLM validado (inventário atualizado). Contato com o autor SEGUE BLOQUEADO aguardando autorização explícita de Luiz (10_PUBLICATION_RULES).

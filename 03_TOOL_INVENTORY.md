@@ -58,7 +58,7 @@
 | OpenAI via Codex MCP (OAuth ChatGPT) | **DISPONÍVEL E TESTADA — CANAL OFICIAL** | Decisão de Luiz (2026-07-10): este é o canal OpenAI do programa. Chamada real: identifica-se como "Codex, an OpenAI agent based on GPT-5"; contexto isolado confirmado; apto a referee adversarial |
 | OpenAI API direta (key) | **DESCARTADA POR DECISÃO** (2026-07-10) | Key do `~/.zshrc` inválida E desnecessária — OAuth via Codex cobre o caso de uso. Reconsiderar só se surgirem chamadas programáticas em lote fora do MCP |
 | Kimi (Moonshot) | **DISPONÍVEL, AINDA NÃO TESTADA** | `/kimi:{review,challenge,ask}` — OAuth ativo |
-| GLM-5.2 (Zhipu) | **DISPONÍVEL, AINDA NÃO TESTADA** | wrapper `~/Claude/scripts/glm`, read-only |
+| GLM-5.2 (Zhipu) | **DISPONÍVEL E TESTADA** (2026-07-11, REV-0005) | wrapper `~/Claude/scripts/glm`, read-only; auditoria do re-check Krinkin |
 | Grok 4.5 (xAI) | **DISPONÍVEL, AINDA NÃO TESTADA** | wrapper `~/Claude/scripts/grok`, pay-as-you-go |
 
 4 famílias de treino independentes de Claude (OpenAI, Moonshot, Zhipu, xAI) → revisão adversarial multi-modelo é viável hoje.
