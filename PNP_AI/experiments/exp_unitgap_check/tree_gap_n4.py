@@ -80,6 +80,11 @@ assert (cost[alltt] == cost[alltt ^ MASK]).all(), "tree nao fechou por complemen
 
 # --- juncao com o catalogo opt ---
 rows = list(csv.DictReader(open(CAT)))
+# REV-0013 (Codex): o join deve exigir catalogo 100% exato, nao consumir
+# improved_ub silenciosamente (0x1669/0x166b tinham metadado obsoleto no CSV,
+# corrigido — os DRATs k=9 dos claims 0022/0023 estabelecem opt=10 exato)
+nonexact = [r["npn_rep_hex"] for r in rows if r["status"] != "exact"]
+assert not nonexact, f"catalogo com linhas nao-exatas: {nonexact}"
 out_rows = []
 dist = Counter()
 viol = []
