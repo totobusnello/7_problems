@@ -20,5 +20,5 @@
 
 ## Lições operacionais de infra (2026-07-11)
 
-- **pkill remoto via ssh: SEMPRE pattern bracket** (`pkill -f "pilot_[r]un.py"`) — `pkill -f string` casa com a cmdline do próprio `bash -c` que o contém e SE MATA antes das linhas seguintes (mordeu 2× em 2026-07-11).
+- **pkill remoto via ssh: pattern bracket E kill sozinho na linha** (`pkill -f "pilot_[r]un.py"` como ÚNICO comando da sessão ssh) — o bracket evita o pattern casar consigo mesmo, mas se a MESMA linha `bash -c` contiver a string alvo em forma plana em outro trecho (relaunch `python3 pilot_run.py`, `pgrep kissat` de verificação), o pkill casa com a cmdline da própria sessão e SE MATA no meio (mordeu 2× em 2026-07-11 e 2× de novo em 2026-07-12 na forma nova). Kill, troca de arquivos, relaunch e verificação = sessões ssh SEPARADAS.
 - **Cálculo pesado ad-hoc → pod** (decisão de Luiz): Mac fica só com workers `nice` leves; qualquer job de CPU vai pra VPS/pod que já está pago.

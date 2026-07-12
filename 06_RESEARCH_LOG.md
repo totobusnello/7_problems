@@ -454,3 +454,9 @@ Pod ficou `connection refused` com o piloto em 22/320; Luiz forneceu endpoint no
 **Leitura científica:** o padrão qualitativo é o esperado da teoria clássica (paridade separa fórmula de circuito — Khrapchenko Θ(n²) folhas vs circuito linear), e é exatamente o que a régua quebrada do paper não podia ver: a recursão com opt nos filhos reporta "gap ≤ 1" por construção. O censo dá o quantitativo: já em n=4, 1/3 das classes têm gap ≥ 2. Material direto para a nota técnica e para eventual réplica ao autor (nenhuma comunicação nova sem OK de Luiz).
 
 **Chamadas externas de modelo:** 0.
+
+### Adendo operacional 2026-07-12 (~01h BRT) — 2º pod + rebalanceamento global do piloto (Luiz: "2o pod")
+
+Luiz aprovou acelerar e forneceu o 2º pod (mesmas specs: EPYC 16c/124GB, porta 17109). **Rebalanceamento global dos 443 restantes proporcional aos workers (16+16+6):** pod1=187, pod2=186, Mac=70. Stack do pod2 clonado por tar do pod1 (mesma arch/OS — sem rebuild). Workers relançados nas 3 frentes com resume por canon_hex (outputs preservados; perda = só o in-flight, ~1h/worker). Monitor v3: sincroniza OS DOIS pods a cada 15min, status por hora, alerta de inacessibilidade, aviso de desligar os pods na conclusão. Wall estimado: ~40h → ~15-17h.
+
+**Lição pkill REFINADA (mordeu 2× de novo, forma nova):** o pattern bracket (`pilot_[r]un.py`) protege contra o pattern casar consigo mesmo, mas NÃO protege quando a MESMA linha de `bash -c` contém a string alvo em forma plana em outro trecho (ex.: o relaunch `python3 pilot_run.py ...` ou um `pgrep kissat` de verificação). O pkill casa com a cmdline da própria sessão e a mata no meio. **Regra operacional: o comando de kill remoto deve ser a ÚNICA coisa na linha ssh — troca de arquivos, relaunch e verificação vão em sessões ssh SEPARADAS.** CLAUDE.md do projeto atualizado.

@@ -1,0 +1,11 @@
+{"canon_hex": "0x012c7924", "canon_dec": 19691812, "orbit": 7680, "stratum": "random", "draws": 1}
+{"canon_hex": "0x003d5b3d", "canon_dec": 4021053, "orbit": 7680, "stratum": "random", "draws": 1}
+{"canon_hex": "0x16818168", "canon_dec": 377586024, "orbit": 32, "stratum": "symmetric", "draws": 0}
+{"canon_hex": "0x01adfa8d", "canon_dec": 28179085, "orbit": 7680, "stratum": "random", "draws": 1}
+{"canon_hex": "0x013ffe69", "canon_dec": 20971113, "orbit": 3840, "stratum": "random", "draws": 1}
+{"canon_hex": "0x012dcb57", "canon_dec": 19778391, "orbit": 7680, "stratum": "random", "draws": 1}
+{"canon_hex": "0x011a1ffb", "canon_dec": 18489339, "orbit": 3840, "stratum": "random", "draws": 1}
+{"canon_hex": "0x012cc8e5", "canon_dec": 19712229, "orbit": 7680, "stratum": "random-mac", "draws": 1}
+{"canon_hex": "0x0676924b", "canon_dec": 108433995, "orbit": 7680, "stratum": "random-mac", "draws": 1}
+{"canon_hex": "0x019ae25b", "canon_dec": 26927707, "orbit": 7680, "stratum": "random-mac", "draws": 1}
+{"canon_hex": "0x01696f03", "canon_dec": 23686915, "orbit": 7680, "stratum": "random-mac", "draws": 1}
