@@ -159,6 +159,12 @@
 ### SRC-0032 — Krinkin, "The Unit Gap: How Sharing Works in Boolean Circuits" (arXiv:2603.08033, 1 citação)
 - **Uso:** segundo paper do autor do catálogo NPN-4, sobre estrutura de circuitos AIG ótimos — LER antes de desenhar a campanha n=5 (questões abertas prontas e/ou dados parciais). **Consulta:** 2026-07-11 (abstract via busca); PDF obtido no mesmo dia (v2, SHA em `_sources/README.md`), leitura verbatim via pypdf. **Estado (atualizado 2026-07-11): GAP_FOUND — Teorema 2 ("Unit Gap"), Corolário 6 e Teorema 7 REFUTADOS por contraexemplo ⊕₃ (claims 7P-PNP-CLM-0024/0025, revisão REV-0009/Grok SUSTENTADA; 2ª família pendente). Teoremas 3 e 4 sobrevivem. NÃO usar Thm 2/Cor 6/Thm 7 como dependência.**
 
+### SRC-0033 — Soeken, Amarù, Gaillardon, De Micheli, "Optimizing Majority-Inverter Graphs with Functional Hashing" (DATE 2016)
+- **Uso:** VERIFICAÇÃO DE NOVIDADE da trilha D (censo MIG): a Tabela I do paper JÁ PUBLICA os MIGs ótimos das 222 classes NPN-4 — distribuição {0:2, 1:2, 2:5, 3:18, 4:42, 5:117, 6:35, 7:1}, computada com Z3 em 18.378s (2016); classe mais dura = classe de (⊕₄)∨x₁x₂x₃x₄ (7 nós, 16.796s). Consequência: nosso EXP-MIG-N4 é REPLICAÇÃO com validação externa (a tabela deles é o alvo), não novidade; a novidade nossa permanece no gap por base. **Consulta:** 2026-07-13 (PDF obtido de msoeken.github.io, parse mecânico via pypdf, tabela extraída verbatim; arquivo em `PNP_AI/sources/soeken_2016_date_mig_hashing.pdf`). **Estado:** VERIFICADO (tabela extraída verbatim).
+
+### SRC-0034 — Soeken, Amarù, Gaillardon, De Micheli, "Exact Synthesis of Majority-Inverter Graphs and Its Applications" (IEEE TCAD 2017)
+- **Uso:** versão estendida do SRC-0033 (métodos SAT/SMT de exact synthesis MIG); referência metodológica do encoder MIG e due diligence adicional. **Consulta:** 2026-07-13 (PDF obtido de si2.epfl.ch; `PNP_AI/sources/soeken_2017_tcad_exact_mig.pdf`). **Estado:** OBTIDO (leitura dirigida pendente).
+
 ## Template de entrada
 
 ```

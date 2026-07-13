@@ -1,5 +1,12 @@
 # 7_problems — notas operacionais
 
+## 🏠 REPO PRÓPRIO desde 2026-07-13
+
+- Este é o repo **totobusnello/7_problems** (público), clone em `/Users/lab/Projetos/7_problems` — promovido do umbrella `totobusnello/Claude` via `git subtree split` (51 commits preservados).
+- **O umbrella mantém uma cópia CONGELADA em `Projetos/7_problems/` — NUNCA deletar/alterar lá o diretório `PNP_AI/experiments/exp_unitgap_check/`**: a issue enviada ao Krinkin (krinkin/unit-gap#1) linka essa árvore na branch main do umbrella. Qualquer limpeza futura do umbrella preserva esse caminho. ("Não vamos ter 2 chances" — Luiz, 2026-07-13.)
+- Abrir sessões novas do programa NESTE diretório (`/Users/lab/Projetos/7_problems`), não no umbrella.
+
+
 ## ⚠️ HARD RULE — Lançamento de revisores externos (2026-07-11, após 4 falhas recorrentes)
 
 - **TODO revisor externo (kimi/codex/glm/grok) é lançado via `tools/rev.sh <canal> ...`** — nunca comando manual re-derivado (env vars e model ids corretos moram NO script, não em notas).

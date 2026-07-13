@@ -20,7 +20,7 @@
 #   tools/rev.sh grok  "prompt..."            # wrapper read-only existente
 set -uo pipefail
 
-REPO_ROOT="/Users/lab/Claude"
+REPO_ROOT="/Users/lab/Projetos/7_problems"
 # Root do plugin: o CACHE versionado (é nele que o hook de segurança do
 # ~/.kimi-code/config.toml está pinado). Usar o root do marketplace dispara
 # falso-positivo de "hook path drift" E roda SEM hook (lição 2026-07-11).
