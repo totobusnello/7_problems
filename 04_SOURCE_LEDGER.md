@@ -154,7 +154,7 @@
 - **Uso:** verificação de novidade do n=5 (FASE 6): Knuth computou custo mínimo de TODAS as classes NPN-5 no modelo **Boolean chains** (qualquer op binária = custo 1, incl. XOR) — modelo DISTINTO da base AIG. Relevante como (a) limite do claim de novidade do recorte A, (b) possível fonte de bounds/sanity. **Consulta:** 2026-07-11 (busca; post cp4space "Five-input Boolean circuits" 2019). **Estado:** REFERENCIADO (a obter/conferir modelo em detalhe antes da campanha).
 
 ### SRC-0031 — Soeken et al., "Classifying Functions with Exact Synthesis" (ISMVL 2017) + "Practical Exact Synthesis" (DATE 2018)
-- **Uso:** estado da arte de exact synthesis sobre o conjunto NPN5 (616.126 classes); bibliotecas de rewriting pré-computam ótimos para subconjuntos. Due diligence obrigatória do recorte A. **Consulta:** 2026-07-11 (abstracts). **Estado:** REFERENCIADO.
+- **Uso:** estado da arte de exact synthesis sobre o conjunto NPN5 (616.126 classes); bibliotecas de rewriting pré-computam ótimos para subconjuntos. Due diligence obrigatória do recorte A. **Consulta:** 2026-07-11 (abstracts). **Atualização 2026-07-13:** PDF do DATE 2018 obtido e lido mecanicamente (`PNP_AI/sources/soeken_2018_date_practical_exact.pdf`); a Table II usa redes de 3-input Boolean (e variante só-majority) — NÃO há catálogo XAG-2-input total-gate ali. **Estado:** VERIFICADO (na questão do XAG).
 
 ### SRC-0032 — Krinkin, "The Unit Gap: How Sharing Works in Boolean Circuits" (arXiv:2603.08033, 1 citação)
 - **Uso:** segundo paper do autor do catálogo NPN-4, sobre estrutura de circuitos AIG ótimos — LER antes de desenhar a campanha n=5 (questões abertas prontas e/ou dados parciais). **Consulta:** 2026-07-11 (abstract via busca); PDF obtido no mesmo dia (v2, SHA em `_sources/README.md`), leitura verbatim via pypdf. **Estado (atualizado 2026-07-11): GAP_FOUND — Teorema 2 ("Unit Gap"), Corolário 6 e Teorema 7 REFUTADOS por contraexemplo ⊕₃ (claims 7P-PNP-CLM-0024/0025, revisão REV-0009/Grok SUSTENTADA; 2ª família pendente). Teoremas 3 e 4 sobrevivem. NÃO usar Thm 2/Cor 6/Thm 7 como dependência.**
@@ -164,6 +164,9 @@
 
 ### SRC-0034 — Soeken, Amarù, Gaillardon, De Micheli, "Exact Synthesis of Majority-Inverter Graphs and Its Applications" (IEEE TCAD 2017)
 - **Uso:** versão estendida do SRC-0033 (métodos SAT/SMT de exact synthesis MIG); referência metodológica do encoder MIG e due diligence adicional. **Consulta:** 2026-07-13 (PDF obtido de si2.epfl.ch; `PNP_AI/sources/soeken_2017_tcad_exact_mig.pdf`). **Estado:** OBTIDO (leitura dirigida pendente).
+
+### SRC-0035 — Knuth, TAOCP 7.1.2 + BOOLCHAINS (Boolean chains sobre a base B2, n<=4 e quase todo n=5)
+- **Uso:** due diligence do censo XAG: custo total de portas em XAG ≃ combinational complexity sobre B2 (toda op binária dependente dos 2 argumentos = um AND-com-polaridades ou um XOR) — Knuth tabulou n≤4; nosso max 7 confere com o bound clássico. Consequência: SEM claim de novidade para os NÚMEROS do catálogo XAG; cross-check por classe contra os dados do BOOLCHAINS FICA EM FILA. A novidade defensável é a análise de gap por base. **Consulta:** 2026-07-13 (cs.stanford.edu/~knuth/programs.html localizado; dados ainda não baixados). **Estado:** REFERENCIADO (cross-check pendente).
 
 ## Template de entrada
 
