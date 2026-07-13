@@ -181,3 +181,24 @@
 - **Conclusões permitidas:** valores opt_XAG/tree_XAG por classe (com o grau de certificação usado
   em cada um declarado); tabela cruzada AIG×XAG×fórmula; gaps entre bases. NÃO permitida: claim de
   novidade sem a verificação bibliográfica.
+
+
+## EXP-MIG-N4 — Censo opt_MIG nas 222 classes NPN de n=4 (Trilha D) — **CONCLUÍDO 2026-07-13, REPLICAÇÃO com MATCH EXATO**
+
+- **Natureza declarada ANTES do censo** (header do `mig_exact.py` + SRC-0033): REPLICAÇÃO — a
+  Tabela I de Soeken et al. (DATE 2016) já publica os MIGs ótimos das 222 classes; ela foi
+  extraída verbatim ANTES da execução e usada como alvo de validação externa.
+- **Gates M1+M2 PASSARAM antes do censo:** n=2 (AND2=OR2=1 via MAJ+constante; XOR2=3); n=3
+  completo (enum exaustiva independente ↔ encoder+kissat consistentes nas duas direções;
+  opt_MIG ≤ opt_AIG nas 256, estritamente melhor em 58; MAJ3=1; NPN amostrada).
+  Distribuição n=3: {0:8, 1:32, 2:64, 3:56, 4:96} (max 4).
+- **Censo n=4:** distribuição {0:2, 1:2, 2:5, 3:18, 4:42, 5:117, 6:35, 7:1} — **IDÊNTICA à
+  publicada, faixa a faixa**. Validação externa recíproca: grupo independente, solver diferente
+  (Z3 2016 vs kissat 2026), encoding diferente, mesmo resultado. Única classe de 7 nós = 0x1669
+  (a mesma que a deles). ⊕₄: opt_MIG=6. Tempo total 18.410s (curiosidade: deles foi 18.378s).
+- **Tabela cruzada gerada:** `experiments/npn4_bases.csv` (opt/tree AIG, opt/tree XAG, opt MIG,
+  gaps por classe). MIG < AIG em 195/222; XAG < MIG em 42/222. tree_MIG DEFERIDO (DP ternário
+  ingênuo é O(N³) em elementos — precisa de algoritmo melhor; declarado, não computado).
+- **Certificação:** modelos SAT verificados por simulação; UNSAT por kissat sem DRAT (declarado);
+  poda kmax=opt_AIG sound (AND=MAJ com constante ⟹ opt_MIG ≤ opt_AIG, verificado no M2c).
+  Claim 0029.
