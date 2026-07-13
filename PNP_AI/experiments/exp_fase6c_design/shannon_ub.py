@@ -127,10 +127,28 @@ def trivial5(tt):
     return tt in cands
 
 
+def ub_davio(tt):
+    """Davio positivo/negativo: f = f0 ^ (x AND d) ou f = f1 ^ (~x AND d), d = f0^f1.
+    Custo AIG: opt4(base) + opt4(d) + 1 (AND) + 3 (XOR), com degenerados:
+    d == 0 -> f nao depende de x (coberto no shannon1); d constante-1 -> f = f0 ^ x (custo opt4(f0)+3)."""
+    best = 10 ** 9
+    for j in range(N5):
+        lo, hi = cofactors(tt, j)
+        d = lo ^ hi
+        if d == 0:
+            continue
+        if d == M4:
+            c = min(opt4(lo), opt4(hi)) + 3  # f = f0 ^ x (XOR com literal = 3)
+        else:
+            c = min(opt4(lo), opt4(hi)) + opt4(d) + 4
+        best = min(best, c)
+    return best
+
+
 def ub(tt):
     if trivial5(tt):
         return 0
-    return ub_shannon1(tt)
+    return min(ub_shannon1(tt), ub_davio(tt))
 
 
 # ---------- calibração nas classes do piloto ----------

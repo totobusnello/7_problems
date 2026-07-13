@@ -1,0 +1,10 @@
+npn_rep_hex,opt_catalogo,opt_rederivado,match,t_sec
+0x0000,0,0,OK,0.0
+0x0016,7,7,OK,1.2
+0x001f,3,3,OK,0.0
+0x006f,5,5,OK,0.2
+0x0118,8,8,OK,10.5
+0x012c,8,8,OK,9.0
+0x013f,5,5,OK,0.2
+0x016f,6,6,OK,0.5
+0x0183,6,6,OK,0.3
