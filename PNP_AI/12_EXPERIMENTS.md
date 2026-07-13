@@ -140,3 +140,44 @@
 - **Limite declarado:** tree por enumeração única (sem DRAT — proof logging não se aplica a DP);
   o lado opt herda a certificação do catálogo. Implementação única ⟹ claim 0026 fica em
   COMPUTATIONALLY_TESTED (o embedding n=3 e Khrapchenko mitigam, não substituem, 2ª implementação).
+
+## EXP-XAG-N4 — Catálogo completo opt_XAG e tree_XAG nas 222 classes NPN de n=4 (Trilha D da FASE 6) — **CONCLUÍDO 2026-07-13**
+### Resultado (2026-07-13, gates X1+X2 PASSARAM antes do censo)
+
+- **Gate X1 (n=2):** AND2=XOR2=1; 16/16 funções com opt ≤ 1. **Gate X2 (n=3 completo):**
+  enumeração exaustiva independente até k=4 cobre 256/256 e BATE com encoder+kissat nas duas
+  direções; opt_XAG ≤ opt_AIG nas 256 (estritamente melhor em 128); opt_XAG(⊕₃)=2 (AIG: 6);
+  NPN-invariância amostrada ✓. Distribuição n=3: {0:8, 1:30, 2:114, 3:80, 4:24} (max 4 vs 6 AIG).
+- **Censo n=4 (222 classes, 9min total, classe mais cara 45s):** opt_XAG ∈ 0..7 —
+  {0:2, 1:2, 2:5, 3:20, 4:34, 5:75, 6:72, 7:12}. XAG estritamente melhor que AIG em **190/222**.
+  ⊕₄: opt_XAG=3 (AIG: 9). tree_XAG (DP em camadas AND+XOR, 0,1s): max 7 (AIG: 15); embedding
+  n=3 256/256 ✓.
+- **ACHADO CENTRAL — gap por base:** gap_XAG = tree_XAG − opt_XAG é **{0: 256}** em n=3 (funções)
+  e **{0: 218, 1: 4}** em n=4 (classes). Ou seja: a propriedade "Unit Gap" (gap ∈ {0,1}), FALSA
+  na base AIG (72/222 violações, gap até 6 — EXP-GAP-N4/claim 0026), VALE empiricamente na base
+  XAG até n=4. O gap grande do AIG é estrutura de paridade que o XOR nativo absorve.
+- **Níveis de certificação (declarados):** modelos SAT verificados por simulação (assert no
+  runner); lado UNSAT por kissat SEM DRAT nesta fase (adicionável nas classes de fronteira);
+  poda kmax=opt_AIG é sound (opt_XAG ≤ opt_AIG provado por inclusão de base e verificado no X2c);
+  tree por DP com método já duplamente validado na base AIG + embedding. Claims 0027/0028.
+- **Custo:** ~10min de Mac. Artefatos: `exp_xag_n4/` (encoder, gates, censo, npn4_xag.csv,
+  tree_xag_n4.npy, logs).
+
+
+- **Contexto:** primeiro item da Trilha D (outras bases em n=4), iniciado sob o direcionamento de
+  Luiz ("estamos focados no P=NP"; a decisão estratégica do recorte n=5 permanece aberta e é dele).
+- **Base XAG:** portas AND-2 (polaridades livres nas arestas) + XOR-2 (entradas positivas —
+  normalização padrão: negação comuta com XOR e é absorvida pelo consumidor/saída); negação de
+  saída livre; custo = número TOTAL de portas (AND+XOR). NOTA de novidade: multiplicative
+  complexity (só ANDs contam, XOR grátis) é medida CLÁSSICA já computada na literatura para
+  n pequenos (Turan–Peralta e sucessores) — nosso alvo é o custo total de portas, que é o análogo
+  direto do catálogo AIG; verificação de novidade obrigatória ANTES de qualquer claim de "primeiro".
+- **Protocolo:** (X1) sanity n=2 (XOR2 e AND2 ⟹ opt=1); (X2) n=3 COMPLETO — encoder+kissat vs
+  enumeração exaustiva independente de circuitos XAG até a profundidade viável + invariantes
+  (opt_XAG ≤ opt_AIG nas 256; opt_XAG(⊕₃)=2; NPN-invariância amostrada); só então (X3) censo
+  n=4: 222 classes, busca ascendente k=0,1,..., kissat, registro de tempos; DRAT nas UNSAT
+  decisivas das classes de fronteira (a definir pelo perfil de custo). Paralelo: tree_XAG por DP
+  em camadas (AND+XOR) p/ gap na base XAG.
+- **Conclusões permitidas:** valores opt_XAG/tree_XAG por classe (com o grau de certificação usado
+  em cada um declarado); tabela cruzada AIG×XAG×fórmula; gaps entre bases. NÃO permitida: claim de
+  novidade sem a verificação bibliográfica.

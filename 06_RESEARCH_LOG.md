@@ -484,3 +484,15 @@ Sanity pass adversarial no branch do claim 0026: relaxação Bellman v2 sound/co
 **Checkpoint (UMA decisão solicitada):** escolha do recorte da FASE 6 — B (parcial curado, exige engenharia de filtro heurístico), C (amostra estratificada p/ meta-complexidade, viável em burst 64c com budget maior/censura como rótulo) ou D (catálogos completos n=4 em outras bases — caminho já demonstrado pelo EXP-GAP-N4, entregas rápidas). Recomendação técnica registrada: D como entrega imediata + C-restrito como trilha n=5; A descartado; B só com o filtro.
 
 **Chamadas externas de modelo:** 0 no ciclo.
+
+## 2026-07-13 — CICLO 25 — Trilha D entrega o 1º catálogo: XAG n=4 COMPLETO em 10min; a propriedade Unit Gap é BASE-DEPENDENTE (claims 0027/0028)
+
+**Contexto:** Luiz direcionou foco total no P=NP (NS-PROB parqueado). Trilha D iniciada pelo XAG conforme recomendação; decisão estratégica do recorte n=5 segue aberta.
+
+**FATO VERIFICADO (computacional):** gates X1+X2 passaram ANTES do censo (n=3 completo com enumeração exaustiva independente batendo com o encoder nas duas direções). Censo das 222 classes em 9min (classe mais cara 45s — vs 20+min das duras do AIG): opt_XAG max 7, XAG < AIG em 190/222, ⊕₄ de 9 → 3. tree_XAG max 7 (vs 15). **gap_XAG: {0: 256} em n=3 e {0: 218, 1: 4} em n=4** — a propriedade Unit Gap (gap ∈ {0,1}), refutada na base AIG com 32% de violações, VALE empiricamente na base XAG até n=4.
+
+**Leitura científica:** o "sharing" que o Krinkin tentou capturar existe de verdade — mas o que ele mede em AIG é dominado por reuso de estrutura LINEAR, que é artefato da base AND (o XOR nativo absorve tudo: paridade-4 cai de tree 15 para 3). A formulação honesta do fenômeno é base-relativa. Isso é material central para a nota técnica e para eventual diálogo com o autor (construtivo: a intuição dele sobrevive em base mais rica; o teorema na base dele, não). Enunciado estritamente empírico n ≤ 4, sem extrapolação.
+
+**Próximos da trilha D (naturais, ainda sem execução):** MIG (maioria-3) com o mesmo molde gate→censo; DRAT nas fronteiras do XAG se o catálogo for a público; verificação bibliográfica de novidade (multiplicative complexity é medida clássica DIFERENTE — custo total XAG é o análogo direto; conferir Soeken/mockturtle antes de qualquer claim de "primeiro").
+
+**Chamadas externas de modelo:** 0 no ciclo.
