@@ -541,3 +541,12 @@ Sanity pass adversarial no branch do claim 0026: relaxação Bellman v2 sound/co
 ### Adendo do Ciclo 29 — Gate n=4 completo: 222/222, ZERO mismatches
 
 Encoder revalidado fim-a-fim para a FASE 6C **e** as 220 entradas do catálogo do Krinkin validadas independentemente pela primeira vez (antes só tínhamos re-derivado as 2 que fechamos). Pré-requisitos §6: 3/3 CONCLUÍDOS. A FASE 6C está pronta para o go de Luiz (tamanho/infra/data).
+## 2026-07-13 — CICLO 30 — Charter da AUDIT TRACK proposto (reflexão estratégica de Luiz)
+
+Luiz levantou o pivô estratégico: "entrar para a história tendo ganhos onde as teorias empacaram ou estão com resultado errado" em vez de resolução frontal. Análise registrada em conversa: a vantagem comparativa demonstrada do programa É o motor de verificação adversarial (Unit Gap = proof of concept completo, <US$ 100). Proposta formalizada em `11_AUDIT_TRACK_CHARTER.md`: missão, gate de seleção de alvos (checabilidade/peso/tratabilidade/reparabilidade/risco), pipeline = template validado (verbatim → mecanizado → dupla implementação → 4 famílias p/ contato → Lean → reparo junto), cadência 1 alvo/vez, métricas honestas de vitória, anti-padrões (nada de gotcha sem peso). A trilha COMPLEMENTA PNP-AI (FASE 6C segue aguardando go). **Nada executa sem aprovação de Luiz — o charter em si está em revisão.**
+
+**Chamadas externas de modelo:** 0.
+
+### Adendo do Ciclo 30 — Escopo Millennium aprovado: auditar os 7 problemas, um por vez
+
+Luiz aprovou a trilha E deu o escopo: os 7 Problemas do Milênio, sequencialmente. Charter v1.1 com tabela de auditabilidade por problema (P=NP ★★★★★ em voo; NS ★★★★ alvo-rico em "provas" erradas + conexão Barbara; RH ★★★★; BSD ★★★; YM ★★; Hodge ★; Poincaré = caso especial de formalização). Regra de avanço: vitória reconhecida OU fila seca, decisão dele. Próximo executável (aguarda OK): varredura pré-registrada de cs.CC p/ shortlist scoreada do alvo 2 de P=NP.
