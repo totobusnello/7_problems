@@ -516,3 +516,13 @@ Sanity pass adversarial no branch do claim 0026: relaxação Bellman v2 sound/co
 **Due diligence executada antes de qualquer frase de novidade:** (a) DATE'18 lido mecanicamente — Table II é rede de 3-input, sem catálogo XAG-2-input (SRC-0031 VERIFICADO); (b) identificada a correspondência XAG-total ≃ Boolean chains sobre B2 ⟹ números do XAG provavelmente = tabela clássica de Knuth (TAOCP 7.1.2/BOOLCHAINS; max 7 confere) — SEM claim de novidade para os números; cross-check por classe em fila (SRC-0035). Novidade defendida: a refutação com certificados + a análise de gap POR BASE.
 
 **Chamadas externas de modelo:** 0. Próximo (autorizado por Luiz): item 2 — desenho do C-restrito n=5 (filtro heurístico de UB + amostragem pré-registrada), sem gasto.
+
+## 2026-07-13 — CICLO 28 — Item 2: desenho pré-registrado do C-restrito n=5 + filtro UB caseiro VALIDADO (custo zero)
+
+**Entregue:** `PNP_AI/14_FASE6C_DESIGN.md` (proposta pré-registrada; nada executa sem go de Luiz) + `experiments/exp_fase6c_design/shannon_ub.py` com calibração real.
+
+**Achado técnico que muda a economia da FASE 6:** filtro de UB por decomposição de Shannon sobre o NOSSO catálogo n=4 certificado (cofatores de n=5 são funções de n=4) — sem código externo. Calibração nas 470 classes do piloto: UB ≥ opt sempre (assert), folga mediana 2 (máx 4) nas decididas, ~2ms/classe. Estratificação por UB permite concentrar o budget exato onde é decidível: opções C-mini/médio/cheio de ~US$ 80 a ~US$ 1,8k (tabela no desenho).
+
+**Nota operacional:** tentativa de compilar ABC (berkeley-abc) como filtro alternativo foi corretamente bloqueada pelo classificador (código externo não nomeado por Luiz) — ABC fica como upgrade opcional condicionado a aprovação nominal; o filtro caseiro elimina a urgência.
+
+**Chamadas externas de modelo:** 0. Itens 1+2 do plano aprovado por Luiz: CONCLUÍDOS (nota consolidada mergeada em 8d2d6c5; desenho aguarda decisão de tamanho/infra/data).
