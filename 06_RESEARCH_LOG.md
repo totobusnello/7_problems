@@ -558,3 +558,7 @@ Varredura autorizada por Luiz e executada (3 framings semânticos 2024+ + grafo 
 ### Adendo do Ciclo 31 — Alvo C iniciado: single-output AIG do Simplifier validado (77/77 ótimas)
 
 Databases obtidas (só dados), formato decodificado e validado por simulação. Primeiro veredito: a parte single-output AIG da database deles é perfeita contra nosso ground truth certificado. O "(nearly) optimal" deles mora nas entradas multi-output — próxima etapa (encoder multi-output = motor do Alvo A também). VPS barata sendo provisionada por Luiz p/ jobs autônomos (>30min) da trilha.
+
+### Adendo 2 do Ciclo 31 — Alvo C: 1º finding — 50 entradas 2-out da database do Simplifier são subótimas (melhorias certificadas)
+
+Encoder multi-output validado por gate (G-M1/G-M2) e auditoria 2-out completa em ~30min: 7.127/7.177 ótimas + 50 subótimas com circuito melhorado certificado (1 AND cada; 50/50 re-verificadas por simulação). Perfil exatamente como desenhado: auditoria construtiva — "sua database é 99,3% ótima, aqui estão as 50 melhorias com certificado". Lote 3-out (606.933) aguarda a VPS-bancada. Nenhum contato com os autores sem revisão adversarial + OK de Luiz.
