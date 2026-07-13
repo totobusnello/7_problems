@@ -22,8 +22,11 @@ com `opt4` = lookup NPN no NOSSO catálogo n=4 exato certificado. Sem código ex
 - Custo: ~2ms/classe (1s pelas 470) ⟹ rotular 100k amostras ≈ minutos de Mac.
 - Distribuição do UB no estrato aleatório: pico em 15–16 (consistente com opt típico ≥ 11 do piloto).
 
-Refinamentos opcionais (não bloqueiam o go): split em 2 variáveis (4 cofatores n=3 + árvore de
-mux); ABC (berkeley-abc) como 2º filtro — **exige aprovação nominal de Luiz para instalar**
+Refinamentos opcionais (não bloqueiam o go): **[CORREÇÃO 2026-07-13]** split em 2 variáveis foi
+DESCARTADO por raciocínio: com base exata em n=4, decompor o filho nunca fica abaixo de opt4(filho)
+⟹ split duplo ≥ split simples. O refinamento correto é **Davio** (f = f₀ ⊕ x∧(f₀⊕f₁), positivo e
+negativo: custo opt4(f₀)+opt4(f₀⊕f₁)+4), que ganha quando a derivada é mais simples que o cofator —
+implementado e recalibrado (ver §2a). ABC (berkeley-abc) como 2º filtro — **exige aprovação nominal de Luiz para instalar**
 (classificador bloqueou build de código externo não nomeado, corretamente).
 
 ## 3. Desenho amostral (pré-registrado)

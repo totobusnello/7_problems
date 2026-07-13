@@ -526,3 +526,18 @@ Sanity pass adversarial no branch do claim 0026: relaxação Bellman v2 sound/co
 **Nota operacional:** tentativa de compilar ABC (berkeley-abc) como filtro alternativo foi corretamente bloqueada pelo classificador (código externo não nomeado por Luiz) — ABC fica como upgrade opcional condicionado a aprovação nominal; o filtro caseiro elimina a urgência.
 
 **Chamadas externas de modelo:** 0. Itens 1+2 do plano aprovado por Luiz: CONCLUÍDOS (nota consolidada mergeada em 8d2d6c5; desenho aguarda decisão de tamanho/infra/data).
+
+## 2026-07-13 — CICLO 29 — Diretriz estratégica registrada + pré-requisitos da FASE 6C em execução
+
+**DIRETRIZ DE LUIZ (registrada como norte do programa):** "não podemos perder de vista que é resolver ou avançar na resolução do problema P=NP e que o objetivo é publicar algo sólido nesta linha." Tradução operacional: (1) a linha teórica é meta-complexidade/MCSP (magnificação: lower bounds modestos em MCSP ⟹ separações maiores) — nossos datasets certificados são o instrumento empírico dessa linha; (2) escada de publicação: nota do Unit Gap (pronta, aguarda autorização) → dataset C + metodologia → perguntas MCSP-adjacentes com resultado finito verificado; (3) honestidade mantida: nada disso RESOLVE P≠NP; avança por instrumentos verificados + falsificação de claims errados na literatura adjacente (caminho REL do charter).
+
+**Pré-requisitos §6 do 14_FASE6C_DESIGN:**
+- **(a) Gate n=4 completo EM EXECUÇÃO** (6 workers nice, resume, monitor armado): re-derivação das 222 classes com o nosso encoder vs catálogo — revalida a generalização E valida independentemente as 220 entradas do Krinkin pela primeira vez.
+- **(b) Filtro UB refinado:** split duplo DESCARTADO por raciocínio (base exata n=4 ⟹ split fundo nunca melhora — correção datada no desenho); refinamento correto = **Davio** (f = f₀ ⊕ x∧(f₀⊕f₁)); recalibrado: folga ≤ 1 em 16/24 decididas (era 10/24), UB ≤ 14 sobe de 129 p/ 162 das 470.
+- **(c) Job queue:** herdada do piloto (resume + sync battle-tested), nada a fazer.
+
+**Chamadas externas de modelo:** 0.
+
+### Adendo do Ciclo 29 — Gate n=4 completo: 222/222, ZERO mismatches
+
+Encoder revalidado fim-a-fim para a FASE 6C **e** as 220 entradas do catálogo do Krinkin validadas independentemente pela primeira vez (antes só tínhamos re-derivado as 2 que fechamos). Pré-requisitos §6: 3/3 CONCLUÍDOS. A FASE 6C está pronta para o go de Luiz (tamanho/infra/data).
