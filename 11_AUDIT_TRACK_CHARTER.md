@@ -6,13 +6,29 @@
 > Proof of concept já entregue: o pacote Unit Gap (refutação certificada + reparo + 4 famílias +
 > Lean + contato respeitoso, custo < US$ 100).
 
-## 1. Missão
+## 1. Missão (v1.1 — escopo Millennium aprovado por Luiz, 2026-07-13)
 
 Produzir, em cadência, **refutações e reparos certificados por máquina** de claims publicados que
-estejam errados, sem prova, ou empacados — começando pela literatura adjacente a P=NP (circuit
-complexity, exact synthesis, meta-complexidade), onde temos ground truth computacional e
-ferramentas validadas. A trilha COMPLEMENTA a linha PNP-AI (que segue, com a FASE 6C como
+estejam errados, sem prova, ou empacados — **na literatura dos 7 Problemas do Milênio, atacando UM
+problema por vez** (decisão de Luiz: "quero tentar fazer esta trilha com os 7 problemas do milênio,
+atacando 1 por vez"). A trilha COMPLEMENTA a linha PNP-AI (que segue, com a FASE 6C como
 instrumento); não a substitui.
+
+### 1a. Auditabilidade por problema (avaliação honesta — ordena a fila)
+
+| # | Problema | Auditabilidade mecânica | Observações |
+|---|---|---|---|
+| 1 | **P vs NP** | ★★★★★ EM VOO | Ground truth finita (circuitos/SAT), ferramentas validadas; caso 1 = Krinkin (2 issues) |
+| 2 | **Navier–Stokes** | ★★★★ | arXiv cheio de "provas" erradas de regularidade (alvo-rico); auditoria via análise + numerics rigorosa (aritmética intervalar); conexão pessoal (Barbara) e material aguardando importação |
+| 3 | **Riemann** | ★★★★ | Tradição computacional forte (verificação de zeros, Λ de de Bruijn–Newman/Polymath 15); "provas" erradas abundantes e frequentemente mecanizáveis |
+| 4 | **BSD** | ★★★ | Teoria computacional de números (curvas elípticas, LMFDB); claims verificáveis existem, exige tooling novo |
+| 5 | **Yang–Mills** | ★★ | Sem framework matemático consensual; lattice é computável mas a distância claim→certificado é grande |
+| 6 | **Hodge** | ★ | Quase puramente abstrato — fit fraco para auditoria mecanizada |
+| — | **Poincaré (resolvido)** | caso especial | O "gap" é de formalização (prova de Perelman não formalizada) — mega-projeto fora da nossa escala; fica como estudo de caso, não alvo |
+
+Regra: só se passa ao problema seguinte quando o atual tiver ≥ 1 vitória reconhecida OU a fila de
+alvos scoreados dele secar (decisão de Luiz em ambos os casos). Estrutura de diretórios já existe
+(PNP_AI, NS_PROB, RH_AI, BSD_AI, HODGE_AI, YM_AI, POINCARE_CASE — Sessão 0).
 
 ## 2. Por que isto pode "entrar para a história"
 
@@ -76,13 +92,15 @@ mecanizáveis (só prosa assintótica); áreas sem ground truth computacional.
 | Alvo sem peso = esforço perdido | Gate de seleção com score; Luiz aprova cada alvo |
 | Dispersão (abandonar P=NP) | Escopo inicial = literatura P=NP-adjacente; FASE 6C segue |
 
-## 8. Primeiros candidatos a alvo (SÓ LISTA — nenhum aprovado, nenhuma busca executada)
+## 8. Fila de execução (Problema 1 = P vs NP, EM VOO)
 
 1. **Follow-ups Krinkin** (já em voo — respostas às 2 issues podem gerar a 1ª "vitória reconhecida").
-2. **Varredura pré-registrada de cs.CC recente** (últimos 12–24 meses) por claims mecanizáveis em
-   circuit complexity de n pequeno — produzir shortlist scoreada para Luiz escolher.
-3. **Tabelas/catálogos sem certificado** citados por ferramentas (bibliotecas de rewriting, bases
-   de síntese) — validação independente estilo MIG-match.
+2. **Varredura pré-registrada de cs.CC/math.CO recente** por claims mecanizáveis em circuit
+   complexity/meta-complexidade — produz shortlist scoreada para Luiz escolher o alvo 2.
+3. **Tabelas/catálogos sem certificado** citados por ferramentas — validação estilo MIG-match.
+
+Problema 2 (Navier–Stokes) entra quando: regra do §1a disparar + material da Barbara importado +
+Sessão 0 do NS autorizada (mapa da literatura + fit de auditoria específico).
 
 ## 9. O que este charter NÃO autoriza
 
