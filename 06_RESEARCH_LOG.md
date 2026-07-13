@@ -508,3 +508,11 @@ Sanity pass adversarial no branch do claim 0026: relaxação Bellman v2 sound/co
 **Quadro da Trilha D após 1 dia:** 3 bases mapeadas em n=4 (1 catálogo novo + 1 censo de gap novo + 1 replicação validante), claims 0026-0029, custo ~6h de Mac. A história "Unit Gap é base-dependente" agora tem o triângulo completo.
 
 **Chamadas externas de modelo:** 0 no ciclo.
+
+## 2026-07-13 — CICLO 27 — Nota técnica consolidada do pacote Unit Gap + base-dependência (DRAFT v1) com due diligence de novidade
+
+**Entregue:** `PNP_AI/notes/technote_unitgap_basedep.md` — consolida refutação (Thm 2/Cor 6; Thm 7 sem prova; Thm 3 corrigido), formalização Lean, censo de gap AIG (32% violam), base-dependência (gap_XAG = {0} em n=3, {0,1} em n=4), replicação MIG com match exato, tabela de níveis de verificação e novidade HEDGED.
+
+**Due diligence executada antes de qualquer frase de novidade:** (a) DATE'18 lido mecanicamente — Table II é rede de 3-input, sem catálogo XAG-2-input (SRC-0031 VERIFICADO); (b) identificada a correspondência XAG-total ≃ Boolean chains sobre B2 ⟹ números do XAG provavelmente = tabela clássica de Knuth (TAOCP 7.1.2/BOOLCHAINS; max 7 confere) — SEM claim de novidade para os números; cross-check por classe em fila (SRC-0035). Novidade defendida: a refutação com certificados + a análise de gap POR BASE.
+
+**Chamadas externas de modelo:** 0. Próximo (autorizado por Luiz): item 2 — desenho do C-restrito n=5 (filtro heurístico de UB + amostragem pré-registrada), sem gasto.
