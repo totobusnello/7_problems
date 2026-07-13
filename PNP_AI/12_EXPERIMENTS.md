@@ -202,3 +202,9 @@
 - **Certificação:** modelos SAT verificados por simulação; UNSAT por kissat sem DRAT (declarado);
   poda kmax=opt_AIG sound (AND=MAJ com constante ⟹ opt_MIG ≤ opt_AIG, verificado no M2c).
   Claim 0029.
+
+## EXP-AUDIT-SIMPLIFIER — Auditoria da database do Simplifier (SPbSAT, arXiv:2503.19103) — EM ANDAMENTO (alvo C da AUDIT TRACK, iniciado com anuência de Luiz 2026-07-13)
+
+- **Alvo:** databases `database_aig.txt` (85MB) e `database_bench.txt` (42MB) do repo SPbSAT/simplifier — circuitos "(nearly) optimal" p/ funções 3-input/≤3-output, usados pela tool de simplificação. SÓ DADOS baixados (nenhum código deles executado).
+- **Resultado 1 (2026-07-13): single-output AIG 77/77 EXATAMENTE ÓTIMAS.** Decodificação do formato validada por simulação (convenção x0=MSB, refs forward), custo = #ANDs (NOT livre — mesmo modelo nosso); total 264 ANDs = nosso opt certificado, 0 subótimas.
+- **Próximos:** (a) encoder multi-output (2-3 saídas, n=3) com gates — motor reutilizável p/ o Alvo A; auditar as entradas multi-output (onde mora o "(nearly)"); (b) base BENCH exige encoder no modelo de custo DELES (NOT conta como porta) — auditar sob o modelo deles, não o nosso.

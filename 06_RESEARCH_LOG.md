@@ -554,3 +554,7 @@ Luiz aprovou a trilha E deu o escopo: os 7 Problemas do Milênio, sequencialment
 ## 2026-07-13 — CICLO 31 — AUDIT SWEEP 001: shortlist scoreada entregue (5 candidatos, 2 recomendados)
 
 Varredura autorizada por Luiz e executada (3 framings semânticos 2024+ + grafo de citações do Krinkin, vazio por novidade). Shortlist em `PNP_AI/notes/audit_sweep_001.md`: **A** (arXiv:2601.08368, implementações (AND,XOR) lightweight até dim 9 — nossa base XAG, perfil de vitória construtiva, RECOMENDADO como Alvo 2), **B** (2511.16903, linha Ilango/MCSP — peso teórico máximo, Alvo 3), **C** (2503.19103 Simplifier, database 3-input vs nosso ground truth — quick win em dias), D/E em fila. Anti-padrões aplicados (assintóticos puros descartados). 0 chamadas de modelo, 0 contato. **Aguardando escolha de Luiz.**
+
+### Adendo do Ciclo 31 — Alvo C iniciado: single-output AIG do Simplifier validado (77/77 ótimas)
+
+Databases obtidas (só dados), formato decodificado e validado por simulação. Primeiro veredito: a parte single-output AIG da database deles é perfeita contra nosso ground truth certificado. O "(nearly) optimal" deles mora nas entradas multi-output — próxima etapa (encoder multi-output = motor do Alvo A também). VPS barata sendo provisionada por Luiz p/ jobs autônomos (>30min) da trilha.
