@@ -1,0 +1,25 @@
+# Piloto n=5 — análise parcial (470 classes: 450 random, 20 symmetric)
+
+## RANDOM (uniforme sobre funções): 21 decididas · 429 censuradas (2h) · 0 erros
+| opt | n cru | % cru | % HT (classes) |
+|---|---|---|---|
+| 8 | 2 | 9.5% | 6.9% |
+| 9 | 4 | 19.0% | 17.2% |
+| 10 | 15 | 71.4% | 75.9% |
+censuras por k: {9: 8, 10: 421}
+custo/classe decidida: mediana 3317s · p90 6553s · máx 6904s (solve total 69637s + encode 20s)
+
+## SYMMETRIC: 3 decididas · 17 censuradas (2h) · 0 erros
+| opt | n cru | % cru | % HT (classes) |
+|---|---|---|---|
+| 0 | 1 | 33.3% | 91.4% |
+| 4 | 1 | 33.3% | 2.9% |
+| 9 | 1 | 33.3% | 5.7% |
+censuras por k: {9: 2, 10: 15}
+custo/classe decidida: mediana 0s · p90 103s · máx 103s (solve total 103s + encode 0s)
+
+## Extrapolação preliminar (campanha por classe, 616.126 classes)
+- fração censurada (cru): 95.3% (cada censura = ≥2h; custo real da cauda DESCONHECIDO)
+- custo médio/classe decidida (cru): 3317s · custo médio HT/classe (censura=piso 7200s): 6996s
+- **recorte A (tudo): ≥ 1,197,412 h-core** (piso; censuras subestimadas) = 3118 dias no pod 16c = 780 dias em 64c
+- recortes B/C: aplicar a mesma média ao subconjunto alvo.

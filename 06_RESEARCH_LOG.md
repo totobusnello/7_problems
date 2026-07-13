@@ -474,3 +474,13 @@ Luiz aprovou acelerar e forneceu o 2º pod (mesmas specs: EPYC 16c/124GB, porta 
 ### Adendo do Ciclo 23 — REV-0014 (Kimi, pedido de Luiz): SUSTENTADA, 0 findings materiais
 
 Sanity pass adversarial no branch do claim 0026: relaxação Bellman v2 sound/completa (semântica do `np.minimum.at` conferida; menor ponto fixo = mínimo verdadeiro), independência v1/v2 real (corroborada pelos contadores por nível idênticos aos da re-derivação do Codex/REV-0013), upgrade do CSV legítimo com a guarda certa. Sugestão aceita p/ futuro: centralizar a leitura do catálogo com rejeição de linhas não-exact por default (sem editar scripts congelados agora). **Claim 0026 fechado com: dupla implementação + 2 famílias externas (Codex + Kimi).** Chamadas externas do ciclo: 2 (call log #16-17).
+
+## 2026-07-12 — CICLO 24 — PILOTO n=5 CONCLUÍDO (470/470, 0 erros): recorte A morto pelos dados; checkpoint de decisão da FASE 6 entregue a Luiz
+
+**FATO VERIFICADO (medição):** 95,3% das classes aleatórias de n=5 censuram em 2h (421 das 429 censuras já em k=10); das decididas, 75,9% (HT) têm opt=10. Classe simétrica não é sinônimo de fácil (17/20 censuraram). Custo médio HT ≥ 6.996s/classe ⟹ censo completo (A) ≥ 1,2M horas-core NO PISO — inviável em qualquer infra proporcional ao valor.
+
+**Operação:** 2º pod (decisão de Luiz) + rebalanceamento cortaram o wall de ~40h p/ ~18h reais; 2 preempções + 1 blip absorvidos pelo sync de 15min; pods desligados por Luiz APÓS verificação de paridade byte a byte dos outputs (194/194, 186/186). Custo total do piloto dentro do envelope (~US$ 50).
+
+**Checkpoint (UMA decisão solicitada):** escolha do recorte da FASE 6 — B (parcial curado, exige engenharia de filtro heurístico), C (amostra estratificada p/ meta-complexidade, viável em burst 64c com budget maior/censura como rótulo) ou D (catálogos completos n=4 em outras bases — caminho já demonstrado pelo EXP-GAP-N4, entregas rápidas). Recomendação técnica registrada: D como entrega imediata + C-restrito como trilha n=5; A descartado; B só com o filtro.
+
+**Chamadas externas de modelo:** 0 no ciclo.

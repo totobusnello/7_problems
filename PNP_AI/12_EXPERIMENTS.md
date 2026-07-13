@@ -83,7 +83,7 @@
 - **Correção de unidades (datada 2026-07-11, REV-0007 finding 7):** tamanhos exatos das provas: 0x1669 = 4.785.094.117 bytes (≈4,79 GB decimais; os "4,5GB" registrados acima eram GiB de display do filesystem rotulados como GB); 0x166b = 3.871.475.211 bytes (≈3,87 GB). CNFs: 1.781.704 bytes cada.
 
 ---
-## EXP-PILOT-N5 — Piloto de medição do n=5 (FASE 6) — EM ANDAMENTO
+## EXP-PILOT-N5 — Piloto de medição do n=5 (FASE 6) — **CONCLUÍDO 2026-07-12**
 
 - **Data:** 2026-07-11 · **Código:** `experiments/exp_pilot_n5/` (`sample_n5.py` amostrador,
   `pilot_run.py` runner) · **Pré-registro:** `13_FASE6_PLAN.md` §3 + Emenda 1.
@@ -96,6 +96,26 @@
 - **Conclusão permitida (quando terminar):** distribuição empírica de opt e custo em n=5 NA AMOSTRA;
   extrapolações via pesos HT com incerteza declarada. **NÃO permitida:** valores individuais como
   claims (sem certificação DRAT nesta fase); nada sobre a cauda censurada além de "≥ k censurado".
+
+### Resultado final (2026-07-12, 470/470 classes, 0 erros)
+
+- **Execução:** 3 frentes (pod1 16w + pod2 16w — 2º pod adicionado por Luiz p/ acelerar — + Mac 6w,
+  rebalanceamento 187/186/70+já-feitos); sobreviveu a 2 preempções + 1 blip de rede (monitor com
+  sync de 15min). Outputs: `out_pod/`, `out_pod2/`, `out_mac/`; relatório `pilot_final_report.txt`.
+- **RANDOM (450 classes, uniforme sobre funções, pesos HT):** 21 decididas / **429 censuradas (95,3%)**.
+  Decididas (HT por classe): opt=8: 6,9% · opt=9: 17,2% · opt=10: 75,9%. Censuras: k=9: 8, k=10: 421
+  ⟹ a classe aleatória típica de n=5 está em opt ≥ 11 (não-resolvida em k=10 dentro de 2h).
+  Custo/classe decidida: mediana 3.317s, p90 6.553s.
+- **SYMMETRIC (20 classes):** 3 decididas em segundos (opt 0/4/9), 17 censuradas — simetria NÃO
+  garante facilidade além das triviais.
+- **Extrapolação (616.126 classes, censura contada como PISO de 7.200s):** custo médio HT
+  6.996s/classe ⟹ **recorte A (censo completo) ≥ 1,197 MILHÃO de horas-core** (~780 dias em 64
+  cores; ~US$ 48k em pricing RunPod) — E o piso subestima a cauda. **Recorte A inviável.**
+- **Leituras p/ os recortes:** B (opt ≤ K) exige filtro heurístico de upper bound ANTES do exato
+  (sem isso, achar os ≤ K custa o censo inteiro); C (amostra estratificada) é viável em burst de
+  64+ cores mas com budget/classe maior ou aceitando censura como rótulo; D (outras bases em n=4)
+  já demonstrado barato — o censo de fórmulas do EXP-GAP-N4 (2,4s) é o primeiro exemplar.
+
 
 ## EXP-GAP-N4 — Censo completo de gap (tree − opt) nas 222 classes NPN de n=4 — **CONCLUÍDO**
 
