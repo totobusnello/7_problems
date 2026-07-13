@@ -29,3 +29,10 @@ npn_rep_hex,opt_catalogo,opt_rederivado,match,t_sec
 0x07b1,8,8,OK,12.6
 0x07e1,7,7,OK,2.6
 0x07f1,7,7,OK,1.3
+0x166a,9,9,OK,92.0
+0x1686,9,9,OK,106.4
+0x1697,9,9,OK,70.1
+0x16a9,9,9,OK,105.0
+0x178e,8,8,OK,12.0
+0x18e7,8,8,OK,22.6
+0x1ee1,7,7,OK,1.4

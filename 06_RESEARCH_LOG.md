@@ -537,3 +537,7 @@ Sanity pass adversarial no branch do claim 0026: relaxação Bellman v2 sound/co
 - **(c) Job queue:** herdada do piloto (resume + sync battle-tested), nada a fazer.
 
 **Chamadas externas de modelo:** 0.
+
+### Adendo do Ciclo 29 — Gate n=4 completo: 222/222, ZERO mismatches
+
+Encoder revalidado fim-a-fim para a FASE 6C **e** as 220 entradas do catálogo do Krinkin validadas independentemente pela primeira vez (antes só tínhamos re-derivado as 2 que fechamos). Pré-requisitos §6: 3/3 CONCLUÍDOS. A FASE 6C está pronta para o go de Luiz (tamanho/infra/data).
