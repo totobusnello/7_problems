@@ -496,3 +496,15 @@ Sanity pass adversarial no branch do claim 0026: relaxação Bellman v2 sound/co
 **Próximos da trilha D (naturais, ainda sem execução):** MIG (maioria-3) com o mesmo molde gate→censo; DRAT nas fronteiras do XAG se o catálogo for a público; verificação bibliográfica de novidade (multiplicative complexity é medida clássica DIFERENTE — custo total XAG é o análogo direto; conferir Soeken/mockturtle antes de qualquer claim de "primeiro").
 
 **Chamadas externas de modelo:** 0 no ciclo.
+
+## 2026-07-13 — CICLO 26 — Censo MIG: MATCH EXATO com a tabela publicada (validação externa do pipeline); repo próprio no ar; tabela cruzada das 3 bases
+
+**Operação (decisão de Luiz):** 7_problems promovido a repo PRÓPRIO E PÚBLICO (`totobusnello/7_problems`, subtree split, 51 commits preservados; clone ativo em `/Users/lab/Projetos/7_problems`). Cópia do umbrella CONGELADA com `exp_unitgap_check/` INTOCÁVEL (link da issue krinkin/unit-gap#1 verificado funcionando antes e depois de cada merge — "não vamos ter 2 chances").
+
+**FATO VERIFICADO (computacional + replicação):** censo opt_MIG das 222 classes com gates M1+M2 passando antes; distribuição IDÊNTICA faixa a faixa à Tabela I de Soeken et al. (DATE 2016, extraída verbatim ANTES do censo — SRC-0033). Solver e encoding diferentes, mesmo resultado ⟹ validação externa recíproca do nosso pipeline. Claim 0029.
+
+**Tabela cruzada (npn4_bases.csv):** ⊕₄ = AIG 9/15 (opt/tree) · XAG 3/3 · MIG 6. MIG < AIG em 195/222; XAG < MIG em 42/222; XAG e MIG têm o mesmo max (7) mas caudas diferentes (12 vs 1 classes no topo). tree_MIG deferido (precisa algoritmo melhor que DP ternário ingênuo — declarado).
+
+**Quadro da Trilha D após 1 dia:** 3 bases mapeadas em n=4 (1 catálogo novo + 1 censo de gap novo + 1 replicação validante), claims 0026-0029, custo ~6h de Mac. A história "Unit Gap é base-dependente" agora tem o triângulo completo.
+
+**Chamadas externas de modelo:** 0 no ciclo.
