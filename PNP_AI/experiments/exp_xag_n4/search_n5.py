@@ -81,9 +81,9 @@ def main():
     rng = random.Random(90210 + wid)
     t0 = time.time()
     mode = "a" if seen else "w"
-    n_done = n_sep = n_gap1 = n_inc = 0
+    n_done = n_sep = n_gap1 = n_gap0 = n_inc = 0
     with open(out_csv, mode, newline="") as fc, open(out_sep, "a") as fs:
-        w = csv.DictWriter(fc, fieldnames=["tt", "opt", "verdict", "t_sec"])
+        w = csv.DictWriter(fc, fieldnames=["tt", "opt", "tree", "gap", "verdict", "t_sec"])
         if not seen:
             w.writeheader()
         # loop ate 1e9 candidatos (backstop); na pratica roda ate matarmos
@@ -98,27 +98,42 @@ def main():
             opt = opt_via_sat(N, tt, kmax=12, timeout=TIMEOUT, verify=False)
             if opt is None:
                 continue  # opt alto/timeout — fora do alcance
-            # testa formula em opt+1: UNSAT => separador (tree>=opt+2)
-            try:
-                sat, _ = solve_k(N, tt, opt + 1, timeout=TIMEOUT, formula=True)
-                verdict = "gap1" if sat else "SEPARATOR"
-            except subprocess.TimeoutExpired:
-                verdict = "inconclusive"
+            # tree_XAG por busca ASCENDENTE a partir de opt (solve_k em modo formula,
+            # validado pelo gate G-T3). O primeiro k SAT = tree. gap = tree - opt.
+            # (parity e lineares dao SAT ja em k=opt => gap 0, sem falso positivo.)
+            tree = None; timed_out = False
+            for kk in range(opt, opt + 6):
+                try:
+                    sat, _ = solve_k(N, tt, kk, timeout=TIMEOUT, formula=True)
+                except subprocess.TimeoutExpired:
+                    timed_out = True; break
+                if sat:
+                    tree = kk; break
+            if tree is not None:
+                gap = tree - opt
+                verdict = "SEPARATOR" if gap >= 2 else ("gap1" if gap == 1 else "gap0")
+            elif timed_out:
+                verdict, gap = "inconclusive", -1
+            else:
+                verdict, gap, tree = "SEPARATOR", 6, opt + 6  # tree>opt+5 (gap>=6, forte)
             n_done += 1
             if verdict == "SEPARATOR":
                 n_sep += 1
                 fs.write(json.dumps({"tt": tt, "tt_hex": f"{tt:#010x}", "opt": opt,
-                                     "note": "UNSAT formula@opt+1 => tree>=opt+2"}) + "\n")
+                                     "tree": tree, "gap": gap}) + "\n")
                 fs.flush()
-                print(f"[w{wid}] *** SEPARATOR *** tt={tt:#010x} opt={opt} tree>={opt+2}", flush=True)
+                print(f"[w{wid}] *** SEPARATOR *** tt={tt:#010x} opt={opt} tree={tree} gap={gap}", flush=True)
             elif verdict == "gap1":
                 n_gap1 += 1
+            elif verdict == "gap0":
+                n_gap0 += 1
             else:
                 n_inc += 1
-            w.writerow({"tt": tt, "opt": opt, "verdict": verdict, "t_sec": f"{time.time()-t1:.2f}"})
+            w.writerow({"tt": tt, "opt": opt, "tree": tree if tree is not None else "",
+                        "gap": gap, "verdict": verdict, "t_sec": f"{time.time()-t1:.2f}"})
             fc.flush()
             if n_done % 100 == 0:
-                print(f"[w{wid}] {n_done} f testadas (sep {n_sep}, gap1 {n_gap1}, "
+                print(f"[w{wid}] {n_done} f (sep {n_sep}, gap1 {n_gap1}, gap0 {n_gap0}, "
                       f"inc {n_inc}) [{time.time()-t0:.0f}s]", flush=True)
 
 
