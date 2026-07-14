@@ -95,9 +95,12 @@ def main():
                 continue
             seen.add(tt)
             t1 = time.time()
-            opt = opt_via_sat(N, tt, kmax=12, timeout=TIMEOUT, verify=False)
+            try:
+                opt = opt_via_sat(N, tt, kmax=12, timeout=TIMEOUT, verify=False)
+            except subprocess.TimeoutExpired:
+                continue  # opt exige k caro (kissat > TIMEOUT) — fora do alcance
             if opt is None:
-                continue  # opt alto/timeout — fora do alcance
+                continue  # opt > kmax — fora do alcance
             # tree_XAG por busca ASCENDENTE a partir de opt (solve_k em modo formula,
             # validado pelo gate G-T3). O primeiro k SAT = tree. gap = tree - opt.
             # (parity e lineares dao SAT ja em k=opt => gap 0, sem falso positivo.)
