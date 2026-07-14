@@ -202,3 +202,11 @@
 - **Certificação:** modelos SAT verificados por simulação; UNSAT por kissat sem DRAT (declarado);
   poda kmax=opt_AIG sound (AND=MAJ com constante ⟹ opt_MIG ≤ opt_AIG, verificado no M2c).
   Claim 0029.
+
+## EXP-AUDIT-SIMPLIFIER — Auditoria da database do Simplifier (SPbSAT, arXiv:2503.19103) — EM ANDAMENTO (alvo C da AUDIT TRACK, iniciado com anuência de Luiz 2026-07-13)
+
+- **Alvo:** databases `database_aig.txt` (85MB) e `database_bench.txt` (42MB) do repo SPbSAT/simplifier — circuitos "(nearly) optimal" p/ funções 3-input/≤3-output, usados pela tool de simplificação. SÓ DADOS baixados (nenhum código deles executado).
+- **Resultado 1 (2026-07-13): single-output AIG 77/77 EXATAMENTE ÓTIMAS.** Decodificação do formato validada por simulação (convenção x0=MSB, refs forward), custo = #ANDs (NOT livre — mesmo modelo nosso); total 264 ANDs = nosso opt certificado, 0 subótimas.
+- **Resultado 2 (2026-07-13): encoder MULTI-OUTPUT construído e validado por gate** (G-M1: redução single-output 256/256 vs tabela certificada; G-M2: (f,~f) grátis, 25 pares vs enumeração exaustiva multi-alvo, sanity de compartilhamento). Motor reutilizável p/ o Alvo A.
+- **Resultado 3 (2026-07-13): auditoria 2-out COMPLETA — 7.127/7.177 ótimas (99,3%) e 50 SUBÓTIMAS com melhoria certificada** (todas de exatamente 1 AND: 42× 5→4, 7× 6→5, 1× 7→6; circuitos melhorados emitidos em `improved_2out_w*.jsonl`, 50/50 re-verificados por simulação independente do decode). Método por entrada: 1 chamada UNSAT em k−1 certifica otimalidade (o circuito deles é o UB); SAT ⟹ desce até o opt real. 7.177 entradas em ~30min (4 workers Mac, mediana 0,04s, pior 1.075s).
+- **Próximos:** (a) lote 3-out (606.933 entradas) na VPS-bancada quando provisionar (~9-17h, 2 workers); (b) base BENCH exige encoder no modelo de custo DELES (NOT conta como porta) — auditar sob o modelo deles, não o nosso; (c) revisão adversarial (2 famílias) antes de qualquer contato com os autores (que exige OK de Luiz).

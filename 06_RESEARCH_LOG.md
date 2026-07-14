@@ -550,3 +550,15 @@ Luiz levantou o pivô estratégico: "entrar para a história tendo ganhos onde a
 ### Adendo do Ciclo 30 — Escopo Millennium aprovado: auditar os 7 problemas, um por vez
 
 Luiz aprovou a trilha E deu o escopo: os 7 Problemas do Milênio, sequencialmente. Charter v1.1 com tabela de auditabilidade por problema (P=NP ★★★★★ em voo; NS ★★★★ alvo-rico em "provas" erradas + conexão Barbara; RH ★★★★; BSD ★★★; YM ★★; Hodge ★; Poincaré = caso especial de formalização). Regra de avanço: vitória reconhecida OU fila seca, decisão dele. Próximo executável (aguarda OK): varredura pré-registrada de cs.CC p/ shortlist scoreada do alvo 2 de P=NP.
+
+## 2026-07-13 — CICLO 31 — AUDIT SWEEP 001: shortlist scoreada entregue (5 candidatos, 2 recomendados)
+
+Varredura autorizada por Luiz e executada (3 framings semânticos 2024+ + grafo de citações do Krinkin, vazio por novidade). Shortlist em `PNP_AI/notes/audit_sweep_001.md`: **A** (arXiv:2601.08368, implementações (AND,XOR) lightweight até dim 9 — nossa base XAG, perfil de vitória construtiva, RECOMENDADO como Alvo 2), **B** (2511.16903, linha Ilango/MCSP — peso teórico máximo, Alvo 3), **C** (2503.19103 Simplifier, database 3-input vs nosso ground truth — quick win em dias), D/E em fila. Anti-padrões aplicados (assintóticos puros descartados). 0 chamadas de modelo, 0 contato. **Aguardando escolha de Luiz.**
+
+### Adendo do Ciclo 31 — Alvo C iniciado: single-output AIG do Simplifier validado (77/77 ótimas)
+
+Databases obtidas (só dados), formato decodificado e validado por simulação. Primeiro veredito: a parte single-output AIG da database deles é perfeita contra nosso ground truth certificado. O "(nearly) optimal" deles mora nas entradas multi-output — próxima etapa (encoder multi-output = motor do Alvo A também). VPS barata sendo provisionada por Luiz p/ jobs autônomos (>30min) da trilha.
+
+### Adendo 2 do Ciclo 31 — Alvo C: 1º finding — 50 entradas 2-out da database do Simplifier são subótimas (melhorias certificadas)
+
+Encoder multi-output validado por gate (G-M1/G-M2) e auditoria 2-out completa em ~30min: 7.127/7.177 ótimas + 50 subótimas com circuito melhorado certificado (1 AND cada; 50/50 re-verificadas por simulação). Perfil exatamente como desenhado: auditoria construtiva — "sua database é 99,3% ótima, aqui estão as 50 melhorias com certificado". Lote 3-out (606.933) aguarda a VPS-bancada. Nenhum contato com os autores sem revisão adversarial + OK de Luiz.

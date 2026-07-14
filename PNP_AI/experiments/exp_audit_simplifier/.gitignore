@@ -1,0 +1,5 @@
+# dados externos do Simplifier — baixe com ./fetch_databases.sh (sha256 verificado)
+database_aig.txt
+database_bench.txt
+# CSVs 3-out crus (102k linhas, reproduziveis; o produto esta nos improved_*.jsonl)
+audit_3out_w*.csv
