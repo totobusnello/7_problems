@@ -20,8 +20,11 @@ def tt_bit(tt, t):
 
 
 class XAGEncoder:
-    def __init__(self, n, k, tt):
+    def __init__(self, n, k, tt, formula=False):
+        # formula=True => arvore (fan-out 1 em toda porta interna, sem dedup):
+        # computa tree_XAG(f). Default False => DAG (opt_XAG), comportamento validado.
         self.n, self.k, self.tt = n, k, tt
+        self.formula = formula
         self.rows = 1 << n
         self.nvars = 0
         self.clauses = []
@@ -82,19 +85,25 @@ class XAGEncoder:
                         else:
                             c.append([-s, -x, la, lb]); c.append([-s, -x, -la, -lb])
                             c.append([-s, x, -la, lb]); c.append([-s, x, la, -lb])
-        # dedup de opções idênticas entre portas (minimalidade — vale p/ qualquer tipo)
-        by_tuple = {}
-        for i in range(1, self.k + 1):
-            for typ, a, pa, b, pb, s in self.options[i]:
-                by_tuple.setdefault((typ, a, pa, b, pb), []).append(s)
-        for svars in by_tuple.values():
-            if len(svars) > 1:
-                c.extend([-x, -y] for x, y in combinations(svars, 2))
-        # toda porta i < k usada por alguma posterior
+        # dedup de opções idênticas entre portas (minimalidade do DAG). NUM formula
+        # (arvore) portas idênticas são NECESSARIAS (duplicar subresultado é o custo
+        # da arvore), então o dedup só se aplica ao DAG.
+        if not self.formula:
+            by_tuple = {}
+            for i in range(1, self.k + 1):
+                for typ, a, pa, b, pb, s in self.options[i]:
+                    by_tuple.setdefault((typ, a, pa, b, pb), []).append(s)
+            for svars in by_tuple.values():
+                if len(svars) > 1:
+                    c.extend([-x, -y] for x, y in combinations(svars, 2))
+        # toda porta i < k usada por alguma posterior (>=1). Em formula, fan-out
+        # EXATAMENTE 1 (arvore): adiciona at-most-one entre os consumidores.
         for i in range(1, self.k):
             users = [o[5] for j in range(i + 1, self.k + 1)
                      for o in self.options[j] if o[1] == self.n + i or o[3] == self.n + i]
             c.append(users if users else [])
+            if self.formula:
+                c.extend([-x, -y] for x, y in combinations(users, 2))
         # saída
         op = self.out_pol
         for t in range(self.rows):
@@ -146,10 +155,11 @@ def trivial_opt(n, tt):
     return tt in cands
 
 
-def solve_k(n, tt, k, return_circuit=False, timeout=None):
+def solve_k(n, tt, k, return_circuit=False, timeout=None, formula=False):
     """SAT: existe XAG com exatamente k portas p/ tt? (via lema de minimalidade,
-    responde 'opt <= k' quando usado em busca ascendente)."""
-    enc = XAGEncoder(n, k, tt).build()
+    responde 'opt <= k' quando usado em busca ascendente).
+    formula=True busca uma FORMULA (arvore) => responde 'tree <= k'."""
+    enc = XAGEncoder(n, k, tt, formula=formula).build()
     if any(len(cl) == 0 for cl in enc.clauses):
         return False, None
     with tempfile.NamedTemporaryFile("w", suffix=".cnf", delete=False) as f:
@@ -181,6 +191,19 @@ def opt_via_sat(n, tt, kmax=12, timeout=None, verify=True):
         return 0
     for k in range(1, kmax + 1):
         sat, cert = solve_k(n, tt, k, return_circuit=verify, timeout=timeout)
+        if sat:
+            return k
+    return None
+
+
+def tree_via_sat(n, tt, kmax=20, timeout=None, verify=True, start=1):
+    """Menor FORMULA (arvore) XAG p/ tt = tree_XAG(f). Busca ascendente com o
+    encoder em modo formula (fan-out 1, sem dedup). start permite comecar de opt
+    (tree >= opt sempre)."""
+    if trivial_opt(n, tt):
+        return 0
+    for k in range(max(1, start), kmax + 1):
+        sat, cert = solve_k(n, tt, k, return_circuit=verify, timeout=timeout, formula=True)
         if sat:
             return k
     return None
