@@ -1,26 +1,46 @@
 """Auditoria das entradas multi-output da database AIG do Simplifier.
 
 Por entrada: parse -> simulação valida os tts declarados (convenção x0=MSB,
-refs forward) -> k_deles = #ANDs -> certificação:
+refs forward) -> k_deles = #ANDs -> certificação (cap de TIMEOUT_S por SAT):
   - trivial (k=0 alcançável): compara direto;
-  - senão, SAT em k_deles-1? UNSAT => entrada ÓTIMA (o circuito deles é o UB);
-    SAT => SUBÓTIMA: desce até achar o opt real e registra o circuito melhorado.
+  - senão, SAT em k_deles-1? UNSAT => entrada ÓTIMA (circuito deles é mínimo);
+    SAT => SUBÓTIMA: desce até UNSAT (opt fechado) e registra o circuito melhorado.
+
+Veredictos: OPTIMAL | SUBOPTIMAL (opt fechado) | SUBOPT_UB (melhoria certificada
+por simulação, mas o mínimo exato não foi fechado antes do timeout) | INCONCLUSIVE
+(timeout já no 1º teste — entrada não auditada). O timeout NÃO afeta o rigor das
+melhorias emitidas (toda uma é verificada por simulação); afeta só a certificação
+de otimalidade da cauda cara.
 
 Uso: python3 audit_multi.py <n_out:2|3> <worker_id> <n_workers>
 Saída: audit_<nout>out_w<id>.csv + melhorias em improved_<nout>out_w<id>.jsonl
-Resume por índice de linha.
+Resume por índice de linha. TIMEOUT_S ajustável no topo.
 """
 import csv
 import json
 import sys
 import os
 import time
+import subprocess
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from multi_aig_exact import solve_k, trivial_multi
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 DB = os.path.join(HERE, "database_aig.txt")
+TIMEOUT_S = 30  # cap por chamada SAT; estouro => nao-decidido (rigor intacto)
+
+
+def solve_k_to(tts, k):
+    """solve_k com cap de tempo. Retorna 'UNSAT' | ('SAT', cert) | 'TIMEOUT'.
+    O cap so afeta a CERTIFICACAO de otimalidade: toda melhoria emitida segue
+    verificada por simulacao dentro de solve_k. Estouro no 1o teste => a entrada
+    fica 'nao-decidida'; estouro na descida => temos UB certificado (nao o minimo)."""
+    try:
+        sat, cert = solve_k(3, tts, k, timeout=TIMEOUT_S)
+    except subprocess.TimeoutExpired:
+        return "TIMEOUT"
+    return ("SAT", cert) if sat else "UNSAT"
 
 
 def parse_line(line):
@@ -90,32 +110,46 @@ def main():
             assert declared_tts_ok(n_in, tts, outs, gatedef), f"linha {idx}: tts nao conferem"
             k_theirs = sum(1 for g in gatedef.values() if g[0] == "AND")
             t1 = time.time()
+            certified = True  # opt fechado por UNSAT (True) ou apenas UB (False)
             if trivial_multi(3, tts):
                 k_opt = 0
+                verdict = "OPTIMAL" if k_theirs == 0 else "SUBOPTIMAL"
+                if k_theirs > 0:
+                    fi.write(json.dumps({"line_idx": idx, "tts": tts,
+                                         "k_theirs": k_theirs, "k_opt": 0,
+                                         "gates": [], "outs": None,
+                                         "certified_opt": True}) + "\n")
+                    fi.flush()
             else:
-                sat, cert = solve_k(3, tts, k_theirs - 1) if k_theirs >= 1 else (False, None)
-                if not sat:
+                first = solve_k_to(tts, k_theirs - 1) if k_theirs >= 1 else "UNSAT"
+                if first == "TIMEOUT":
+                    k_opt = -1
+                    verdict = "INCONCLUSIVE"
+                elif first == "UNSAT":
                     k_opt = k_theirs
-                else:
+                    verdict = "OPTIMAL"
+                else:  # ('SAT', cert): subotima. desce ate UNSAT ou timeout
                     k_opt = k_theirs - 1
-                    best_cert = cert
+                    best_cert = first[1]
                     while k_opt >= 1:
-                        sat2, cert2 = solve_k(3, tts, k_opt - 1)
-                        if not sat2:
+                        r = solve_k_to(tts, k_opt - 1)
+                        if r == "TIMEOUT":
+                            certified = False  # opt <= k_opt; minimo nao fechado
+                            break
+                        if r == "UNSAT":
                             break
                         k_opt -= 1
-                        best_cert = cert2
+                        best_cert = r[1]
                     gates, o = best_cert
+                    verdict = "SUBOPTIMAL" if certified else "SUBOPT_UB"
                     fi.write(json.dumps({"line_idx": idx, "tts": tts,
                                          "k_theirs": k_theirs, "k_opt": k_opt,
-                                         "gates": gates, "outs": o}) + "\n")
+                                         "gates": gates, "outs": o,
+                                         "certified_opt": certified}) + "\n")
                     fi.flush()
-            verdict = "OPTIMAL" if k_opt == k_theirs else "SUBOPTIMAL"
-            if k_opt > k_theirs:
-                verdict = "IMPOSSIBLE_BUG"
             n_done += 1
             n_opt += verdict == "OPTIMAL"
-            n_sub += verdict == "SUBOPTIMAL"
+            n_sub += verdict in ("SUBOPTIMAL", "SUBOPT_UB")
             w.writerow({"line_idx": idx, "tts": json.dumps(tts), "k_theirs": k_theirs,
                         "k_opt": k_opt, "verdict": verdict, "t_sec": f"{time.time()-t1:.2f}"})
             fc.flush()
