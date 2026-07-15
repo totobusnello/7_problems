@@ -562,3 +562,24 @@ Databases obtidas (só dados), formato decodificado e validado por simulação. 
 ### Adendo 2 do Ciclo 31 — Alvo C: 1º finding — 50 entradas 2-out da database do Simplifier são subótimas (melhorias certificadas)
 
 Encoder multi-output validado por gate (G-M1/G-M2) e auditoria 2-out completa em ~30min: 7.127/7.177 ótimas + 50 subótimas com circuito melhorado certificado (1 AND cada; 50/50 re-verificadas por simulação). Perfil exatamente como desenhado: auditoria construtiva — "sua database é 99,3% ótima, aqui estão as 50 melhorias com certificado". Lote 3-out (606.933) aguarda a VPS-bancada. Nenhum contato com os autores sem revisão adversarial + OK de Luiz.
+
+## 2026-07-14 — CICLO 32 — Alvo C FECHADO (parcial) + PR #8 mergeado (databases 121 MB fora do histórico)
+
+Lote 3-out auditado parcialmente na VPS-bancada: **102.655 de 606.933 entradas (16,9%)** — 99.067 ótimas + **3.370 subótimas com melhoria certificada** + 218 inconclusivas (cap SAT 30 s contra a cauda k-alto UNSAT-hard). **Total do Alvo C: 109.909 auditados, 106.271 ótimas confirmadas, 3.420 melhorias certificadas** (2-out 50 + 3-out 3.370). As 3.370 melhorias 3-out re-verificadas por simulação local (3.183× −1 AND, 115× −2, 72× −3). Fecho de **engenharia deliberado** (retorno decrescente na cauda; cobertura parcial DECLARADA, nunca exaustão). PR #8 squash-merged na main (databases `database_aig.txt`/`database_bench.txt`, 121 MB, mantidos fora do histórico via `.gitignore` + `fetch_databases.sh` por sha256). Nota consolidada: `PNP_AI/notes/audit_alvoC_simplifier_findings.md`. Motor multi-output fica reutilizável p/ o Alvo A. Nenhum contato com os autores (aguarda OK de Luiz). **Chamadas externas de modelo: 0.**
+
+## 2026-07-14 — CICLO 33 — Refutação Unit Gap reconciliada com a definição EXATA do Krinkin (blindagem confirmada)
+
+Reconciliação pedida por Luiz: verificar se a refutação (claims 0024–0026) SOBREVIVE à definição verbal exata do Krinkin (fórmula = fan-out 1 em toda porta). **Sobrevive.** Três testemunhas independentes reconfirmadas nesta sessão: `tree(⊕₃)=9` (DP de formula-size, o nosso), `opt(⊕₃)=6` (kissat — valor com que o próprio Krinkin concorda), e `tree(⊕₃) ≥ 8` por Khrapchenko (analítico, INDEPENDENTE de qualquer código). O erro dele é definitivo — confusão de tipo na recursão (usa `opt` nos filhos onde a definição exige `tree`). A issue `krinkin/unit-gap#1` (enviada 2026-07-11) segue **sem resposta e sem reação** (~3 dias). Nenhuma réplica nova enviada — réplica ao Krinkin exige novo OK. **Chamadas externas de modelo: 0.**
+
+## 2026-07-15 — CICLO 34 — Busca n=5 fechada (0 separadores) + esqueleto e v0 do paper técnico + decisões de publicação
+
+**Busca n=5 (Open Question #1 atacada empiricamente).** Encoder de formula XAG (fan-out 1, sem dedup) validado por gate G-T (G-T1 opt intacto 222/222; G-T2 n=3 256/256 `tree=opt`; G-T3 n=4 222/222 `tree_SAT=tree_DP` cobrindo as 4 classes gap=1). Falso positivo do parity-5 (linear, gap 0) corrigido antes da coleta (busca ascendente de opt vs teste isolado de opt+1). Busca amostral na VPS: **29.643 funções essenciais de 5 vars (viés pró-separador), 0 separadores** — gap0 29.143 / gap1 296 / inconclusive 204. **Amostral, não exaustivo** (2³² tabelas em n=5); evidência a favor de `gap_XAG ∈ {0,1}` também em n=5. **Claim 0030.** Artefatos versionados em **PR #9**; monitor cron encerrado.
+
+**Decisões estratégicas de Luiz (registradas como norte da publicação):**
+- **Framing:** primeiro paper é **TÉCNICO** (result-anchored — refutação + base-dependência ancoram; método = metodologia sóbria), **sem claim de pioneirismo** no corpo. A narrativa lúdica "Seven Summits" (contribuição verificável em vários dos 7 Problemas do Milênio, como escalar os 7 cumes) fica **para depois**, quando houver mais cumes.
+- **Escopo:** paper **único** (refutação + base-dependência juntas; a base-dependência é o que dá densidade — a refutação sozinha é um erratum).
+- **Venue:** recomendação **arXiv cs.CC** (primary) + cross-list **cs.LO** (a refutação mecanicamente verificada + Lean).
+- **Autoria:** autor único **L. A. Busnello**; o método (AI sob direção) entra numa nota de métodos factual e sóbria, fora do corpo; pioneirismo fica fora do paper (emerge da nota; se reivindicado, em canal pessoal).
+- **Timing:** **esperar** a janela de resposta do Krinkin antes de submeter, **mas redigir em paralelo**. Publicação/preprint exige OK de Luiz (`10_PUBLICATION_RULES`) — "não vamos ter 2 chances".
+
+**Entregues:** esqueleto (`PNP_AI/drafts/paper1_unitgap_basedep_skeleton.md`) + **v0 completa** (`PNP_AI/drafts/paper1_unitgap_basedep_v0.md`), draft interno, corpo limpo dos blocos de governança. **Próximo:** revisão adversarial multi-família da v0 → conversão LaTeX → espera Krinkin → submissão só com OK. **Chamadas externas de modelo: 0.**
