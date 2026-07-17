@@ -562,3 +562,47 @@ Databases obtidas (só dados), formato decodificado e validado por simulação. 
 ### Adendo 2 do Ciclo 31 — Alvo C: 1º finding — 50 entradas 2-out da database do Simplifier são subótimas (melhorias certificadas)
 
 Encoder multi-output validado por gate (G-M1/G-M2) e auditoria 2-out completa em ~30min: 7.127/7.177 ótimas + 50 subótimas com circuito melhorado certificado (1 AND cada; 50/50 re-verificadas por simulação). Perfil exatamente como desenhado: auditoria construtiva — "sua database é 99,3% ótima, aqui estão as 50 melhorias com certificado". Lote 3-out (606.933) aguarda a VPS-bancada. Nenhum contato com os autores sem revisão adversarial + OK de Luiz.
+
+## 2026-07-14 — CICLO 32 — Alvo C FECHADO (parcial) + PR #8 mergeado (databases 121 MB fora do histórico)
+
+Lote 3-out auditado parcialmente na VPS-bancada: **102.655 de 606.933 entradas (16,9%)** — 99.067 ótimas + **3.370 subótimas com melhoria certificada** + 218 inconclusivas (cap SAT 30 s contra a cauda k-alto UNSAT-hard). **Total do Alvo C: 109.909 auditados, 106.271 ótimas confirmadas, 3.420 melhorias certificadas** (2-out 50 + 3-out 3.370). As 3.370 melhorias 3-out re-verificadas por simulação local (3.183× −1 AND, 115× −2, 72× −3). Fecho de **engenharia deliberado** (retorno decrescente na cauda; cobertura parcial DECLARADA, nunca exaustão). PR #8 squash-merged na main (databases `database_aig.txt`/`database_bench.txt`, 121 MB, mantidos fora do histórico via `.gitignore` + `fetch_databases.sh` por sha256). Nota consolidada: `PNP_AI/notes/audit_alvoC_simplifier_findings.md`. Motor multi-output fica reutilizável p/ o Alvo A. Nenhum contato com os autores (aguarda OK de Luiz). **Chamadas externas de modelo: 0.**
+
+## 2026-07-14 — CICLO 33 — Refutação Unit Gap reconciliada com a definição EXATA do Krinkin (blindagem confirmada)
+
+Reconciliação pedida por Luiz: verificar se a refutação (claims 0024–0026) SOBREVIVE à definição verbal exata do Krinkin (fórmula = fan-out 1 em toda porta). **Sobrevive.** Três testemunhas independentes reconfirmadas nesta sessão: `tree(⊕₃)=9` (DP de formula-size, o nosso), `opt(⊕₃)=6` (kissat — valor com que o próprio Krinkin concorda), e `tree(⊕₃) ≥ 8` por Khrapchenko (analítico, INDEPENDENTE de qualquer código). O erro dele é definitivo — confusão de tipo na recursão (usa `opt` nos filhos onde a definição exige `tree`). A issue `krinkin/unit-gap#1` (enviada 2026-07-11) segue **sem resposta e sem reação** (~3 dias). Nenhuma réplica nova enviada — réplica ao Krinkin exige novo OK. **Chamadas externas de modelo: 0.**
+
+## 2026-07-15 — CICLO 34 — Busca n=5 fechada (0 separadores) + esqueleto e v0 do paper técnico + decisões de publicação
+
+**Busca n=5 (Open Question #1 atacada empiricamente).** Encoder de formula XAG (fan-out 1, sem dedup) validado por gate G-T (G-T1 opt intacto 222/222; G-T2 n=3 256/256 `tree=opt`; G-T3 n=4 222/222 `tree_SAT=tree_DP` cobrindo as 4 classes gap=1). Falso positivo do parity-5 (linear, gap 0) corrigido antes da coleta (busca ascendente de opt vs teste isolado de opt+1). Busca amostral na VPS: **29.643 funções essenciais de 5 vars (viés pró-separador), 0 separadores** — gap0 29.143 / gap1 296 / inconclusive 204. **Amostral, não exaustivo** (2³² tabelas em n=5); evidência a favor de `gap_XAG ∈ {0,1}` também em n=5. **Claim 0030.** Artefatos versionados em **PR #9**; monitor cron encerrado.
+
+**Decisões estratégicas de Luiz (registradas como norte da publicação):**
+- **Framing:** primeiro paper é **TÉCNICO** (result-anchored — refutação + base-dependência ancoram; método = metodologia sóbria), **sem claim de pioneirismo** no corpo. A narrativa lúdica "Seven Summits" (contribuição verificável em vários dos 7 Problemas do Milênio, como escalar os 7 cumes) fica **para depois**, quando houver mais cumes.
+- **Escopo:** paper **único** (refutação + base-dependência juntas; a base-dependência é o que dá densidade — a refutação sozinha é um erratum).
+- **Venue:** recomendação **arXiv cs.CC** (primary) + cross-list **cs.LO** (a refutação mecanicamente verificada + Lean).
+- **Autoria:** autor único **L. A. Busnello**; o método (AI sob direção) entra numa nota de métodos factual e sóbria, fora do corpo; pioneirismo fica fora do paper (emerge da nota; se reivindicado, em canal pessoal).
+- **Timing:** **esperar** a janela de resposta do Krinkin antes de submeter, **mas redigir em paralelo**. Publicação/preprint exige OK de Luiz (`10_PUBLICATION_RULES`) — "não vamos ter 2 chances".
+
+**Entregues:** esqueleto (`PNP_AI/drafts/paper1_unitgap_basedep_skeleton.md`) + **v0 completa** (`PNP_AI/drafts/paper1_unitgap_basedep_v0.md`), draft interno, corpo limpo dos blocos de governança. **Próximo:** revisão adversarial multi-família da v0 → conversão LaTeX → espera Krinkin → submissão só com OK. **Chamadas externas de modelo: 0.**
+
+## 2026-07-17 — CICLO 35 — Revisão adversarial da v0 (4 famílias) → correções verificadas → v1
+
+**Revisão adversarial da v0 pelas 4 famílias** (REV-0015 Grok/xAI, REV-0016 Kimi/Moonshot, REV-0017 Codex/OpenAI, REV-0018 GLM/Zhipu; chamadas #18–21; verbatims em `exp_unitgap_check/rev001{5,6,7,8}_v0_verbatim.md`). **Veredito unânime: a refutação do Teorema 2 SOBREVIVE** — nenhum furo matemático; todos os ataques ao núcleo (opt=6, tree=9, type-confusion, Khrapchenko, Thm 3, soundness do encoder) falharam.
+
+**3 erros materiais achados e VERIFICADOS com scripts próprios (concordância de LLM ≠ prova):**
+- **A1** — `29.643` era contagem de LINHAS; dedup cross-worker ⟹ **25.373 tt distintas** (4.270 dups, 0 conflito); dist gap0 24.875/gap1 294/inc 204/**sep 0**. Veredito (0 separadores) mantido.
+- **A2** — as 3 classes de gap máximo 6 são **NPN distintas** (peso de Hamming 6/8/8, opt_XAG 6/5/3), não "parity-4 e vizinhas". Parity é *um* extremo, não a fonte única.
+- **A3** — `opt(⊕₃)=6` só tinha DRAT em k=5 (o encoder é de tamanho-exato; opt≥6 exige UNSAT em k=1..5).
+
+**Correções aplicadas (decisões de Luiz):** (A3) gerados DRAT k=1..4 (kissat) e **verificados por drat-trim na VPS — `s VERIFIED` em k=1..5** (Luiz liberou a VPS p/ compilar o drat-trim; cadeia opt≥6 integralmente certificada). (B1) **494/494** (294 gap1 + 200 gap0) re-decodificadas e simuladas (`verify_n5_recheck.py`, 0 divergências) — substitui o overclaim "each result simulation-verified". (A1) `search_n5_dedup.csv` canônico. + ~15 correções de redação/hedge: `native_decide` vs kernel `decide`, MIG "bucket by bucket", novidade (ii) estreitada, citação verbatim do Krinkin, prova do Thm 3 por extenso (Apêndice A), "32,4% das classes NPN".
+
+**Reforços do verbatim (scrape de arXiv:2603.08033v2 — resolveu a dúvida do GLM a nosso favor):** Cor 6 refutado com a definição EXATA `s=|D_a∩D_b|=3`; **inconsistência interna do paper** (§2 usa `opt` nos filhos vs §3 Bellman `(Tv)(f)=min(1+v(a)+v(b))` recursivo, afirmados juntos — impossível) que FORTALECE a refutação; Table 1/Table 3 do Krinkin confirmam os diagnostic signatures.
+
+**Entregue:** **v1** (`PNP_AI/drafts/paper1_unitgap_basedep_v1.md`) + consolidado (`paper1_v0_review_consolidado.md`). Claims 0024/0025 fortalecidos, 0026/0030 corrigidos (aditivo datado). **Próximo:** 2ª rodada adversarial da v1 → conversão LaTeX → espera Krinkin. **Chamadas externas de modelo: 4 (REV-0015..0018).**
+
+## 2026-07-17 — CICLO 36 — 2ª e 3ª rodadas adversariais → paper CONVERGIDO (v3 ready for LaTeX)
+
+**2ª rodada (REV-0019..0022, sobre a v1):** 4/4 famílias, refutação SOBREVIVE, **0 CRITICAL**. Achados de precisão + 3 materiais fechados por trabalho computacional: (A3) cadeia DRAT `opt(⊕₃)≥6` completada em k=1..5 + child k=1..3 (kissat gera, **drat-trim verifica na VPS** — Luiz liberou compilar o drat-trim lá; `s VERIFIED` nos 8, transcript `certs/verify_lowk.log`); (B1) 494/494 gap1+amostra re-decodificadas e simuladas; correções de wording. Reforço decisivo do scrape do PDF: Cor 6 refutado com a def exata `s=|D_a∩D_b|=3` + inconsistência interna do paper (§2 opt-nos-filhos vs §3 Bellman recursivo). → **v2**.
+
+**3ª rodada (REV-0023..0026, sobre a v2):** 4/4 famílias, **0 CRITICAL, 0 hole matemático, os 14 findings da 2ª rodada genuinamente CLOSED** (GLM recomputou os 16 hashes DRAT byte-exact + quotes vs PDF via pdftotext + Lean linha a linha). Grok e GLM: "ready for LaTeX"; Codex e Kimi: "ready após fixes de wording/artefato". Ajustes finais (todos precisão, zero matemática) → **v3**: desigualdade s≥gap explícita + nuance parity; child representative+NPN; opt_XAG NPN-invariant; artefatos `npn4_xag_gap.csv` + docstring do search + log provenance.
+
+**CONVERGIU.** 3 rodadas × 4 famílias = 12 revisões; a refutação do Thm 2 e do Cor 6 do Krinkin está blindada (nenhuma achou furo). **Entregue:** `drafts/paper1_unitgap_basedep_v3.md` (convergida pré-LaTeX), consolidado `paper1_v0_review_consolidado.md`, 8 verbatims (rev0019..0026), certificados + transcripts arquivados. **Próximo (decisão de Luiz):** conversão LaTeX (venue cs.CC + cross-list cs.LO) + tom da provenance note; submissão só após a janela de resposta de `krinkin/unit-gap#1` (sem resposta em ~6 dias). **Chamadas externas de modelo: 8 (REV-0019..0026).**
