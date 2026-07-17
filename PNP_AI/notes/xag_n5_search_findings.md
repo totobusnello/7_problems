@@ -5,6 +5,14 @@
 > não-linear?"). Resultado: **amostral, não exaustivo** — zero separadores em ~29,6 mil funções de
 > 5 variáveis. Evidência a favor da conjectura, não prova. Este bloco e as referências internas saem
 > de qualquer versão pública. Publicação/preprint SOMENTE com autorização de Luiz (10_PUBLICATION_RULES).
+>
+> **Correção 2026-07-17 (pós REV-0015..0018):** `29.643`/`29,6 mil` abaixo é contagem de LINHAS; após
+> dedup cross-worker são **25.373 tt distintas** (4.270 duplicatas; dist gap0 24.875 / gap1 294 /
+> inconclusive 204 / **separadores 0** — `search_n5_dedup.csv`). O veredito (0 separadores) é mantido.
+> A frase "cada resultado verificado por simulação" era imprecisa (a busca rodou verify=False):
+> 494/494 (294 gap1 + 200 gap0) re-decodificadas e simuladas depois (`verify_n5_recheck.py`, 0
+> divergências). Wording de probabilidade ("viés pró-separador", "near zero") rebaixado. Números
+> corretos e wording final na **v1 do paper** (`../drafts/paper1_unitgap_basedep_v1.md`).
 
 ## Pergunta
 

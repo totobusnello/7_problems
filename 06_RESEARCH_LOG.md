@@ -583,3 +583,18 @@ Reconciliação pedida por Luiz: verificar se a refutação (claims 0024–0026)
 - **Timing:** **esperar** a janela de resposta do Krinkin antes de submeter, **mas redigir em paralelo**. Publicação/preprint exige OK de Luiz (`10_PUBLICATION_RULES`) — "não vamos ter 2 chances".
 
 **Entregues:** esqueleto (`PNP_AI/drafts/paper1_unitgap_basedep_skeleton.md`) + **v0 completa** (`PNP_AI/drafts/paper1_unitgap_basedep_v0.md`), draft interno, corpo limpo dos blocos de governança. **Próximo:** revisão adversarial multi-família da v0 → conversão LaTeX → espera Krinkin → submissão só com OK. **Chamadas externas de modelo: 0.**
+
+## 2026-07-17 — CICLO 35 — Revisão adversarial da v0 (4 famílias) → correções verificadas → v1
+
+**Revisão adversarial da v0 pelas 4 famílias** (REV-0015 Grok/xAI, REV-0016 Kimi/Moonshot, REV-0017 Codex/OpenAI, REV-0018 GLM/Zhipu; chamadas #18–21; verbatims em `exp_unitgap_check/rev001{5,6,7,8}_v0_verbatim.md`). **Veredito unânime: a refutação do Teorema 2 SOBREVIVE** — nenhum furo matemático; todos os ataques ao núcleo (opt=6, tree=9, type-confusion, Khrapchenko, Thm 3, soundness do encoder) falharam.
+
+**3 erros materiais achados e VERIFICADOS com scripts próprios (concordância de LLM ≠ prova):**
+- **A1** — `29.643` era contagem de LINHAS; dedup cross-worker ⟹ **25.373 tt distintas** (4.270 dups, 0 conflito); dist gap0 24.875/gap1 294/inc 204/**sep 0**. Veredito (0 separadores) mantido.
+- **A2** — as 3 classes de gap máximo 6 são **NPN distintas** (peso de Hamming 6/8/8, opt_XAG 6/5/3), não "parity-4 e vizinhas". Parity é *um* extremo, não a fonte única.
+- **A3** — `opt(⊕₃)=6` só tinha DRAT em k=5 (o encoder é de tamanho-exato; opt≥6 exige UNSAT em k=1..5).
+
+**Correções aplicadas (decisões de Luiz):** (A3) gerados DRAT k=1..4 (kissat) e **verificados por drat-trim na VPS — `s VERIFIED` em k=1..5** (Luiz liberou a VPS p/ compilar o drat-trim; cadeia opt≥6 integralmente certificada). (B1) **494/494** (294 gap1 + 200 gap0) re-decodificadas e simuladas (`verify_n5_recheck.py`, 0 divergências) — substitui o overclaim "each result simulation-verified". (A1) `search_n5_dedup.csv` canônico. + ~15 correções de redação/hedge: `native_decide` vs kernel `decide`, MIG "bucket by bucket", novidade (ii) estreitada, citação verbatim do Krinkin, prova do Thm 3 por extenso (Apêndice A), "32,4% das classes NPN".
+
+**Reforços do verbatim (scrape de arXiv:2603.08033v2 — resolveu a dúvida do GLM a nosso favor):** Cor 6 refutado com a definição EXATA `s=|D_a∩D_b|=3`; **inconsistência interna do paper** (§2 usa `opt` nos filhos vs §3 Bellman `(Tv)(f)=min(1+v(a)+v(b))` recursivo, afirmados juntos — impossível) que FORTALECE a refutação; Table 1/Table 3 do Krinkin confirmam os diagnostic signatures.
+
+**Entregue:** **v1** (`PNP_AI/drafts/paper1_unitgap_basedep_v1.md`) + consolidado (`paper1_v0_review_consolidado.md`). Claims 0024/0025 fortalecidos, 0026/0030 corrigidos (aditivo datado). **Próximo:** 2ª rodada adversarial da v1 → conversão LaTeX → espera Krinkin. **Chamadas externas de modelo: 4 (REV-0015..0018).**

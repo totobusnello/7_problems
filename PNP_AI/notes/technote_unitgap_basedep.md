@@ -5,6 +5,14 @@ formalização Lean (`../formal/UnitGap.lean`) e os censos das 3 bases (`../expe
 Revisão adversarial da refutação: 4 famílias (REV-0009..0012); do censo AIG: 2 famílias
 (REV-0013/0014). Este bloco e as referências internas saem de qualquer versão pública.
 Publicação/preprint SOMENTE com autorização de Luiz (10_PUBLICATION_RULES).
+>
+> **Correção 2026-07-17 (pós REV-0015..0018 sobre a v0 do paper):** (i) as 3 classes de gap máximo 6
+> (§3) são NPN **DISTINTAS**, não "parity-4 and relatives" — parity é uma delas (opt_XAG 6/5/3, pesos
+> de Hamming 6/8/8); (ii) a definição verbatim de `s` (Cor 6) do Krinkin é `|D_a∩D_b|`=3, e o paper é
+> internamente inconsistente (§2 usa `opt` nos filhos vs §3 Bellman `(Tv)(f)=min(1+v(a)+v(b))`
+> recursivo); (iii) `tree(⊕₃)≥9` é `native_decide`, não kernel `decide`. Estas e as demais correções
+> (~20) vivem na **v1 do paper** (`../drafts/paper1_unitgap_basedep_v1.md`); esta technote é a base
+> histórica, não reescrita.
 
 ---
 
