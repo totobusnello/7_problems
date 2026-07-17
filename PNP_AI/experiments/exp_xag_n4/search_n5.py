@@ -7,9 +7,16 @@ dependencia; a ausencia (amostra grande) e evidencia a favor da conjectura.
 
 Estrategia: gerar candidatos de opt BAIXO (SAT viavel) via circuitos XAG aleatorios
 com sharing/reconvergencia; para cada tt de 5 variaveis essenciais:
-  opt = opt_XAG(f) (SAT, timeout);
-  testa formula em opt+1: SAT => tree=opt+1 (gap 1); UNSAT => tree>=opt+2 (SEPARADOR,
-  certificado); TIMEOUT => inconclusivo (registra p/ revisita).
+  opt = opt_XAG(f) por SAT em busca ASCENDENTE (k=1,2,...; timeout; opt>kmax => descarta);
+  tree = tree_XAG(f) por busca ASCENDENTE de k a partir de opt (formula=True, timeout); o
+    PRIMEIRO k SAT e tree. gap = tree - opt.
+  gap >= 2 => SEPARADOR; gap in {0,1} => gap0/gap1; timeout no opt ou no tree => inconclusivo.
+
+IMPORTANTE (correcao 2026-07-12; ver Apendice B do paper): uma versao anterior testava a
+formula em opt+1 ISOLADAMENTE e declarava UNSAT como separador. Isso e INCORRETO para o
+encoder de tamanho-exato normalizado — UNSAT em EXATAMENTE opt+1 significa "nao ha formula
+de opt+1 portas", NAO tree>=opt+2 (pode existir formula de outro tamanho). O bug gerou um
+falso positivo em parity-5 (0x69969669, linear, gap 0). A busca ASCENDENTE de opt corrige.
 
 Uso: python3 search_n5.py <worker_id> <n_workers>
 Saida: search_n5_w<id>.csv (todas as f) + sep_n5_w<id>.jsonl (separadores). Resume por tt.
