@@ -63,6 +63,17 @@ Para resolver a divergência da REV-0018 sobre a definição de `s`, o paper `ar
 
 **Resultado da 2ª rodada:** 4/4 famílias — refutação SOBREVIVE, **zero CRITICAL matemático**. Todos os findings são de precisão de apresentação → **v2** (`drafts/paper1_unitgap_basedep_v2.md`). Computacional fechado antes da v2: child DRAT k=1,2 (`s VERIFIED`), transcripts `verify_lowk.log` + `verify_n5_recheck.log` arquivados.
 
+## 3ª rodada adversarial — confirmação sobre a v2 (2026-07-17)
+
+| # | Data | Canal | Modelo | Propósito | Resultado |
+|---|---|---|---|---|---|
+| 26 | 2026-07-17 | Codex CLI via `tools/rev.sh codex` (background) | GPT-5.6 (`gpt-5.6-sol`) | **REV-0023** — 3ª rodada (confirmação): os fixes da 2ª rodada fecharam? resíduo? | **SUCESSO — no mathematical hole; todos os fixes da 2ª rodada CLOSED** (verificou os 8 hashes DRAT, o Lean, os quotes contra o PDF, os números). 4 IMPORTANT de wording/artefato: desigualdade s reversa (escrever explícito); child = 1 representative + NPN (não "each child"); abstract "gap≥2 even if computation wrong" (usa o circuito de 6 gates); `search_n5.py` docstring obsoleto. MINOR: opt_XAG NPN-invariant, §5 opening, quotes normalizados. Verbatim `rev0023_codex_v2_verbatim.md`. |
+| 27 | 2026-07-17 | Kimi companion (ask) via `tools/rev.sh kimi` (background) | Kimi (Moonshot) | **REV-0024** — 3ª rodada sobre a v2 | **SUCESSO — todos os findings da 2ª rodada CLOSED, CRITICAL none.** 2 IMPORTANT: (1) leu "25.169" no abstract onde está "25.373" — **misreading** (o abstract está certo); (2) a frase da desigualdade s é ambígua (`s ≥ gap`, não `≤`) — válido. MINOR: opt_XAG, quote rendering, layer counts. Verbatim `rev0024_kimi_v2_verbatim.md`. |
+| 28 | 2026-07-17 | Grok wrapper via `tools/rev.sh grok` (background) | Grok 4.5 (xAI) | **REV-0025** — 3ª rodada sobre a v2 | **SUCESSO — CRITICAL none, IMPORTANT none que bloqueie LaTeX.** Todos os fixes da 2ª rodada CLOSED; lista o que "could not break" (opt=6, tree=9, Khrapchenko, Cor 6, inconsistência interna). 2 near-miss polish (child NPN note; re-run local dos 8 checks). Veredito: **ready for LaTeX**. Verbatim `rev0025_grok_v2_verbatim.md`. |
+| 29 | 2026-07-17 | GLM wrapper via `tools/rev.sh glm` (background) | GLM-5.2 (Zhipu) | **REV-0026** — 3ª rodada sobre a v2 (o mais completo) | **SUCESSO — recomputou os 16 hashes DRAT (byte-exact), quotes vs PDF (pdftotext), Lean linha a linha. Todos os 14 findings da 2ª rodada CLOSED; CRITICAL/IMPORTANT none must-fix.** Refino: para parity `s=tree−opt=3` (igualdade), a cadeia do Krinkin quebra no 2º passo (=Thm 2), não no 1º. MINOR: "solver-decidable"→"solver-decided"; arquivar `npn4_xag_gap.csv` (tree_xag/gap_xag por classe). Veredito: **ready for LaTeX and submission (pending author window)**. Verbatim `rev0026_glm_v2_verbatim.md`. |
+
+**Resultado da 3ª rodada:** 4/4 famílias — refutação SOBREVIVE, **zero CRITICAL, zero hole matemático, os 14 findings da 2ª rodada CLOSED**. Grok e GLM: "ready for LaTeX"; Codex e Kimi: "ready após fixes de wording/artefato". CONVERGIU — os ajustes restantes são precisão de redação + higiene de artefato → **v3** (última passada pré-LaTeX).
+
 ## Canais adversariais disponíveis
 
 Todas as 4 famílias testadas e operacionais: Codex/OpenAI (REV-0001/0004/0007), Kimi/Moonshot (REV-0002/0008), Grok/xAI (REV-0003/0009), GLM/Zhipu (REV-0005/0006); Codex também REV-0010. **Lançamento SEMPRE via `tools/rev.sh` (hard rule no CLAUDE.md do projeto).**
